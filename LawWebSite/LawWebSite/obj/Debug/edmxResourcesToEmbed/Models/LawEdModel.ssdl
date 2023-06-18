@@ -18,6 +18,23 @@
     <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
     <Property Name="Flag" Type="nvarchar" MaxLength="100" Nullable="false" />
   </EntityType>
+  <EntityType Name="Lawyer">
+    <Key>
+      <PropertyRef Name="LawyerId" />
+    </Key>
+    <Property Name="LawyerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ImgUrl" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Facebook" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Twitter" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Instagram" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Linkedin" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
   <EntityType Name="Menu">
     <Key>
       <PropertyRef Name="MenuId" />
@@ -56,6 +73,7 @@
   <EntityContainer Name="DBLAW23ModelStoreContainer">
     <EntitySet Name="Content" EntityType="Self.Content" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Language" EntityType="Self.Language" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Lawyer" EntityType="Self.Lawyer" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="Content_FK" Association="Self.Content_FK">
       <End Role="Language" EntitySet="Language" />

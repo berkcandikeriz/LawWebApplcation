@@ -28,5 +28,6 @@ namespace LawWebSite.Models
         public virtual DbSet<Content> Contents { get; set; }
         public virtual DbSet<Language> Languages { get; set; }
         public virtual DbSet<Menu> Menus { get; set; }
+        public virtual DbSet<Lawyer> Lawyers { get; set; }
     }
 }
