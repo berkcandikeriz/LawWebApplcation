@@ -49,7 +49,7 @@ namespace LawWebSite.Controller
                 goto ReturnPointer;
             }
 
-            ReturnPointer:
+        ReturnPointer:
             return returnModel;
         }
 
@@ -97,7 +97,7 @@ namespace LawWebSite.Controller
                 goto ReturnPointer;
             }
 
-            ReturnPointer:
+        ReturnPointer:
             return returnModel;
         }
     }

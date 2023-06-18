@@ -4,14 +4,14 @@
 
 <html>
 <head runat="server">
-    <title><%: Page.Title %> - SiteAdi</title>
+    <title><%: Page.Title %> - Kozanoğlu Hukuk</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
-
     <link rel="stylesheet" href="Assets/css/open-iconic-bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="Assets/css/animate.css">
     <link rel="stylesheet" href="Assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="Assets/css/owl.theme.default.min.css">
@@ -29,9 +29,10 @@
     <form id="form1" runat="server">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" id="ftco-navbar">
             <div class="container">
-                <a class="navbar-brand" href="index.html">SiteAdi<span>.</span></a>
+                <a class="navbar-brand" href="index.html">Kozanoğlu Hukuk<span>.</span></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="oi oi-menu"></span>Menu
+               
                
                 </button>
 
@@ -51,6 +52,8 @@
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
+
+
 
         <section class="ftco-section">
             <div class="container">
@@ -176,15 +179,19 @@
                 </div>
             </div>
         </section>
-
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
         <footer class="ftco-footer ftco-footer-2 ftco-section">
             <div class="container">
                 <div class="row mb-5">
                     <div class="col-md">
                         <div class="ftco-footer-widget mb-4">
-                            <h2 class="ftco-heading-2">SiteAdi Avukatlık Bürosu</h2>
+                            <h2 class="ftco-heading-2">Kozanoğlu Hukuk Avukatlık Bürosu</h2>
                             <p>
                                 Buraya site ile ilgili ilk giriş cümlesi
+                           
                             </p>
                         </div>
                     </div>
@@ -230,7 +237,8 @@
                 <div class="row">
                     <div class="col-md-12 text-center">
                         <p>
-                            Tüm hakları gizlidir&nbsp;&copy;&nbsp;<script>document.write(new Date().getFullYear());</script>&nbsp;-&nbsp;SiteAdi
+                            Tüm hakları gizlidir&nbsp;&copy;&nbsp;<script>document.write(new Date().getFullYear());</script>&nbsp;-&nbsp;Kozanoğlu Hukuk
+                       
                         </p>
                     </div>
                 </div>
