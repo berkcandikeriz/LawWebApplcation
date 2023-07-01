@@ -23,18 +23,18 @@
        
         <div class="row clearfix">
 
+            <asp:Repeater runat="server" ID="RServices">
+                <ItemTemplate>
             <div class="services-block-two col-lg-4 col-md-6 col-sm-12">
 
                 <div class="inner-box">
 
                     <div class="icon-box">
 
-                        <img class="w-100"  src="https://www.agahhukuk.com/wp-content/themes/avukat/ortak/assets/images/idarehukuk.jpg" alt="İDARE HUKUKU">
+                        <img class="w-100"  src="https://www.agahhukuk.com/wp-content/themes/avukat/ortak/assets/images/idarehukuk.jpg" alt="<%#Eval("Title") %>">
                     </div>
 
-                    <h3>İDARE
-                        <br>
-                        HUKUKU</h3>
+                    <h3><%#Eval("Title") %></h3>
 
                     <div class="overlay-box" style="background-image: url(https://www.agahhukuk.com/wp-content/themes/agah/images/resource/service-1.jpg);">
 
@@ -42,7 +42,7 @@
 
                             <div class="content">
 
-                                <h4><a href="https://www.agahhukuk.com/avukatlik-hizmetlerimiz/idare-hukuku">İDARE HUKUKU</a></h4>
+                                <h4><a href="https://www.agahhukuk.com/avukatlik-hizmetlerimiz/idare-hukuku"><%#Eval("Title") %></a></h4>
 
                                 <a href="https://www.agahhukuk.com/avukatlik-hizmetlerimiz/idare-hukuku" class="theme-btn btn-style-one">İncele</a>
 
@@ -55,107 +55,8 @@
                 </div>
 
             </div>
-
-            <div class="services-block-two col-lg-4 col-md-6 col-sm-12">
-
-                <div class="inner-box">
-
-                    <div class="icon-box">
-
-                        <img class="w-100" src="https://www.agahhukuk.com/wp-content/themes/avukat/ortak/assets/images/cezahukuk.jpg" alt="CEZA HUKUKU">
-                    </div>
-
-                    <h3>CEZA<br>
-                        HUKUKU</h3>
-
-                    <div class="overlay-box" style="background-image: url(https://www.agahhukuk.com/wp-content/themes/agah/images/resource/service-1.jpg);">
-
-                        <div class="overlay-inner">
-
-                            <div class="content">
-
-                                <h4><a href="https://www.agahhukuk.com/avukatlik-hizmetlerimiz/ceza-hukuku">CEZA HUKUKU</a></h4>
-
-                                <a href="https://www.agahhukuk.com/avukatlik-hizmetlerimiz/ceza-hukuku" class="theme-btn btn-style-one">İncele</a>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="services-block-two col-lg-4 col-md-6 col-sm-12">
-
-                <div class="inner-box">
-
-                    <div class="icon-box">
-
-                        <img class="w-100" src="https://www.agahhukuk.com/wp-content/themes/avukat/ortak/assets/images/tasminat.jpg" alt="MADDİ MANEVİ TAZMİNAT HUKUKU">
-                    </div>
-
-                    <h3>MADDİ MANEVİ
-                        <br>
-                        TAZMİNAT HUKUKU</h3>
-
-                    <div class="overlay-box" style="background-image: url(https://www.agahhukuk.com/wp-content/themes/agah/images/resource/service-1.jpg);">
-
-                        <div class="overlay-inner">
-
-                            <div class="content">
-
-                                <h4><a href="https://www.agahhukuk.com/avukatlik-hizmetlerimiz/maddi-manevi-tazminat-hukuku">MADDİ MANEVİ TAZMİNAT HUKUKU</a></h4>
-
-                                <a href="https://www.agahhukuk.com/avukatlik-hizmetlerimiz/maddi-manevi-tazminat-hukuku" class="theme-btn btn-style-one">İncele</a>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="services-block-two col-lg-4 col-md-6 col-sm-12">
-
-                <div class="inner-box">
-
-                    <div class="icon-box">
-
-                        <img class="w-100" src="https://www.agahhukuk.com/wp-content/themes/avukat/ortak/assets/images/vergi.jpg" alt="VERGİ HUKUKU">
-                    </div>
-
-                    <h3>VERGİ
-                        <br>
-                        HUKUKU</h3>
-
-                    <div class="overlay-box" style="background-image: url(https://www.agahhukuk.com/wp-content/themes/agah/images/resource/service-1.jpg);">
-
-                        <div class="overlay-inner">
-
-                            <div class="content">
-
-                                <h4><a href="https://www.agahhukuk.com/avukatlik-hizmetlerimiz/vergi-hukuku">VERGİ HUKUKU</a></h4>
-
-                                <a href="https://www.agahhukuk.com/avukatlik-hizmetlerimiz/vergi-hukuku" class="theme-btn btn-style-one">İncele</a>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-       
+                  </ItemTemplate>
+                </asp:Repeater>
         </div>
     </div>
 </asp:Content>

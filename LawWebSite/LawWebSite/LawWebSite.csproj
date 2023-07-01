@@ -296,6 +296,9 @@
     <Compile Include="Communication.aspx.designer.cs">
       <DependentUpon>Communication.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Controller\BlogController.cs" />
+    <Compile Include="Controller\HomeController.cs" />
+    <Compile Include="Controller\ServiceController.cs" />
     <Compile Include="Controller\CommonController.cs" />
     <Compile Include="Controller\LanguageController.cs" />
     <Compile Include="Controller\LawyerController.cs" />
@@ -317,7 +320,13 @@
     <Compile Include="LawWeb.Master.designer.cs">
       <DependentUpon>LawWeb.Master</DependentUpon>
     </Compile>
+    <Compile Include="Models\Blog.cs">
+      <DependentUpon>LawEdModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Content.cs">
+      <DependentUpon>LawEdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Home.cs">
       <DependentUpon>LawEdModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Language.cs">
@@ -342,6 +351,9 @@
       <DependentUpon>LawEdModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Menu.cs">
+      <DependentUpon>LawEdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Service.cs">
       <DependentUpon>LawEdModel.tt</DependentUpon>
     </Compile>
     <Compile Include="OurTeam.aspx.cs">

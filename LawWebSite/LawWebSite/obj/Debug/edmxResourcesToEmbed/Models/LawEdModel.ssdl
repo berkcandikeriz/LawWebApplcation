@@ -1,5 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="DBLAW23Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Blog">
+    <Key>
+      <PropertyRef Name="BlogId" />
+    </Key>
+    <Property Name="BlogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LanguageId" Type="int" Nullable="false" />
+    <Property Name="BlogTitle" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="BlogSubtitle" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="Url" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ImageUrl" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
   <EntityType Name="Content">
     <Key>
       <PropertyRef Name="ContentId" />
@@ -9,6 +21,18 @@
     <Property Name="ComponentId" Type="nvarchar" MaxLength="75" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Url" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Home">
+    <Key>
+      <PropertyRef Name="HomeId" />
+    </Key>
+    <Property Name="HomeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LanguageId" Type="int" Nullable="false" />
+    <Property Name="HomeTitle" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="HomeDescription" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Url" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ImageUrl" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="HomeSubTitle" Type="varchar" MaxLength="255" Nullable="false" />
   </EntityType>
   <EntityType Name="Language">
     <Key>
@@ -46,6 +70,27 @@
     <Property Name="Order" Type="int" Nullable="false" />
     <Property Name="Location" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="ServiceId" />
+    </Key>
+    <Property Name="ServiceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Image" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Url" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <Association Name="Blog_FK">
+    <End Role="Language" Type="Self.Language" Multiplicity="1" />
+    <End Role="Blog" Type="Self.Blog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="Blog">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="Content_FK">
     <End Role="Language" Type="Self.Language" Multiplicity="1" />
     <End Role="Content" Type="Self.Content" Multiplicity="*" />
@@ -54,6 +99,18 @@
         <PropertyRef Name="LanguageId" />
       </Principal>
       <Dependent Role="Content">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Home_FK">
+    <End Role="Language" Type="Self.Language" Multiplicity="1" />
+    <End Role="Home" Type="Self.Home" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="Home">
         <PropertyRef Name="LanguageId" />
       </Dependent>
     </ReferentialConstraint>
@@ -71,13 +128,24 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="DBLAW23ModelStoreContainer">
+    <EntitySet Name="Blog" EntityType="Self.Blog" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Content" EntityType="Self.Content" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Home" EntityType="Self.Home" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Language" EntityType="Self.Language" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Lawyer" EntityType="Self.Lawyer" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="Blog_FK" Association="Self.Blog_FK">
+      <End Role="Language" EntitySet="Language" />
+      <End Role="Blog" EntitySet="Blog" />
+    </AssociationSet>
     <AssociationSet Name="Content_FK" Association="Self.Content_FK">
       <End Role="Language" EntitySet="Language" />
       <End Role="Content" EntitySet="Content" />
+    </AssociationSet>
+    <AssociationSet Name="Home_FK" Association="Self.Home_FK">
+      <End Role="Language" EntitySet="Language" />
+      <End Role="Home" EntitySet="Home" />
     </AssociationSet>
     <AssociationSet Name="Menu_FK" Association="Self.Menu_FK">
       <End Role="Language" EntitySet="Language" />

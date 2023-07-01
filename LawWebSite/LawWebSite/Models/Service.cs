@@ -15,22 +15,16 @@ namespace LawWebSite.Models
 using System;
     using System.Collections.Generic;
     
-public partial class Content
+public partial class Service
 {
 
-    public int ContentId { get; set; }
+    public int ServiceId { get; set; }
 
-    public int LanguageId { get; set; }
+    public string Title { get; set; }
 
-    public string ComponentId { get; set; }
-
-    public string Description { get; set; }
+    public string Image { get; set; }
 
     public string Url { get; set; }
-
-
-
-    public virtual Language Language { get; set; }
 
 }
 
