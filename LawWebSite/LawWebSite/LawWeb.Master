@@ -29,7 +29,7 @@
     <form id="form1" runat="server">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" id="ftco-navbar">
             <div class="container">
-                <a class="navbar-brand" href="index.html">Kozanoğlu Hukuk<span>.</span></a>
+                <a class="navbar-brand" runat="server" href="~">Kozanoğlu Hukuk<span>.</span></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="oi oi-menu"></span>Menu
                
@@ -59,7 +59,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-7 heading-section ftco-animate">
-                        <h2 class="mb-4"><span>Recent Stories</span></h2>
+                        <h2 class="mb-4"><span><asp:Label ruant="server" ID="LblBlog"></asp:Label></span></h2>
                     </div>
                 </div>
                 <div class="row">
@@ -179,10 +179,6 @@
                 </div>
             </div>
         </section>
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
         <footer class="ftco-footer ftco-footer-2 ftco-section">
             <div class="container">
                 <div class="row mb-5">
@@ -218,7 +214,7 @@
                     </div>
                     <div class="col-md">
                         <div class="ftco-footer-widget mb-4">
-                            <h2 class="ftco-heading-2">Sorunuz Var ise Yardımcı Olalım</h2>
+                            <h2 class="ftco-heading-2"><asp:Label runat="server" ID="LblFooterColumn4" /></h2>
                             <div class="block-23 mb-3">
                                 <ul>
                                     <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
@@ -237,8 +233,7 @@
                 <div class="row">
                     <div class="col-md-12 text-center">
                         <p>
-                            Tüm hakları gizlidir&nbsp;&copy;&nbsp;<script>document.write(new Date().getFullYear());</script>&nbsp;-&nbsp;Kozanoğlu Hukuk
-                       
+                            <asp:Label runat="server" ID="LblCopyright" />&nbsp;&copy;&nbsp;<script>document.write(new Date().getFullYear());</script>&nbsp;-&nbsp;Kozanoğlu Hukuk
                         </p>
                     </div>
                 </div>
