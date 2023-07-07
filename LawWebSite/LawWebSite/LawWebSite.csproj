@@ -111,6 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Admin.aspx" />
     <Content Include="Assets\css\ajax-loader.gif" />
     <Content Include="Assets\css\animate.css" />
     <Content Include="Assets\css\aos.css" />
@@ -280,6 +281,13 @@
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin.aspx.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin.aspx.designer.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Blog.aspx.cs">
       <DependentUpon>Blog.aspx</DependentUpon>
@@ -296,6 +304,7 @@
     <Compile Include="Communication.aspx.designer.cs">
       <DependentUpon>Communication.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Controller\AdminController.cs" />
     <Compile Include="Controller\BlogController.cs" />
     <Compile Include="Controller\HomeController.cs" />
     <Compile Include="Controller\ServiceController.cs" />
@@ -319,6 +328,9 @@
     </Compile>
     <Compile Include="LawWeb.Master.designer.cs">
       <DependentUpon>LawWeb.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Admin.cs">
+      <DependentUpon>LawEdModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Blog.cs">
       <DependentUpon>LawEdModel.tt</DependentUpon>

@@ -17,6 +17,7 @@
         </AssociationConnector>
         <EntityTypeShape EntityType="DBLAW23Model.Home" Width="1.5" PointX="2.75" PointY="3.5" />
         <AssociationConnector Association="DBLAW23Model.Home_FK" />
+        <EntityTypeShape EntityType="DBLAW23Model.Admin" Width="1.5" PointX="9.375" PointY="1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

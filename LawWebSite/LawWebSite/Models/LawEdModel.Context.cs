@@ -46,6 +46,8 @@ public partial class DBLAW23Entities : DbContext
 
     public virtual DbSet<Home> Homes { get; set; }
 
+    public virtual DbSet<Admin> Admins { get; set; }
+
 }
 
 }
