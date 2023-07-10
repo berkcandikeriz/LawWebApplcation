@@ -5,14 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="DBLAW23Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Admin">
-          <Key>
-            <PropertyRef Name="AdminID" />
-          </Key>
-          <Property Name="AdminID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
-        </EntityType>
         <EntityType Name="Blog">
           <Key>
             <PropertyRef Name="BlogId" />
@@ -24,6 +16,8 @@
           <Property Name="Date" Type="date" Nullable="false" />
           <Property Name="Url" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="ImageUrl" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Author" Type="nvarchar" MaxLength="150" />
         </EntityType>
         <EntityType Name="Content">
           <Key>
@@ -71,6 +65,8 @@
           <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="PhoneNumber" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IsAdmin" Type="bit" />
+          <Property Name="Password" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Menu">
           <Key>
@@ -141,7 +137,6 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="DBLAW23ModelStoreContainer">
-          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Blog" EntityType="Self.Blog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Content" EntityType="Self.Content" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Home" EntityType="Self.Home" Schema="dbo" store:Type="Tables" />
@@ -194,7 +189,6 @@
             <End Role="Language" EntitySet="Languages" />
             <End Role="Home" EntitySet="Homes" />
           </AssociationSet>
-          <EntitySet Name="Admins" EntityType="DBLAW23Model.Admin" />
         </EntityContainer>
         <EntityType Name="Content">
           <Key>
@@ -271,6 +265,8 @@
           <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsAdmin" Type="Boolean" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Service">
           <Key>
@@ -293,6 +289,8 @@
           <Property Name="Url" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="ImageUrl" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Language" Relationship="DBLAW23Model.Blog_FK" FromRole="Blog" ToRole="Language" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Author" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="Blog_FK">
           <End Type="DBLAW23Model.Language" Role="Language" Multiplicity="1" />
@@ -331,14 +329,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Admin">
-          <Key>
-            <PropertyRef Name="AdminID" />
-          </Key>
-          <Property Name="AdminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -380,6 +370,8 @@
           <EntitySetMapping Name="Lawyers">
             <EntityTypeMapping TypeName="DBLAW23Model.Lawyer">
               <MappingFragment StoreEntitySet="Lawyer">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
@@ -408,6 +400,8 @@
           <EntitySetMapping Name="Blogs">
             <EntityTypeMapping TypeName="DBLAW23Model.Blog">
               <MappingFragment StoreEntitySet="Blog">
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
                 <ScalarProperty Name="Url" ColumnName="Url" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
@@ -428,15 +422,6 @@
                 <ScalarProperty Name="HomeTitle" ColumnName="HomeTitle" />
                 <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
                 <ScalarProperty Name="HomeId" ColumnName="HomeId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Admins">
-            <EntityTypeMapping TypeName="DBLAW23Model.Admin">
-              <MappingFragment StoreEntitySet="Admin">
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

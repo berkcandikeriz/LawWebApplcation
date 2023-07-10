@@ -36,6 +36,8 @@
     <EntitySetMapping Name="Lawyers">
       <EntityTypeMapping TypeName="DBLAW23Model.Lawyer">
         <MappingFragment StoreEntitySet="Lawyer">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
           <ScalarProperty Name="Email" ColumnName="Email" />
@@ -64,6 +66,8 @@
     <EntitySetMapping Name="Blogs">
       <EntityTypeMapping TypeName="DBLAW23Model.Blog">
         <MappingFragment StoreEntitySet="Blog">
+          <ScalarProperty Name="Author" ColumnName="Author" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
           <ScalarProperty Name="Url" ColumnName="Url" />
           <ScalarProperty Name="Date" ColumnName="Date" />
@@ -84,15 +88,6 @@
           <ScalarProperty Name="HomeTitle" ColumnName="HomeTitle" />
           <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
           <ScalarProperty Name="HomeId" ColumnName="HomeId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Admins">
-      <EntityTypeMapping TypeName="DBLAW23Model.Admin">
-        <MappingFragment StoreEntitySet="Admin">
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="Username" ColumnName="Username" />
-          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

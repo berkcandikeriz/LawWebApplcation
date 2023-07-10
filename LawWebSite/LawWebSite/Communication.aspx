@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <section>
+    <section class="mb-5">
         <div class="container mt-5">
             <div class="row d-flex justify-content-center">
                 <div class="col-lg-6 text-end">
@@ -20,7 +20,7 @@
                 </div>
 
                 <div class="col-lg-6" style="border-left: 1px solid #e2e2e2;">
-                    <h4 class="heading-primary text-center">Çalışma <strong>Saatleri</strong></h4>
+                    <h4 class="heading-primary text-center"><asp:Label runat="server" ID="LblWorkHour" /></h4>
                     <ul class="list-group list list-icons list-dark mt-4 text-center">
 
                         <li class="list-group-item"><i class="far fa-clock"></i>Hafta içi - 09:00 - 19.00</li>
@@ -34,9 +34,6 @@
         </div>
     </section>
 
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-
     <section>
         <div class="container">
             <div class="row">
@@ -47,6 +44,6 @@
             </div>
         </div>
     </section>
-</asp:Content>
 
+</asp:Content>
 

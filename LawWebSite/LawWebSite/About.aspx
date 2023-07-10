@@ -14,50 +14,7 @@
         </div>
     </section>
     <section>
-        <!DOCTYPE html>
-        <html lang="en">
-
-        <head>
-            <meta charset="UTF-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Document</title>
-        </head>
-        <style>
-            .pc-next {
-                right: -41px !important;
-                position: absolute !important;
-                bottom: 50% !important;
-                background-image: unset;
-                border-top: 2px solid !important;
-                border-right: 2px solid !important;
-                border-color: #000 !important;
-                transform: rotate(45deg) !important;
-                z-index: 13 !important;
-                height: 20px !important;
-                width: 20px !important;
-                cursor: pointer !important;
-                font-size: 0 !important;
-            }
-
-            .pc-prev {
-                left: -50px !important;
-                position: absolute !important;
-                bottom: 50% !important;
-                border-top: 2px solid !important;
-                border-right: 2px solid !important;
-                border-color: #000 !important;
-                transform: rotate(225deg) !important;
-                z-index: 10 !important;
-                height: 20px !important;
-                width: 20px !important;
-                cursor: pointer !important;
-                font-size: 0 !important;
-            }
-        </style>
-
-        <body>
-            <div class="container mb-5  mt-5">
+        <div class="container mb-5  mt-5">
                 <div class="row d-flex">
                     <div class="col-lg-6 d-flex justify-content-center">
                         <div class="kozanoglu_column-inner">
@@ -115,12 +72,6 @@
                     </div>
                 </div>
             </div>
-        </body>
-        <script type="text/javascript" src="jquery.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script type="text/javascript" src="/Vestel/countdownVestel.js"></script>
-
-        </html>
     </section>
     <section class="ftco-counter ftco-section ftco-no-pt ftco-no-pb img" id="section-counter">
         <div class="container">
