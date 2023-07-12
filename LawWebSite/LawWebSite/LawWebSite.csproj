@@ -1934,6 +1934,7 @@
     <Content Include="Management\plugins\toastr\toastr.css" />
     <Content Include="Management\plugins\toastr\toastr.min.css" />
     <Content Include="Management\plugins\toastr\toastr.min.js" />
+    <Content Include="Management\SettingsLanguage.aspx" />
     <Content Include="Models\LawEdModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>LawEdModel.edmx</DependentUpon>
@@ -2017,6 +2018,13 @@
     </Compile>
     <Compile Include="Management\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Management\SettingsLanguage.aspx.cs">
+      <DependentUpon>SettingsLanguage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management\SettingsLanguage.aspx.designer.cs">
+      <DependentUpon>SettingsLanguage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\Blog.cs">
       <DependentUpon>LawEdModel.tt</DependentUpon>

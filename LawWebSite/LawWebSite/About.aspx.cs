@@ -12,7 +12,7 @@ namespace LawWebSite
     public partial class About : System.Web.UI.Page
     {
         #region
-       
+
         ContentController contentController = new ContentController();
         #endregion
         protected void Page_Load(object sender, EventArgs e)
@@ -39,5 +39,6 @@ namespace LawWebSite
                 }
 
             }
+        }
     }
 }

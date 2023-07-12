@@ -9,7 +9,7 @@ namespace LawWebSite.Controller
 {
     public class BlogController
     {
-          /// <summary>
+        /// <summary>
         /// Veritabanındaki tüm blogları listeleyen metod
         /// </summary>
         /// <returns></returns>
@@ -52,7 +52,7 @@ namespace LawWebSite.Controller
                 goto ReturnPointer;
             }
 
-        ReturnPointer:
+            ReturnPointer:
             return returnModel;
         }
 
@@ -72,7 +72,7 @@ namespace LawWebSite.Controller
                     ent.Configuration.LazyLoadingEnabled = false;
                     ent.Configuration.ProxyCreationEnabled = false;
 
-                    var getBlogs = ent.Blogs.Include("Language").Where(x => x.LanguageId == LanguageId).ToList();
+                    var getBlogs = ent.Blogs.Include("Language").Where(x => x.LanguageId == LanguageId).OrderByDescending(x => x.CreatedDate).ToList();
                     if (getBlogs != null && getBlogs.Count > 0)
                     {
                         returnModel.Is_Error = false;
@@ -100,7 +100,7 @@ namespace LawWebSite.Controller
                 goto ReturnPointer;
             }
 
-        ReturnPointer:
+            ReturnPointer:
             return returnModel;
         }
     }

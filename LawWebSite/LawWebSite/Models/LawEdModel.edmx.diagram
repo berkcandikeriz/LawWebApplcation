@@ -10,13 +10,12 @@
         <EntityTypeShape EntityType="DBLAW23Model.Menu" Width="1.5" PointX="2.75" PointY="0.5" />
         <AssociationConnector Association="DBLAW23Model.Content_FK" />
         <AssociationConnector Association="DBLAW23Model.Menu_FK" />
-        <EntityTypeShape EntityType="DBLAW23Model.Lawyer" Width="1.5" PointX="7.5" PointY="0.5" />
-        <EntityTypeShape EntityType="DBLAW23Model.Service" Width="1.5" PointX="7.5" PointY="4.5" />
-        <EntityTypeShape EntityType="DBLAW23Model.Blog" Width="1.5" PointX="4.75" PointY="3.375" />
-        <AssociationConnector Association="DBLAW23Model.Blog_FK" ManuallyRouted="false" >
-        </AssociationConnector>
-        <EntityTypeShape EntityType="DBLAW23Model.Home" Width="1.5" PointX="2.75" PointY="3.5" />
+        <EntityTypeShape EntityType="DBLAW23Model.Lawyer" Width="1.5" PointX="6.75" PointY="0.5" />
+        <EntityTypeShape EntityType="DBLAW23Model.Service" Width="1.5" PointX="6.75" PointY="4.375" />
+        <EntityTypeShape EntityType="DBLAW23Model.Home" Width="1.5" PointX="2.5" PointY="3.75" />
         <AssociationConnector Association="DBLAW23Model.Home_FK" />
+        <EntityTypeShape EntityType="DBLAW23Model.Blog" Width="1.5" PointX="4.625" PointY="3.75" />
+        <AssociationConnector Association="DBLAW23Model.Blog_FK" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

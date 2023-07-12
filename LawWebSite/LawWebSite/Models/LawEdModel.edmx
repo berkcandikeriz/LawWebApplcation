@@ -184,15 +184,15 @@
           </AssociationSet>
           <EntitySet Name="Lawyers" EntityType="DBLAW23Model.Lawyer" />
           <EntitySet Name="Services" EntityType="DBLAW23Model.Service" />
-          <EntitySet Name="Blogs" EntityType="DBLAW23Model.Blog" />
-          <AssociationSet Name="Blog_FK" Association="DBLAW23Model.Blog_FK">
-            <End Role="Language" EntitySet="Languages" />
-            <End Role="Blog" EntitySet="Blogs" />
-          </AssociationSet>
           <EntitySet Name="Homes" EntityType="DBLAW23Model.Home" />
           <AssociationSet Name="Home_FK" Association="DBLAW23Model.Home_FK">
             <End Role="Language" EntitySet="Languages" />
             <End Role="Home" EntitySet="Homes" />
+          </AssociationSet>
+          <EntitySet Name="Blogs" EntityType="DBLAW23Model.Blog" />
+          <AssociationSet Name="Blog_FK" Association="DBLAW23Model.Blog_FK">
+            <End Role="Language" EntitySet="Languages" />
+            <End Role="Blog" EntitySet="Blogs" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Content">
@@ -215,8 +215,8 @@
           <Property Name="Flag" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Contents" Relationship="DBLAW23Model.Content_FK" FromRole="Language" ToRole="Content" />
           <NavigationProperty Name="Menus" Relationship="DBLAW23Model.Menu_FK" FromRole="Language" ToRole="Menu" />
-          <NavigationProperty Name="Blogs" Relationship="DBLAW23Model.Blog_FK" FromRole="Language" ToRole="Blog" />
           <NavigationProperty Name="Homes" Relationship="DBLAW23Model.Home_FK" FromRole="Language" ToRole="Home" />
+          <NavigationProperty Name="Blogs" Relationship="DBLAW23Model.Blog_FK" FromRole="Language" ToRole="Blog" />
         </EntityType>
         <EntityType Name="Menu">
           <Key>
@@ -286,35 +286,6 @@
           <Property Name="CreatedDate" Type="DateTime" Precision="3" />
           <Property Name="UpdateDate" Type="DateTime" Precision="3" />
         </EntityType>
-        <EntityType Name="Blog">
-          <Key>
-            <PropertyRef Name="BlogId" />
-          </Key>
-          <Property Name="BlogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="LanguageId" Type="Int32" Nullable="false" />
-          <Property Name="BlogTitle" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="BlogSubtitle" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Url" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="ImageUrl" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Language" Relationship="DBLAW23Model.Blog_FK" FromRole="Blog" ToRole="Language" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Author" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
-        </EntityType>
-        <Association Name="Blog_FK">
-          <End Type="DBLAW23Model.Language" Role="Language" Multiplicity="1" />
-          <End Type="DBLAW23Model.Blog" Role="Blog" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Language">
-              <PropertyRef Name="LanguageId" />
-            </Principal>
-            <Dependent Role="Blog">
-              <PropertyRef Name="LanguageId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Home">
           <Key>
             <PropertyRef Name="HomeId" />
@@ -336,6 +307,34 @@
               <PropertyRef Name="LanguageId" />
             </Principal>
             <Dependent Role="Home">
+              <PropertyRef Name="LanguageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Blog">
+          <Key>
+            <PropertyRef Name="BlogId" />
+          </Key>
+          <Property Name="BlogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LanguageId" Type="Int32" Nullable="false" />
+          <Property Name="BlogTitle" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="BlogSubtitle" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Url" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ImageUrl" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Author" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Language" Relationship="DBLAW23Model.Blog_FK" FromRole="Blog" ToRole="Language" />
+        </EntityType>
+        <Association Name="Blog_FK">
+          <End Type="DBLAW23Model.Language" Role="Language" Multiplicity="1" />
+          <End Type="DBLAW23Model.Blog" Role="Blog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="LanguageId" />
+            </Principal>
+            <Dependent Role="Blog">
               <PropertyRef Name="LanguageId" />
             </Dependent>
           </ReferentialConstraint>
@@ -412,22 +411,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Blogs">
-            <EntityTypeMapping TypeName="DBLAW23Model.Blog">
-              <MappingFragment StoreEntitySet="Blog">
-                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="Author" ColumnName="Author" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
-                <ScalarProperty Name="Url" ColumnName="Url" />
-                <ScalarProperty Name="BlogSubtitle" ColumnName="BlogSubtitle" />
-                <ScalarProperty Name="BlogTitle" ColumnName="BlogTitle" />
-                <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
-                <ScalarProperty Name="BlogId" ColumnName="BlogId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Homes">
             <EntityTypeMapping TypeName="DBLAW23Model.Home">
               <MappingFragment StoreEntitySet="Home">
@@ -438,6 +421,22 @@
                 <ScalarProperty Name="HomeTitle" ColumnName="HomeTitle" />
                 <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
                 <ScalarProperty Name="HomeId" ColumnName="HomeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Blogs">
+            <EntityTypeMapping TypeName="DBLAW23Model.Blog">
+              <MappingFragment StoreEntitySet="Blog">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="BlogSubtitle" ColumnName="BlogSubtitle" />
+                <ScalarProperty Name="BlogTitle" ColumnName="BlogTitle" />
+                <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+                <ScalarProperty Name="BlogId" ColumnName="BlogId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

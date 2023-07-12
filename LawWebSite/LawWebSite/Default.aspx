@@ -26,7 +26,5 @@
                 </div>
             </ItemTemplate>
         </asp:Repeater>
-
     </section>
-
 </asp:Content>
