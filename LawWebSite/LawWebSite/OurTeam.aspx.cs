@@ -12,6 +12,7 @@ namespace LawWebSite
 {
     public partial class OurTeam : System.Web.UI.Page
     {
+        ContentController contentController = new ContentController();
 
         #region Değişkenler
         LawyerController lawyerController = new LawyerController();
@@ -22,9 +23,17 @@ namespace LawWebSite
             if (!IsPostBack)
             {
                 GetLawyers();
+                RenderBody();
             }
         }
-
+        private void RenderBody()
+        {
+            var ourTeamModel = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblOurLawyers").Model;
+            if (ourTeamModel != null && ourTeamModel.Any())
+            {
+                LblOurLawyers.Text = ourTeamModel.FirstOrDefault().Description;
+            }
+        }
         private void GetLawyers()
         {
             ReturnModel<Lawyer> GetLawyerList = lawyerController.GetLawyers();

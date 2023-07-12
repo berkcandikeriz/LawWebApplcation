@@ -56,6 +56,10 @@
     <EntitySetMapping Name="Services">
       <EntityTypeMapping TypeName="DBLAW23Model.Service">
         <MappingFragment StoreEntitySet="Service">
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
           <ScalarProperty Name="Url" ColumnName="Url" />
           <ScalarProperty Name="Image" ColumnName="Image" />
           <ScalarProperty Name="Title" ColumnName="Title" />
@@ -66,11 +70,12 @@
     <EntitySetMapping Name="Blogs">
       <EntityTypeMapping TypeName="DBLAW23Model.Blog">
         <MappingFragment StoreEntitySet="Blog">
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
           <ScalarProperty Name="Author" ColumnName="Author" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
           <ScalarProperty Name="Url" ColumnName="Url" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="BlogSubtitle" ColumnName="BlogSubtitle" />
           <ScalarProperty Name="BlogTitle" ColumnName="BlogTitle" />
           <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />

@@ -14,6 +14,7 @@ namespace LawWebSite
     {
         #region Değişkenler
         ServiceController serviceController = new ServiceController();
+        ContentController contentController = new ContentController();
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)
@@ -21,9 +22,18 @@ namespace LawWebSite
             if (!IsPostBack)
             {
                 GetServices();
+                RenderBody();
             }
         }
-
+            
+        private void RenderBody()
+        {
+            var serviceModel = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblServices").Model;
+            if (serviceModel != null && serviceModel.Any())
+            {
+                LblServices.Text = serviceModel.FirstOrDefault().Description;
+            }
+        }
         private void GetServices()
         {
             ReturnModel<Service> GetServiceList = serviceController.GetServices();

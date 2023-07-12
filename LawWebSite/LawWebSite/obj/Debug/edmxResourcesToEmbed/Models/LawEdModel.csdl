@@ -111,6 +111,10 @@
     <Property Name="Title" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="Image" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="Url" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="LanguageId" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="Blog">
     <Key>
@@ -126,6 +130,8 @@
     <NavigationProperty Name="Language" Relationship="DBLAW23Model.Blog_FK" FromRole="Blog" ToRole="Language" />
     <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Author" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
   </EntityType>
   <Association Name="Blog_FK">
     <End Type="DBLAW23Model.Language" Role="Language" Multiplicity="1" />

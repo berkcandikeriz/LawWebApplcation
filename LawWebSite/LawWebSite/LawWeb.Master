@@ -59,74 +59,26 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-7 heading-section ftco-animate">
-                        <h2 class="mb-4"><span><asp:Label ruant="server" ID="LblBlog"></asp:Label></span></h2>
+                        <h2 class="mb-4"><span>
+                            <asp:Label ID="LblMasterBlog" runat="server"></asp:Label></span></h2>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6 order-md-last col-lg-6 ftco-animate">
-                        <div class="blog-entry">
-                            <div class="img img-big d-flex align-items-end" style="background-image: url(Assets/images/image_2.jpg);">
-                                <div class="overlay"></div>
-                                <div class="text">
-                                    <span class="subheading">Food</span>
-                                    <h3><a href="single.html">Tasty &amp; Delicious Foods</a></h3>
-                                    <p class="mb-0"><a href="single.html" class="btn-custom">Read More <span class="icon-arrow_forward ml-4"></span></a></p>
+                      <asp:Repeater runat="server" ID="RMasterBlogs">
+                        <ItemTemplate>
+                        <div class="col-md-4 ftco-animate">
+                            <div class="blog-entry">
+                                <a href="single.html" class="img-2">
+                                    <img src="Assets/images/image_1.jpg" class="img-fluid" alt="Colorlib Template"></a>
+                                <div class="text pt-3">
+                                    <p class="meta d-flex"><span class="pr-3"><%#Eval("BlogSubtitle") %></span><span class="ml-auto pl-3"><%#Eval("Date") %></span></p>
+                                    <h3><a href="#"><%#Eval("BlogTitle") %></a></h3>
+                                    <p class="mb-0"><a href="single.html" class="btn btn-black py-2">Devamını Oku <span class="icon-arrow_forward ml-4"></span></a></p>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-md-6 ftco-animate">
-                                <div class="blog-entry">
-                                    <a href="single.html" class="img d-flex align-items-end" style="background-image: url(Assets/images/image_1.jpg);">
-                                        <div class="overlay"></div>
-                                    </a>
-                                    <div class="text pt-3">
-                                        <p class="meta d-flex"><span class="pr-3">Dessert</span><span class="ml-auto pl-3">March 01, 2018</span></p>
-                                        <h3><a href="single.html">Tasty &amp; Delicious Foods</a></h3>
-                                        <p class="mb-0"><a href="single.html" class="btn-custom">Read More <span class="icon-arrow_forward ml-4"></span></a></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 ftco-animate">
-                                <div class="blog-entry">
-                                    <a href="single.html" class="img d-flex align-items-end" style="background-image: url(Assets/images/image_3.jpg);">
-                                        <div class="overlay"></div>
-                                    </a>
-                                    <div class="text pt-3">
-                                        <p class="meta d-flex"><span class="pr-3">Dessert</span><span class="ml-auto pl-3">March 01, 2018</span></p>
-                                        <h3><a href="single.html">Tasty &amp; Delicious Foods from Scotland</a></h3>
-                                        <p class="mb-0"><a href="single.html" class="btn-custom">Read More <span class="icon-arrow_forward ml-4"></span></a></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 ftco-animate">
-                                <div class="blog-entry">
-                                    <a href="single.html" class="img d-flex align-items-end" style="background-image: url(Assets/images/image_4.jpg);">
-                                        <div class="overlay"></div>
-                                    </a>
-                                    <div class="text pt-3">
-                                        <p class="meta d-flex"><span class="pr-3">Dessert</span><span class="ml-auto pl-3">March 01, 2018</span></p>
-                                        <h3><a href="single.html">Tasty &amp; Delicious Foods</a></h3>
-                                        <p class="mb-0"><a href="single.html" class="btn-custom">Read More <span class="icon-arrow_forward ml-4"></span></a></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 ftco-animate">
-                                <div class="blog-entry">
-                                    <a href="single.html" class="img d-flex align-items-end" style="background-image: url(Assets/images/image_5.jpg);">
-                                        <div class="overlay"></div>
-                                    </a>
-                                    <div class="text pt-3">
-                                        <p class="meta d-flex"><span class="pr-3">Dessert</span><span class="ml-auto pl-3">March 01, 2018</span></p>
-                                        <h3><a href="single.html">Tasty &amp; Delicious Foods</a></h3>
-                                        <p class="mb-0"><a href="single.html" class="btn-custom">Read More <span class="icon-arrow_forward ml-4"></span></a></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                            </ItemTemplate>
+                              </asp:Repeater>
                 </div>
             </div>
         </section>
@@ -137,43 +89,46 @@
                     <div class="col-lg-12">
                         <div class="row">
                             <div class="col-md-12 heading-section ftco-animate">
-                                <h2 class="mb-4"><span>Featured Posts</span></h2>
+                                <h2 class="mb-4"><span>
+                                    <asp:Label ID="LblMasterOurTeam" runat="server"></asp:Label></span></h2>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-4 ftco-animate">
-                                <div class="blog-entry">
-                                    <a href="single.html" class="img-2">
-                                        <img src="Assets/images/blog-1.jpg" class="img-fluid" alt="Colorlib Template"></a>
-                                    <div class="text pt-3">
-                                        <p class="meta d-flex"><span class="pr-3">Dessert</span><span class="ml-auto pl-3">March 01, 2018</span></p>
-                                        <h3><a href="#">Tasty &amp; Delicious Foods</a></h3>
-                                        <p class="mb-0"><a href="single.html" class="btn btn-black py-2">Read More <span class="icon-arrow_forward ml-4"></span></a></p>
+            <div class="whos-speaking-area speakers pad100">
+            <div class="container">
+                <div class="row mb-3">
+                    <asp:Repeater runat="server" ID="RMasterOurTeam">
+                        <ItemTemplate>
+                            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-3">
+                                <div class="speakers xs-mb-3">
+                                    <div class="spk-img">
+                                        <img class="img-fluid" src="Assets/images/user_profil.jpg" alt="trainer-img">
+                                        <ul>
+                                            <li>
+                                                <a href='<%#Eval("Twitter") %>' target="_blank"><i class="fa fa-twitter"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href='<%#Eval("Linkedin") %>' target="_blank"><i class="fa fa-linkedin"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href='<%#Eval("Facebook") %>' target="_blank"><i class="fa fa-facebook"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href='<%#Eval("Email") %>' target="_blank"><i class="fa fa-envelope"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="spk-info">
+                                        <h3><%#Eval("FirstName") %>&nbsp;<%#Eval("LastName") %></h3>
+                                        <p><%#Eval("Title") %></p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 ftco-animate">
-                                <div class="blog-entry">
-                                    <a href="single.html" class="img-2">
-                                        <img src="Assets/images/blog-2.jpg" class="img-fluid" alt="Colorlib Template"></a>
-                                    <div class="text pt-3">
-                                        <p class="meta d-flex"><span class="pr-3">Dessert</span><span class="ml-auto pl-3">March 01, 2018</span></p>
-                                        <h3><a href="#">Tasty &amp; Delicious Foods</a></h3>
-                                        <p class="mb-0"><a href="single.html" class="btn btn-black py-2">Read More <span class="icon-arrow_forward ml-4"></span></a></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 ftco-animate">
-                                <div class="blog-entry">
-                                    <a href="single.html" class="img-2">
-                                        <img src="Assets/images/blog-3.jpg" class="img-fluid" alt="Colorlib Template"></a>
-                                    <div class="text pt-3">
-                                        <p class="meta d-flex"><span class="pr-3">Dessert</span><span class="ml-auto pl-3">March 01, 2018</span></p>
-                                        <h3><a href="#">Tasty &amp; Delicious Foods</a></h3>
-                                        <p class="mb-0"><a href="single.html" class="btn btn-black py-2">Read More <span class="icon-arrow_forward ml-4"></span></a></p>
-                                    </div>
-                                </div>
-                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </div>
+            </div>
+        </div>
                         </div>
                     </div>
                 </div>
@@ -184,16 +139,16 @@
                 <div class="row mb-5">
                     <div class="col-md">
                         <div class="ftco-footer-widget mb-4">
-                            <h2 class="ftco-heading-2">Kozanoğlu Hukuk Avukatlık Bürosu</h2>
+                            <h2 class="ftco-heading-2"><asp:Label runat="server" ID="LblFooterColumn1" /></h2>
                             <p>
-                                Buraya site ile ilgili ilk giriş cümlesi
+                         <asp:Label runat="server" ID="LblFooterDescription" />
                            
                             </p>
                         </div>
                     </div>
                     <div class="col-md">
                         <div class="ftco-footer-widget mb-4 ml-md-5">
-                            <h2 class="ftco-heading-2">Sosyal Ağlar</h2>
+                            <h2 class="ftco-heading-2"><asp:Label runat="server" ID="LblFooterColumn2" /></h2>
                             <ul class="list-unstyled">
                                 <li><a href="#" class="py-2 d-block"><span class="icon-facebook"></span>&nbsp;Facebook</a></li>
                                 <li><a href="#" class="py-2 d-block"><span class="icon-twitter"></span>&nbsp;Twitter</a></li>
@@ -203,12 +158,12 @@
                     </div>
                     <div class="col-md">
                         <div class="ftco-footer-widget mb-4 ml-md-5">
-                            <h2 class="ftco-heading-2">Hakkımızda</h2>
+                            <h2 class="ftco-heading-2"><asp:Label runat="server" ID="LblFooterColumn3" /></h2>
                             <ul class="list-unstyled">
-                                <li><a href="#" class="py-2 d-block">Hakkımızda</a></li>
-                                <li><a href="#" class="py-2 d-block">Ekibimniz</a></li>
-                                <li><a href="#" class="py-2 d-block">Hizmetlerimiz</a></li>
-                                <li><a href="#" class="py-2 d-block">Blog</a></li>
+                                <li><a href="#" class="py-2 d-block"><asp:Label runat="server" ID="LblFooterAboutMe" /></a></li>
+                                <li><a href="#" class="py-2 d-block"><asp:Label runat="server" ID="LblFooterOurTeam" /></a></li>
+                                <li><a href="#" class="py-2 d-block"><asp:Label runat="server" ID="LblFooterOurServices" /></a></li>
+                                <li><a href="#" class="py-2 d-block"><asp:Label runat="server" ID="LblFooterBlog" /></a></li>
                             </ul>
                         </div>
                     </div>

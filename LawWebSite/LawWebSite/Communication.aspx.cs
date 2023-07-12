@@ -18,7 +18,17 @@ namespace LawWebSite
 
         private void RenderBody()
         {
-            LblWorkHour.Text = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblWorkHour").Model.FirstOrDefault().Description;
+           
+            var contentModel = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblWorkHour").Model;
+            if (contentModel != null && contentModel.Any())
+            {
+                LblWorkHour.Text = contentModel.FirstOrDefault().Description;
+            }
+            var contentInformation = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblContactInformation").Model; 
+            if (contentInformation != null && contentInformation.Any())
+            {
+                LblContactInformation.Text = contentInformation.FirstOrDefault().Description;
+            }
         }
     }
 }

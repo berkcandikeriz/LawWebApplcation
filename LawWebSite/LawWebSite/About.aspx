@@ -40,7 +40,7 @@
                         <div class="kozanoglu_column-inner">
                             <div class="kozanoglu_wrapper">
                                 <div class="col-md-7 heading-section ftco-animate fadeInUp ftco-animated">
-                                    <h2 class="mb-4"><span>Hakkımızda</span></h2>
+                                    <h2 class="mb-4"><span> <asp:Label ID="LblAbout" runat="server"></asp:Label></span></h2>
                                 </div>
                                 <div class="kozanoglu_text_column kozanoglu_content_element ">
                                     <div class="kozanoglu_wrapper">
@@ -82,7 +82,8 @@
                 <div class="col-md-6 pl-md-5 py-5">
                     <div class="row justify-content-start pb-3">
                         <div class="col-md-12 heading-section ftco-animate">
-                            <h2 class="mb-4"><span>Hakkımızda Bilgiler</span></h2>
+                            <h2 class="mb-4"><span>
+                                <asp:Label ID="LblAboutUsInformation" runat="server"></asp:Label></span></h2>
                             <p>Kozanoğlu Hukuk Bürosu hukukun her alanında Türk, yabancı ve çok uluslu gerçek ve tüzel kişi müvekkillerine başarıyla hukuki danışmanlık hizmetleri vermekte ve müvekkillerini ulusal ve uluslar arası alanlarda başarıyla temsil etmektedir.</p>
                         </div>
                     </div>

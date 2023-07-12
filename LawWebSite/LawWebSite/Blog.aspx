@@ -19,7 +19,8 @@
                 <div class="col-lg-12">
                     <div class="row">
                         <div class="col-md-12 heading-section ftco-animate">
-                            <h2 class="mb-4"><span>Blog</span></h2>
+                            <h2 class="mb-4"><span>
+                                <asp:Label ID="LblBlog" runat="server" ></asp:Label></span></h2>
                         </div>
                     </div>
                     <div class="row">

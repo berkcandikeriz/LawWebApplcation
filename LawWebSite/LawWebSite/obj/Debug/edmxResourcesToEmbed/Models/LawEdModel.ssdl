@@ -8,11 +8,12 @@
     <Property Name="LanguageId" Type="int" Nullable="false" />
     <Property Name="BlogTitle" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="BlogSubtitle" Type="varchar" MaxLength="255" Nullable="false" />
-    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="CreatedDate" Type="date" Nullable="false" />
     <Property Name="Url" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="ImageUrl" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" />
     <Property Name="Author" Type="nvarchar" MaxLength="150" />
+    <Property Name="UpdateDate" Type="datetime" />
   </EntityType>
   <EntityType Name="Content">
     <Key>
@@ -82,6 +83,10 @@
     <Property Name="Title" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="Image" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="Url" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="LanguageId" Type="int" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdateDate" Type="datetime" />
   </EntityType>
   <Association Name="Blog_FK">
     <End Role="Language" Type="Self.Language" Multiplicity="1" />

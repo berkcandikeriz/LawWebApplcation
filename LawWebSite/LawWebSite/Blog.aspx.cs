@@ -1,5 +1,6 @@
 ﻿using LawWebSite.Common;
 using LawWebSite.Controller;
+using LawWebSite.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,14 +16,24 @@ namespace LawWebSite
        BlogController blogController = new BlogController();
         #endregion
 
+        ContentController contentController = new ContentController();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 GetBlogs();
+                RenderBody();
             }
         }
 
+        private void RenderBody()
+        {
+            var blogModel = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblBlog").Model;
+            if (blogModel != null && blogModel.Any())
+            {
+                LblBlog.Text = blogModel.FirstOrDefault().Description;
+            }
+        }
         private void GetBlogs()
         {
             ReturnModel<Models.Blog> GetBlogList = blogController.GetBlogs();

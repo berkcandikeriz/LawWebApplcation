@@ -17,7 +17,7 @@
     <div class="container mt-5">
          <div class="row">
                     <div class="col-md-12 heading-section ftco-animate fadeInUp ftco-animated ">
-                        <h2 class="mb-4"><span>Hizmetlerimiz</span></h2>
+                        <h2 class="mb-4"><span><asp:Label ID="LblServices" runat="server"></asp:Label></span></h2>
                     </div>
                 </div>
        

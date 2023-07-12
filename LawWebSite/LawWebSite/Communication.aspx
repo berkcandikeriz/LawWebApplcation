@@ -7,7 +7,8 @@
         <div class="container mt-5">
             <div class="row d-flex justify-content-center">
                 <div class="col-lg-6 text-end">
-                    <h4 class="heading-primary text-center">İletişim <strong>Bilgileri</strong></h4>
+                 
+                    <h4 class="heading-primary text-center"><asp:Label ID="LblContactInformation" runat="server" ></asp:Label></h4>
                     <ul class="list-group list list-icons list-icons-style-3 mt-4 text-center">
 
                         <li class="list-group-item">İstanbul/Türkiye</li>

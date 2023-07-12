@@ -17,7 +17,7 @@
         <div class="row">
             <div class="col-md-12 heading-section ftco-animate fadeInUp ftco-animated">
                 <h2 class="mb-4">
-                    <span>Avukatlarımız</span>
+                    <span><asp:Label ID="LblOurLawyers" runat="server"></asp:Label></span>
                 </h2>
             </div>
         </div>

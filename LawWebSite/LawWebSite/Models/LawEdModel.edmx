@@ -13,11 +13,12 @@
           <Property Name="LanguageId" Type="int" Nullable="false" />
           <Property Name="BlogTitle" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="BlogSubtitle" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="CreatedDate" Type="date" Nullable="false" />
           <Property Name="Url" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="ImageUrl" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="Description" Type="nvarchar(max)" />
           <Property Name="Author" Type="nvarchar" MaxLength="150" />
+          <Property Name="UpdateDate" Type="datetime" />
         </EntityType>
         <EntityType Name="Content">
           <Key>
@@ -87,6 +88,10 @@
           <Property Name="Title" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="Image" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="Url" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="LanguageId" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdateDate" Type="datetime" />
         </EntityType>
         <Association Name="Blog_FK">
           <End Role="Language" Type="Self.Language" Multiplicity="1" />
@@ -276,6 +281,10 @@
           <Property Name="Title" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Image" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Url" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="LanguageId" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="Blog">
           <Key>
@@ -291,6 +300,8 @@
           <NavigationProperty Name="Language" Relationship="DBLAW23Model.Blog_FK" FromRole="Blog" ToRole="Language" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Author" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
         </EntityType>
         <Association Name="Blog_FK">
           <End Type="DBLAW23Model.Language" Role="Language" Multiplicity="1" />
@@ -390,6 +401,10 @@
           <EntitySetMapping Name="Services">
             <EntityTypeMapping TypeName="DBLAW23Model.Service">
               <MappingFragment StoreEntitySet="Service">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
                 <ScalarProperty Name="Url" ColumnName="Url" />
                 <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -400,11 +415,12 @@
           <EntitySetMapping Name="Blogs">
             <EntityTypeMapping TypeName="DBLAW23Model.Blog">
               <MappingFragment StoreEntitySet="Blog">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="Author" ColumnName="Author" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
                 <ScalarProperty Name="Url" ColumnName="Url" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="BlogSubtitle" ColumnName="BlogSubtitle" />
                 <ScalarProperty Name="BlogTitle" ColumnName="BlogTitle" />
                 <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
