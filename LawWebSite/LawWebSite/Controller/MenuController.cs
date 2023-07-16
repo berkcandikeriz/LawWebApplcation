@@ -53,7 +53,7 @@ namespace LawWebSite.Controller
                 goto ReturnPointer;
             }
 
-            ReturnPointer:
+        ReturnPointer:
             return returnModel;
         }
 
@@ -101,8 +101,63 @@ namespace LawWebSite.Controller
                 goto ReturnPointer;
             }
 
-            ReturnPointer:
+        ReturnPointer:
             return returnModel;
         }
+
+        public ReturnModel<Models.Menu> InsertMenu(Models.Menu model)
+        {
+            ReturnModel<Models.Menu> returnModel = new ReturnModel<Models.Menu>();
+
+            try
+            {
+                using (DBLAW23Entities ent = new DBLAW23Entities())
+                {
+                    ent.Configuration.LazyLoadingEnabled = false;
+                    ent.Configuration.ProxyCreationEnabled = false;
+
+                    var existingMenu = ent.Menus.FirstOrDefault(m => m.Name == model.Name);
+
+                    if (existingMenu == null)
+                    {
+
+                        ent.Menus.Add(model);
+                        int affectedRows = ent.SaveChanges();
+
+                        if (affectedRows > 0)
+                        {
+                            returnModel.Is_Error = false;
+                            returnModel.Message_Header = string.Empty;
+                            returnModel.Message_Content = string.Empty;
+                            returnModel.Model = null;
+                        }
+                        else
+                        {
+                            returnModel.Is_Error = true;
+                            returnModel.Message_Header = "Veritabanı Hatası";
+                            returnModel.Message_Content = "Menü veritabanına eklenemedi.";
+                            returnModel.Model = null;
+                        }
+                    }
+                    else
+                    {
+                        returnModel.Is_Error = true;
+                        returnModel.Message_Header = "Hata";
+                        returnModel.Message_Content = "Bu isimde bir menü zaten mevcut.";
+                        returnModel.Model = null;
+                    }
+                }
+            }
+            catch (Exception exc)
+            {
+                returnModel.Is_Error = true;
+                returnModel.Message_Header = "Sistemsel Hata";
+                returnModel.Message_Content = "Hata Detayı " + exc.Message;
+                returnModel.Model = null;
+            }
+
+            return returnModel;
+        }
+
     }
 }

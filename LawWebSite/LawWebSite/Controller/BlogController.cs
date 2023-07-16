@@ -2,6 +2,7 @@
 using LawWebSite.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
@@ -52,7 +53,7 @@ namespace LawWebSite.Controller
                 goto ReturnPointer;
             }
 
-            ReturnPointer:
+        ReturnPointer:
             return returnModel;
         }
 
@@ -100,8 +101,104 @@ namespace LawWebSite.Controller
                 goto ReturnPointer;
             }
 
-            ReturnPointer:
+        ReturnPointer:
             return returnModel;
         }
+
+        public ReturnModel<Models.Blog> InsertBlog(Models.Blog model)
+        {
+            ReturnModel<Models.Blog> returnModel = new ReturnModel<Models.Blog>();
+
+            try
+            {
+                using (DBLAW23Entities ent = new DBLAW23Entities())
+                {
+                    ent.Configuration.LazyLoadingEnabled = false;
+                    ent.Configuration.ProxyCreationEnabled = false;
+
+                    ent.Blogs.Add(model);
+                    int affectedRows = ent.SaveChanges();
+                    if (affectedRows > 0)
+                    {
+                        returnModel.Is_Error = false;
+                        returnModel.Message_Header = string.Empty;
+                        returnModel.Message_Content = string.Empty;
+                        returnModel.Model = null;
+                    }
+                    else
+                    {
+                        returnModel.Is_Error = true;
+                        returnModel.Message_Header = "Veritabanı Hatası";
+                        returnModel.Message_Content = "Blog veritabanına eklenirken bir hata oluştu.";
+                        returnModel.Model = null;
+                    }
+                }
+            }
+            catch (Exception exc)
+            {
+                returnModel.Is_Error = true;
+                returnModel.Message_Header = "Sistemsel Hata";
+                returnModel.Message_Content = "Hata Detayı: " + exc.Message;
+                returnModel.Model = null;
+            }
+
+            return returnModel;
+        }
+
+        public ReturnModel<Models.Blog> DeleteBlog(string blogId)
+        {
+            ReturnModel<Models.Blog> returnModel = new ReturnModel<Models.Blog>();
+
+            try
+            {
+                using (DBLAW23Entities ent = new DBLAW23Entities())
+                {
+                    int id;
+                    if (int.TryParse(blogId, out id))
+                    {
+                        Models.Blog blog = ent.Blogs.FirstOrDefault(b => b.BlogId == id);
+                        if (blog != null)
+                        {
+                            ent.Blogs.Remove(blog);
+                            ent.SaveChanges();
+
+                            returnModel.Is_Error = false;
+                            returnModel.Message_Header = string.Empty;
+                            returnModel.Message_Content = string.Empty;
+                            returnModel.Model = null;
+                        }
+                        else
+                        {
+                            returnModel.Is_Error = true;
+                            returnModel.Message_Header = "Hata";
+                            returnModel.Message_Content = "Belirtilen blog bulunamadı.";
+                            returnModel.Model = null;
+                        }
+                    }
+                    else
+                    {
+                        returnModel.Is_Error = true;
+                        returnModel.Message_Header = "Hata";
+                        returnModel.Message_Content = "BlogId geçerli bir tamsayı değil.";
+                        returnModel.Model = null;
+                    }
+                }
+            }
+            catch (Exception exc)
+            {
+                returnModel.Is_Error = true;
+                returnModel.Message_Header = "Sistemsel Hata";
+                returnModel.Message_Content = "Hata Detayı: " + exc.Message;
+                returnModel.Model = null;
+            }
+
+            return returnModel;
+        }
+
+
+
+
     }
+
+
 }

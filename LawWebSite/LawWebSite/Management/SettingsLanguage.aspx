@@ -23,7 +23,7 @@
 
         <section class="content mb-3">
             <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modal-default">
-                Yeni Dil Eke
+                Yeni Dil Ekle
             </a>
         </section>
 
@@ -70,12 +70,29 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <p>Buraya yeni dil eklemek için textbox gelecek.</p>
+                 <div class="modal-body">
+                    <form class="form" role="form" autocomplete="off">
+
+                      
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label form-control-label">İsim</label>
+                            <div class="col-md-9">
+                                <asp:TextBox runat="server" ID="txtLanguageName" CssClass="form-control"></asp:TextBox>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Bayrak</label>
+                            <div class="col-lg-9">
+                                <asp:TextBox runat="server" ID="txtLanguageFlag" CssClass="form-control"></asp:TextBox>
+                            </div>
+                        </div>
+
+                    </form>
                 </div>
-                <div class="modal-footer justify-content-between">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Pencereyi Kapat</button>
-                    <button type="button" class="btn btn-primary">Dil Eklemeyi Tamamla</button>
+                  <div class="modal-footer justify-content-between">
+                    <asp:LinkButton runat="server" ID="lnkCloseLanguage" CssClass="btn btn-danger" OnClick="lnkCloseLanguage_Click">Pencereyi Kapat</asp:LinkButton>
+                    <asp:LinkButton runat="server" ID="lnkAddLanguage" CssClass="btn btn-primary" OnClick="lnkAddLanguage_Click">Yeni Dil Ekle</asp:LinkButton>
                 </div>
             </div>
         </div>

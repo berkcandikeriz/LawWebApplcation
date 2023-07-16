@@ -1934,7 +1934,11 @@
     <Content Include="Management\plugins\toastr\toastr.css" />
     <Content Include="Management\plugins\toastr\toastr.min.css" />
     <Content Include="Management\plugins\toastr\toastr.min.js" />
+    <Content Include="Management\SettingsBlog.aspx" />
     <Content Include="Management\SettingsLanguage.aspx" />
+    <Content Include="Management\SettingsLawyer.aspx" />
+    <Content Include="Management\SettingsMenu.aspx" />
+    <Content Include="Management\SettingsUserQuestions.aspx" />
     <Content Include="Models\LawEdModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>LawEdModel.edmx</DependentUpon>
@@ -1946,6 +1950,7 @@
       <LastGenOutput>LawEdModel.cs</LastGenOutput>
     </Content>
     <Content Include="OurTeam.aspx" />
+    <Content Include="Question.aspx" />
     <Content Include="Services.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -1976,6 +1981,7 @@
     <Compile Include="Controller\BlogController.cs" />
     <Compile Include="Controller\ContentController.cs" />
     <Compile Include="Controller\HomeController.cs" />
+    <Compile Include="Controller\QuestionController.cs" />
     <Compile Include="Controller\ServiceController.cs" />
     <Compile Include="Controller\CommonController.cs" />
     <Compile Include="Controller\LanguageController.cs" />
@@ -2019,12 +2025,40 @@
     <Compile Include="Management\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Management\SettingsBlog.aspx.cs">
+      <DependentUpon>SettingsBlog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management\SettingsBlog.aspx.designer.cs">
+      <DependentUpon>SettingsBlog.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Management\SettingsLanguage.aspx.cs">
       <DependentUpon>SettingsLanguage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Management\SettingsLanguage.aspx.designer.cs">
       <DependentUpon>SettingsLanguage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Management\SettingsLawyer.aspx.cs">
+      <DependentUpon>SettingsLawyer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management\SettingsLawyer.aspx.designer.cs">
+      <DependentUpon>SettingsLawyer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Management\SettingsMenu.aspx.cs">
+      <DependentUpon>SettingsMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management\SettingsMenu.aspx.designer.cs">
+      <DependentUpon>SettingsMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Management\SettingsUserQuestions.aspx.cs">
+      <DependentUpon>SettingsUserQuestions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management\SettingsUserQuestions.aspx.designer.cs">
+      <DependentUpon>SettingsUserQuestions.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\Blog.cs">
       <DependentUpon>LawEdModel.tt</DependentUpon>
@@ -2062,6 +2096,9 @@
     <Compile Include="Models\Service.cs">
       <DependentUpon>LawEdModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserList.cs">
+      <DependentUpon>LawEdModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="OurTeam.aspx.cs">
       <DependentUpon>OurTeam.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2070,6 +2107,13 @@
       <DependentUpon>OurTeam.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Question.aspx.cs">
+      <DependentUpon>Question.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Question.aspx.designer.cs">
+      <DependentUpon>Question.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Services.aspx.cs">
       <DependentUpon>Services.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

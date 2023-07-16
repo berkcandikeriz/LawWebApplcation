@@ -126,5 +126,46 @@ namespace LawWebSite.Controller
             ReturnPointer:
             return returnModel;
         }
+
+        public ReturnModel<Models.Lawyer> InsertLawyer(Models.Lawyer model)
+        {
+            ReturnModel<Models.Lawyer> returnModel = new ReturnModel<Models.Lawyer>();
+
+            try
+            {
+                using (DBLAW23Entities ent = new DBLAW23Entities())
+                {
+                    ent.Configuration.LazyLoadingEnabled = false;
+                    ent.Configuration.ProxyCreationEnabled = false;
+
+                    ent.Lawyers.Add(model);
+                    int affectedRows = ent.SaveChanges();
+                    if (affectedRows > 0)
+                    {
+                        returnModel.Is_Error = false;
+                        returnModel.Message_Header = string.Empty;
+                        returnModel.Message_Content = string.Empty;
+                        returnModel.Model = null;
+                    }
+                    else
+                    {
+                        returnModel.Is_Error = true;
+                        returnModel.Message_Header = "Veritabanı Hatası";
+                        returnModel.Message_Content = "Avukatlar veritabanına eklenirken bir hata oluştu.";
+                        returnModel.Model = null;
+                    }
+                }
+            }
+            catch (Exception exc)
+            {
+                returnModel.Is_Error = true;
+                returnModel.Message_Header = "Sistemsel Hata";
+                returnModel.Message_Content = "Hata Detayı: " + exc.Message;
+                returnModel.Model = null;
+            }
+
+  
+            return returnModel;
+        }
     }
 }

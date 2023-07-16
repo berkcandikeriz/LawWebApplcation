@@ -75,6 +75,11 @@
                                 </a>
                             </li>
                             <li class="nav-item">
+                                <a href="SettingsUserQuestions.aspx" class="nav-link">
+                                    <i class="fa fa-question nav-icon"></i>&nbsp;<p>Kullanıcı Soruları</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a href="SettingsMenu.aspx" class="nav-link">
                                     <i class="fa fa-list nav-icon"></i>&nbsp;<p>Menü Ayarları</p>
                                 </a>
@@ -85,8 +90,8 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="fa fa-users nav-icon"></i>&nbsp;<p>Kullanıcı Ayarları</p>
+                                <a href="SettingsLawyer.aspx" class="nav-link">
+                                    <i class="fa fa-users nav-icon"></i>&nbsp;<p>Avukat Ayarları</p>
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -95,7 +100,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="SettingsReference.aspx" class="nav-link">
+                                <a href="SettingsBlog.aspx" class="nav-link">
                                     <i class="nav-icon fas fa-cogs"></i>&nbsp;<p>Bloglar</p>
                                 </a>
                             </li>

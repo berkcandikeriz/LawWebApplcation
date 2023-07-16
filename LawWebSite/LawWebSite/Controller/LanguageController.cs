@@ -110,23 +110,35 @@ namespace LawWebSite.Controller
             {
                 using (DBLAW23Entities ent = new DBLAW23Entities())
                 {
-                    ent.Languages.Add(model);
-                    int effectedRow = ent.SaveChanges();
-                    if (effectedRow > 0)
+                    ent.Configuration.LazyLoadingEnabled = false;
+                    ent.Configuration.ProxyCreationEnabled = false;
+
+                    var existingLanguage = ent.Languages.FirstOrDefault(l => l.Name == model.Name);
+                    if (existingLanguage == null)
                     {
-                        returnModel.Is_Error = false;
-                        returnModel.Message_Header = string.Empty;
-                        returnModel.Message_Content = string.Empty;
-                        returnModel.Model = null;
-                        goto ReturnPointer;
+                        ent.Languages.Add(model);
+                        int affectedRows = ent.SaveChanges();
+                        if (affectedRows > 0)
+                        {
+                            returnModel.Is_Error = false;
+                            returnModel.Message_Header = string.Empty;
+                            returnModel.Message_Content = string.Empty;
+                            returnModel.Model = null;
+                        }
+                        else
+                        {
+                            returnModel.Is_Error = true;
+                            returnModel.Message_Header = "Veritabanı Hatası";
+                            returnModel.Message_Content = "Dil veritabanına eklenirken bir hata oluştu.";
+                            returnModel.Model = null;
+                        }
                     }
                     else
                     {
                         returnModel.Is_Error = true;
-                        returnModel.Message_Header = "Veritabanı Hatası";
-                        returnModel.Message_Content = "Veritabanına dik eklerken problem oluştu.";
+                        returnModel.Message_Header = "Hata";
+                        returnModel.Message_Content = "Bu isimde bir dil zaten mevcut.";
                         returnModel.Model = null;
-                        goto ReturnPointer;
                     }
                 }
             }
@@ -134,13 +146,12 @@ namespace LawWebSite.Controller
             {
                 returnModel.Is_Error = true;
                 returnModel.Message_Header = "Sistemsel Hata";
-                returnModel.Message_Content = "Hata Detayı " + exc.Message;
+                returnModel.Message_Content = "Hata Detayı: " + exc.Message;
                 returnModel.Model = null;
-                goto ReturnPointer;
             }
 
-            ReturnPointer:
             return returnModel;
         }
+
     }
 }
