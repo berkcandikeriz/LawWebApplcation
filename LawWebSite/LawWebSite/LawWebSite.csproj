@@ -151,6 +151,7 @@
     <Content Include="Assets\js\popper.min.js" />
     <Content Include="Assets\js\scrollax.min.js" />
     <Content Include="Blog.aspx" />
+    <Content Include="BlogDetail.aspx" />
     <Content Include="Communication.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
@@ -1970,6 +1971,13 @@
     <Compile Include="Blog.aspx.designer.cs">
       <DependentUpon>Blog.aspx</DependentUpon>
     </Compile>
+    <Compile Include="BlogDetail.aspx.cs">
+      <DependentUpon>BlogDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BlogDetail.aspx.designer.cs">
+      <DependentUpon>BlogDetail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Common\ReturnModel.cs" />
     <Compile Include="Communication.aspx.cs">
       <DependentUpon>Communication.aspx</DependentUpon>
@@ -2124,6 +2132,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Assets\Uploads\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Html_Template\.DS_Store" />

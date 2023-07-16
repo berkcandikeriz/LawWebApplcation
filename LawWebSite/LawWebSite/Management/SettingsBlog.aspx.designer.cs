@@ -15,6 +15,15 @@ namespace LawWebSite.Management
     {
 
         /// <summary>
+        /// LbBlogEkle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LbBlogEkle;
+
+        /// <summary>
         /// RBlogs control.
         /// </summary>
         /// <remarks>
@@ -24,13 +33,22 @@ namespace LawWebSite.Management
         protected global::System.Web.UI.WebControls.Repeater RBlogs;
 
         /// <summary>
-        /// txtBlogDilId control.
+        /// LblBlogAddEditHeader control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBlogDilId;
+        protected global::System.Web.UI.WebControls.Label LblBlogAddEditHeader;
+
+        /// <summary>
+        /// DdlDilSeciniz control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DdlDilSeciniz;
 
         /// <summary>
         /// txtBlogAdi control.
@@ -87,15 +105,6 @@ namespace LawWebSite.Management
         protected global::System.Web.UI.WebControls.TextBox txtBlogGorselLinki;
 
         /// <summary>
-        /// lnkCloseBlog control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkCloseBlog;
-
-        /// <summary>
         /// lnkAddBlog control.
         /// </summary>
         /// <remarks>
@@ -103,5 +112,23 @@ namespace LawWebSite.Management
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnkAddBlog;
+
+        /// <summary>
+        /// LblModalHeader control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblModalHeader;
+
+        /// <summary>
+        /// LblModalBody control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblModalBody;
     }
 }

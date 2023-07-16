@@ -53,7 +53,50 @@ namespace LawWebSite.Controller
                 goto ReturnPointer;
             }
 
-        ReturnPointer:
+            ReturnPointer:
+            return returnModel;
+        }
+
+        public ReturnModel<Models.Blog> GetBlogByBlogId(int BlogId)
+        {
+            ReturnModel<Models.Blog> returnModel = new ReturnModel<Models.Blog>();
+
+            try
+            {
+                using (DBLAW23Entities ent = new DBLAW23Entities())
+                {
+                    ent.Configuration.LazyLoadingEnabled = false;
+                    ent.Configuration.ProxyCreationEnabled = false;
+
+                    var getBlogs = ent.Blogs.Where(x => x.BlogId == BlogId).ToList();
+                    if (getBlogs != null && getBlogs.Count > 0)
+                    {
+                        returnModel.Is_Error = false;
+                        returnModel.Message_Header = string.Empty;
+                        returnModel.Message_Content = string.Empty;
+                        returnModel.Model = getBlogs;
+                        goto ReturnPointer;
+                    }
+                    else
+                    {
+                        returnModel.Is_Error = true;
+                        returnModel.Message_Header = "Veritabanı Hatası";
+                        returnModel.Message_Content = "Veritabanından menü listesi alınamadı";
+                        returnModel.Model = null;
+                        goto ReturnPointer;
+                    }
+                }
+            }
+            catch (Exception exc)
+            {
+                returnModel.Is_Error = true;
+                returnModel.Message_Header = "Sistemsel Hata";
+                returnModel.Message_Content = "Hata Detayı " + exc.Message;
+                returnModel.Model = null;
+                goto ReturnPointer;
+            }
+
+            ReturnPointer:
             return returnModel;
         }
 
@@ -101,7 +144,7 @@ namespace LawWebSite.Controller
                 goto ReturnPointer;
             }
 
-        ReturnPointer:
+            ReturnPointer:
             return returnModel;
         }
 
@@ -195,10 +238,58 @@ namespace LawWebSite.Controller
             return returnModel;
         }
 
+        public ReturnModel<Models.Blog> UpdateBlog(Models.Blog model)
+        {
+            ReturnModel<Models.Blog> returnModel = new ReturnModel<Models.Blog>();
 
+            try
+            {
+                using (DBLAW23Entities ent = new DBLAW23Entities())
+                {
+                    ent.Configuration.LazyLoadingEnabled = false;
+                    ent.Configuration.ProxyCreationEnabled = false;
+
+                    var selectedBlogItem = ent.Blogs.FirstOrDefault(x=> x.BlogId == model.BlogId);
+
+                    selectedBlogItem.LanguageId = model.LanguageId;
+                    selectedBlogItem.BlogTitle = model.BlogTitle;
+                    selectedBlogItem.BlogSubtitle = model.BlogSubtitle;
+                    selectedBlogItem.Description = model.Description;
+                    selectedBlogItem.Author = model.Author;
+                    selectedBlogItem.Url = model.Url;
+                    selectedBlogItem.ImageUrl = model.ImageUrl;
+                    selectedBlogItem.CreatedDate = model.CreatedDate;
+                    selectedBlogItem.UpdateDate = model.UpdateDate;
+
+                    int affectedRows = ent.SaveChanges();
+
+                    if (affectedRows > 0)
+                    {
+                        returnModel.Is_Error = false;
+                        returnModel.Message_Header = string.Empty;
+                        returnModel.Message_Content = string.Empty;
+                        returnModel.Model = null;
+                    }
+                    else
+                    {
+                        returnModel.Is_Error = true;
+                        returnModel.Message_Header = "Veritabanı Hatası";
+                        returnModel.Message_Content = "Blog veritabanına güncellenirken bir hata oluştu.";
+                        returnModel.Model = null;
+                    }
+                }
+            }
+            catch (Exception exc)
+            {
+                returnModel.Is_Error = true;
+                returnModel.Message_Header = "Sistemsel Hata";
+                returnModel.Message_Content = "Hata Detayı: " + exc.Message;
+                returnModel.Model = null;
+            }
+
+            return returnModel;
+        }
 
 
     }
-
-
 }

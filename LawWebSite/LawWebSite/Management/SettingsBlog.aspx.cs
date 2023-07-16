@@ -3,7 +3,9 @@ using LawWebSite.Controller;
 using LawWebSite.Models;
 using System;
 using System.Collections.Generic;
+using System.EnterpriseServices;
 using System.Linq;
+using System.Security.Policy;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -13,10 +15,30 @@ namespace LawWebSite.Management
     public partial class SettingsBlog : System.Web.UI.Page
     {
         BlogController blogController = new BlogController();
+        LanguageController languageController = new LanguageController();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            GetBlogs();
+            if (!IsPostBack)
+            {
+                GetBlogs();
+                GetLanguagesByDdlDilSeciniz();
+            }
+        }
 
+        private void GetLanguagesByDdlDilSeciniz()
+        {
+            var dilListesi = languageController.GetLanguages();
+            DdlDilSeciniz.Items.Clear();
+            DdlDilSeciniz.Items.Add(new ListItem() { Text = "Seçiniz", Value = "0" });
+            if (!dilListesi.Is_Error && dilListesi != null && dilListesi.Model.Count > 0)
+            {
+                foreach (var item in dilListesi.Model)
+                {
+                    DdlDilSeciniz.Items.Add(new ListItem() { Text = item.Name, Value = item.LanguageId.ToString() });
+
+                }
+            }
         }
 
         private void GetBlogs()
@@ -30,76 +52,143 @@ namespace LawWebSite.Management
             }
         }
 
+        private void Temizle()
+        {
+            DdlDilSeciniz.SelectedIndex = 0;
+            txtBlogAdi.Text = string.Empty;
+            txtBlogAltBaslik.Text = string.Empty;
+            txtBlogAciklama.Text = string.Empty;
+            txtBlogYazar.Text = string.Empty;
+            txtBlogUrl.Text = string.Empty;
+            txtBlogGorselLinki.Text = string.Empty;
+        }
+
         protected void lnkAddBlog_Click(object sender, EventArgs e)
         {
-            Models.Blog newBlog = new Models.Blog()
+            if (Session["selectedBlogItem"] != null)
             {
-                LanguageId = int.Parse(txtBlogDilId.Text),
-                BlogTitle = txtBlogAdi.Text,
-                BlogSubtitle = txtBlogAltBaslik.Text,
-                Description = txtBlogAciklama.Text,
-                Author = txtBlogYazar.Text,
-                Url = txtBlogUrl.Text,
-                ImageUrl = txtBlogGorselLinki.Text,
-                CreatedDate = DateTime.Today,
-                UpdateDate = DateTime.Today
-            };
+                Models.Blog selectedBlogItem = Session["selectedBlogItem"] as Models.Blog;
+                Models.Blog newBlog = new Models.Blog()
+                {
+                    BlogId = selectedBlogItem.BlogId,
+                    LanguageId = int.Parse(DdlDilSeciniz.SelectedValue),
+                    BlogTitle = txtBlogAdi.Text,
+                    BlogSubtitle = txtBlogAltBaslik.Text,
+                    Description = txtBlogAciklama.Text,
+                    Author = txtBlogYazar.Text,
+                    Url = txtBlogUrl.Text,
+                    ImageUrl = txtBlogGorselLinki.Text,
+                    CreatedDate = selectedBlogItem.CreatedDate,
+                    UpdateDate = DateTime.Now
+                };
 
-            var result = blogController.InsertBlog(newBlog);
+                var result = blogController.UpdateBlog(newBlog);
 
-            if (!result.Is_Error)
-            {
-                GetBlogs();
+                if (!result.Is_Error)
+                {
+                    LblModalHeader.Text = "Blog Güncelleme Başarılı";
+                    LblModalBody.Text = "Blog başarıyla güncellenmiştir.";
+                    ClientScript.RegisterStartupScript(this.GetType(), "Popup", "PopUpModalInformation();", true);
 
-                txtBlogDilId.Text = string.Empty;
-                txtBlogAdi.Text = string.Empty;
-                txtBlogAltBaslik.Text = string.Empty;
-                txtBlogAciklama.Text = string.Empty;
-                txtBlogYazar.Text = string.Empty;
-                txtBlogUrl.Text = string.Empty;
-                txtBlogGorselLinki.Text = string.Empty;
-
+                    GetBlogs();
+                    Temizle();
+                    Session["selectedBlogItem"] = null;
+                }
+                else
+                {
+                    LblModalHeader.Text = "Blog Güncelleme Başarısız";
+                    LblModalBody.Text = "Blog güncelleme işlemi yaparken bir hata ile karşılaşıldı. Daha sonra tekrar deneyiniz.";
+                    ClientScript.RegisterStartupScript(this.GetType(), "Popup", "PopUpModalInformation();", true);
+                }
             }
             else
             {
-                // Hata durumunda uygun işlemleri gerçekleştirin
+                Models.Blog newBlog = new Models.Blog()
+                {
+                    LanguageId = int.Parse(DdlDilSeciniz.SelectedValue),
+                    BlogTitle = txtBlogAdi.Text,
+                    BlogSubtitle = txtBlogAltBaslik.Text,
+                    Description = txtBlogAciklama.Text,
+                    Author = txtBlogYazar.Text,
+                    Url = txtBlogUrl.Text,
+                    ImageUrl = txtBlogGorselLinki.Text,
+                    CreatedDate = DateTime.Now,
+                    UpdateDate = DateTime.Now
+                };
+
+                var result = blogController.InsertBlog(newBlog);
+
+                if (!result.Is_Error)
+                {
+                    LblModalHeader.Text = "Blog Ekleme Başarılı";
+                    LblModalBody.Text = "Blog başarıyla eklenmiştir.";
+                    ClientScript.RegisterStartupScript(this.GetType(), "Popup", "PopUpModalInformation();", true);
+
+                    GetBlogs();
+                    Temizle();
+                }
+                else
+                {
+                    LblModalHeader.Text = "Blog Ekleme Başarısız";
+                    LblModalBody.Text = "Blog eklerken bir hata ile karşılaşıldı. Daha sonra tekrar deneyiniz.";
+                    ClientScript.RegisterStartupScript(this.GetType(), "Popup", "PopUpModalInformation();", true);
+                }
             }
         }
 
-        protected void lnkCloseBlog_Click(object sender, EventArgs e)
+        protected void LbLanguageEdit_Click(object sender, EventArgs e)
         {
+            string blogId = ((LinkButton)sender).CommandArgument;
+            var result = blogController.GetBlogByBlogId(int.Parse(blogId));
+            LblBlogAddEditHeader.Text = blogId + "# Numaralı Blog Güncelle";
+            lnkAddBlog.Text = "Blog Güncelle";
 
+            if (!result.Is_Error)
+            {
+                Models.Blog selectedBlogItem = result.Model[0];
+                DdlDilSeciniz.SelectedValue = selectedBlogItem.LanguageId.ToString();
+                txtBlogAdi.Text = selectedBlogItem.BlogTitle;
+                txtBlogAltBaslik.Text = selectedBlogItem.BlogSubtitle;
+                txtBlogAciklama.Text = selectedBlogItem.Description;
+                txtBlogYazar.Text = selectedBlogItem.Author;
+                txtBlogUrl.Text = selectedBlogItem.Url;
+                txtBlogGorselLinki.Text = selectedBlogItem.ImageUrl;
+
+                Session["selectedBlogItem"] = selectedBlogItem;
+
+                ClientScript.RegisterStartupScript(this.GetType(), "Popup", "LbEdit();", true);
+            }
         }
-        protected void lnkDeleteBlog_Click(object sender, EventArgs e)
+
+        protected void LbLanguageDelete_Click(object sender, EventArgs e)
         {
             string blogId = (sender as LinkButton).CommandArgument;
 
-          
             var result = blogController.DeleteBlog(blogId);
 
             if (!result.Is_Error)
             {
-                string successMessage = "Blog başarıyla silindi.";
                 GetBlogs();
+
+                LblModalHeader.Text = "Blog Silme Başarılı";
+                LblModalBody.Text = "Blog silme işlemi başarılı";
+                ClientScript.RegisterStartupScript(this.GetType(), "Popup", "PopUpModalInformation();", true);
             }
             else
             {
-        
-
-            
-                string errorMessage = "Silme işlemi başarısız oldu. Lütfen tekrar deneyin.";
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "DeleteError", $"alert('{errorMessage}');", true);
-
-              
-
-              
+                LblModalHeader.Text = "Blog Silme Başarısız";
+                LblModalBody.Text = "Blog silme işlemi yaparken bir hata ile karşılaşıldı. Daha sonra tekrar deneyiniz.";
+                ClientScript.RegisterStartupScript(this.GetType(), "Popup", "PopUpModalInformation();", true);
             }
         }
 
+        protected void LbBlogEkle_Click(object sender, EventArgs e)
+        {
+            LblBlogAddEditHeader.Text = "Yeni Blog Ekle";
+            lnkAddBlog.Text = "Yeni Blog Ekle";
 
+            ClientScript.RegisterStartupScript(this.GetType(), "Popup", "LbEdit();", true);
 
-
-
-
+        }
     }
 }
