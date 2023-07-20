@@ -30,21 +30,19 @@
                 <div class="inner-box">
 
                     <div class="icon-box">
-
-                        <img class="w-100"  src="https://www.agahhukuk.com/wp-content/themes/avukat/ortak/assets/images/idarehukuk.jpg" alt="<%#Eval("Title") %>">
-                    </div>
+                     <img class="w-100"  src="https://www.agahhukuk.com/wp-content/themes/avukat/ortak/assets/images/idarehukuk.jpg" alt="<%#Eval("Title") %>">
 
                     <h3><%#Eval("Title") %></h3>
 
-                    <div class="overlay-box" style="background-image: url(https://www.agahhukuk.com/wp-content/themes/agah/images/resource/service-1.jpg);">
+                    <div class="overlay-box" style="background-image: url(Assets/images/aile-siddet.jpg);">
 
                         <div class="overlay-inner">
 
                             <div class="content">
 
-                                <h4><a href="https://www.agahhukuk.com/avukatlik-hizmetlerimiz/idare-hukuku"><%#Eval("Title") %></a></h4>
+                                <h4><a href='ServiceDetail?ServiceDetailContent=<%#Eval("ServiceId") %>'><%#Eval("Title") %></a></h4>
 
-                                <a href="https://www.agahhukuk.com/avukatlik-hizmetlerimiz/idare-hukuku" class="theme-btn btn-style-one">İncele</a>
+                                <a href='ServiceDetail?ServiceDetailContent=<%#Eval("ServiceId") %>' class="theme-btn btn-style-one">İncele</a>
 
                             </div>
 

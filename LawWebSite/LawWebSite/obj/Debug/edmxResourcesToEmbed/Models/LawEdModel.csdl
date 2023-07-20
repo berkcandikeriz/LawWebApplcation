@@ -25,6 +25,10 @@
       <End Role="Blog" EntitySet="Blogs" />
     </AssociationSet>
     <EntitySet Name="UserLists" EntityType="DBLAW23Model.UserList" />
+    <AssociationSet Name="Service_FK" Association="DBLAW23Model.Service_FK">
+      <End Role="Language" EntitySet="Languages" />
+      <End Role="Service" EntitySet="Services" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Content">
     <Key>
@@ -48,6 +52,7 @@
     <NavigationProperty Name="Menus" Relationship="DBLAW23Model.Menu_FK" FromRole="Language" ToRole="Menu" />
     <NavigationProperty Name="Homes" Relationship="DBLAW23Model.Home_FK" FromRole="Language" ToRole="Home" />
     <NavigationProperty Name="Blogs" Relationship="DBLAW23Model.Blog_FK" FromRole="Language" ToRole="Blog" />
+    <NavigationProperty Name="Services" Relationship="DBLAW23Model.Service_FK" FromRole="Language" ToRole="Service" />
   </EntityType>
   <EntityType Name="Menu">
     <Key>
@@ -116,6 +121,7 @@
     <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="CreatedDate" Type="DateTime" Precision="3" />
     <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Language" Relationship="DBLAW23Model.Service_FK" FromRole="Service" ToRole="Language" />
   </EntityType>
   <EntityType Name="Home">
     <Key>
@@ -182,4 +188,16 @@
     <Property Name="Question" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="CreatedDate" Type="DateTime" Precision="3" />
   </EntityType>
+  <Association Name="Service_FK">
+    <End Type="DBLAW23Model.Language" Role="Language" Multiplicity="0..1" />
+    <End Type="DBLAW23Model.Service" Role="Service" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="Service">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

@@ -34,6 +34,10 @@ public partial class Service
 
     public Nullable<System.DateTime> UpdateDate { get; set; }
 
+
+
+    public virtual Language Language { get; set; }
+
 }
 
 }

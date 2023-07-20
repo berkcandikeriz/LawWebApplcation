@@ -15,6 +15,15 @@ namespace LawWebSite.Management
     {
 
         /// <summary>
+        /// LbMenuEkle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LbMenuEkle;
+
+        /// <summary>
         /// RMenus control.
         /// </summary>
         /// <remarks>
@@ -24,13 +33,22 @@ namespace LawWebSite.Management
         protected global::System.Web.UI.WebControls.Repeater RMenus;
 
         /// <summary>
-        /// txtDilId control.
+        /// LblMenuAddEditHeader control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDilId;
+        protected global::System.Web.UI.WebControls.Label LblMenuAddEditHeader;
+
+        /// <summary>
+        /// DdlMenuDilSeciniz control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DdlMenuDilSeciniz;
 
         /// <summary>
         /// txtIsim control.
@@ -69,15 +87,6 @@ namespace LawWebSite.Management
         protected global::System.Web.UI.WebControls.TextBox txtKonum;
 
         /// <summary>
-        /// lnkCloseMenu control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkCloseMenu;
-
-        /// <summary>
         /// lnkAddMenu control.
         /// </summary>
         /// <remarks>
@@ -85,5 +94,23 @@ namespace LawWebSite.Management
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnkAddMenu;
+
+        /// <summary>
+        /// LblMenuModalHeader control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblMenuModalHeader;
+
+        /// <summary>
+        /// LblMenuModalBody control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblMenuModalBody;
     }
 }

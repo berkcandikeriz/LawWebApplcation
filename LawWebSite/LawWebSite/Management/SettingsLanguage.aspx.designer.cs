@@ -15,6 +15,15 @@ namespace LawWebSite.Management
     {
 
         /// <summary>
+        /// LbLanguageEkle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LbLanguageEkle;
+
+        /// <summary>
         /// RLanguages control.
         /// </summary>
         /// <remarks>
@@ -22,6 +31,15 @@ namespace LawWebSite.Management
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater RLanguages;
+
+        /// <summary>
+        /// LblLanguageAddEditHeader control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblLanguageAddEditHeader;
 
         /// <summary>
         /// txtLanguageName control.
@@ -42,15 +60,6 @@ namespace LawWebSite.Management
         protected global::System.Web.UI.WebControls.TextBox txtLanguageFlag;
 
         /// <summary>
-        /// lnkCloseLanguage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkCloseLanguage;
-
-        /// <summary>
         /// lnkAddLanguage control.
         /// </summary>
         /// <remarks>
@@ -58,5 +67,23 @@ namespace LawWebSite.Management
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnkAddLanguage;
+
+        /// <summary>
+        /// LblLanguageModalHeader control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblLanguageModalHeader;
+
+        /// <summary>
+        /// LblLanguageModalBody control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblLanguageModalBody;
     }
 }

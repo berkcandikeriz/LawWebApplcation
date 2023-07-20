@@ -17,7 +17,8 @@
         <div class="row">
             <div class="col-md-12 heading-section ftco-animate fadeInUp ftco-animated">
                 <h2 class="mb-4">
-                    <span><asp:Label ID="LblOurLawyers" runat="server"></asp:Label></span>
+                    <span>
+                        <asp:Label ID="LblOurLawyers" runat="server"></asp:Label></span>
                 </h2>
             </div>
         </div>
@@ -27,29 +28,24 @@
                     <asp:Repeater runat="server" ID="ROurTeam">
                         <ItemTemplate>
                             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-3">
-                                <div class="speakers xs-mb-3">
-                                    <div class="spk-img">
-                                        <img class="img-fluid" src="Assets/images/user_profil.jpg" alt="trainer-img">
-                                        <ul>
-                                            <li>
-                                                <a href='<%#Eval("Twitter") %>' target="_blank"><i class="fa fa-twitter"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href='<%#Eval("Linkedin") %>' target="_blank"><i class="fa fa-linkedin"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href='<%#Eval("Facebook") %>' target="_blank"><i class="fa fa-facebook"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href='<%#Eval("Email") %>' target="_blank"><i class="fa fa-envelope"></i></a>
-                                            </li>
-                                        </ul>
+                              
+                                    <div class="speakers xs-mb-3">
+                                          <a href='OurTeamDetail?LawyerDetailContent=<%#Eval("LawyerId") %>'>
+                                        <div class="spk-img">
+                                            <img class="img-fluid" src="Assets/images/user_profil.jpg" alt="trainer-img">
+                                        </div>
+                                              </a>
+                                        <div class="spk-info">
+                                            <ul>
+                                                <li>
+                                                    <p class="mb-0"><a href='OurTeamDetail?LawyerDetailContent=<%#Eval("LawyerId") %>' class="btn btn-black py-2">İncele<span class="icon-arrow_forward ml-4"></span></a></p>
+                                                </li>
+                                            </ul>
+                                            <h3><%#Eval("FirstName") %>&nbsp;<%#Eval("LastName") %></h3>
+                                            <p><%#Eval("Title") %></p>
+                                        </div>
                                     </div>
-                                    <div class="spk-info">
-                                        <h3><%#Eval("FirstName") %>&nbsp;<%#Eval("LastName") %></h3>
-                                        <p><%#Eval("Title") %></p>
-                                    </div>
-                                </div>
+                               
                             </div>
                         </ItemTemplate>
                     </asp:Repeater>

@@ -50,7 +50,7 @@ namespace LawWebSite.Controller
                 goto ReturnPointer;
             }
 
-            ReturnPointer:
+        ReturnPointer:
             return returnModel;
         }
 
@@ -98,7 +98,7 @@ namespace LawWebSite.Controller
                 goto ReturnPointer;
             }
 
-            ReturnPointer:
+        ReturnPointer:
             return returnModel;
         }
 
@@ -152,6 +152,113 @@ namespace LawWebSite.Controller
 
             return returnModel;
         }
+
+        public ReturnModel<Models.Language> DeleteLanguage(string languageId)
+        {
+            ReturnModel<Models.Language> returnModel = new ReturnModel<Models.Language>();
+
+            try
+            {
+                using (DBLAW23Entities ent = new DBLAW23Entities())
+                {
+                    int id;
+                    if (int.TryParse(languageId, out id))
+                    {
+                        Models.Language language = ent.Languages.FirstOrDefault(b => b.LanguageId == id);
+                        if (language != null)
+                        {
+                            ent.Languages.Remove(language);
+                            ent.SaveChanges();
+
+                            returnModel.Is_Error = false;
+                            returnModel.Message_Header = string.Empty;
+                            returnModel.Message_Content = string.Empty;
+                            returnModel.Model = null;
+                        }
+                        else
+                        {
+                            returnModel.Is_Error = true;
+                            returnModel.Message_Header = "Hata";
+                            returnModel.Message_Content = "Belirtilen Dil bulunamadı.";
+                            returnModel.Model = null;
+                        }
+                    }
+                    else
+                    {
+                        returnModel.Is_Error = true;
+                        returnModel.Message_Header = "Hata";
+                        returnModel.Message_Content = "LanguageId geçerli bir tamsayı değil.";
+                        returnModel.Model = null;
+                    }
+                }
+            }
+            catch (Exception exc)
+            {
+                returnModel.Is_Error = true;
+                returnModel.Message_Header = "Sistemsel Hata";
+                returnModel.Message_Content = "Hata Detayı: " + exc.Message;
+                returnModel.Model = null;
+            }
+
+            return returnModel;
+        }
+
+        public ReturnModel<Models.Language> UpdateLanguage(Models.Language model)
+        {
+            ReturnModel<Models.Language> returnModel = new ReturnModel<Models.Language>();
+
+            try
+            {
+                using (DBLAW23Entities ent = new DBLAW23Entities())
+                {
+                    ent.Configuration.LazyLoadingEnabled = false;
+                    ent.Configuration.ProxyCreationEnabled = false;
+
+                    var selectedLanguageItem = ent.Languages.FirstOrDefault(x => x.LanguageId == model.LanguageId);
+
+                    if (selectedLanguageItem != null)
+                    {
+                        selectedLanguageItem.Name = model.Name;
+                        selectedLanguageItem.Flag = model.Flag;
+
+                        int affectedRows = ent.SaveChanges();
+
+                        if (affectedRows > 0)
+                        {
+                            returnModel.Is_Error = false;
+                            returnModel.Message_Header = "Dil Güncelleme Başarılı";
+                            returnModel.Message_Content = "Dil başarıyla güncellenmiştir.";
+                            returnModel.Model = null;
+                        }
+                        else
+                        {
+                            returnModel.Is_Error = true;
+                            returnModel.Message_Header = "Dil Güncelleme Başarısız";
+                            returnModel.Message_Content = "Dil güncelleme işlemi yaparken bir hata ile karşılaşıldı. Daha sonra tekrar deneyiniz.";
+                            returnModel.Model = null;
+                        }
+                    }
+                    else
+                    {
+                        returnModel.Is_Error = true;
+                        returnModel.Message_Header = "Dil Güncelleme Başarısız";
+                        returnModel.Message_Content = "Dil güncelleme işlemi yaparken bir hata ile karşılaşıldı. Daha sonra tekrar deneyiniz.";
+                        returnModel.Model = null;
+                    }
+                }
+            }
+            catch (Exception exc)
+            {
+                returnModel.Is_Error = true;
+                returnModel.Message_Header = "Sistem Hatası";
+                returnModel.Message_Content = "Hata Detayı: " + exc.Message;
+                returnModel.Model = null;
+            }
+
+            return returnModel;
+        }
+
+
 
     }
 }

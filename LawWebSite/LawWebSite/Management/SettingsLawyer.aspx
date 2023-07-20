@@ -1,6 +1,15 @@
 ﻿<%@ Page Title="Avukat Ayarları" Language="C#" MasterPageFile="~/Management/LawWebManagement.Master" AutoEventWireup="true" CodeBehind="SettingsLawyer.aspx.cs" Inherits="LawWebSite.Management.SettingsLawyer" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script>
+        function LbLawyerEditModal() {
+            $("#ModalLawyerNewEdit").modal("show");
+        }
+
+        function PopUpModalLawyerInformation() {
+            $("#ModalLawyerInformation").modal("show");
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="content-wrapper">
@@ -21,8 +30,7 @@
         </section>
 
         <section class="content mb-3">
-            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modal-default">Yeni Avukat Ekle
-            </a>
+            <asp:LinkButton runat="server" ID="LbLawyerEkle" OnClick="LbLawyerEkle_Click" CssClass="btn btn-primary">Yeni Avukat Ekle</asp:LinkButton>
         </section>
 
         <section class="content">
@@ -34,20 +42,21 @@
                     <table class="table table-striped projects">
                         <thead>
                             <tr>
-                                <th style="width: 7%">#Lawyer Id</th>
-                                <th style="width: 7%">Avukat Adı</th>
-                                <th style="width: 7%">Avukat Soyadı</th>
-                                <th style="width: 7%">Rütbesi</th>
-                                <th style="width: 7%">Fotoğrafı</th>
-                                <th style="width: 7%">Facebook</th>
-                                <th style="width: 7%">Twitter</th>
-                                <th style="width: 7%">Instgram</th>
-                                <th style="width: 7%">Linkedln</th>
-                                <th style="width: 7%">Email</th>
-                                <th style="width: 8%">Telefon Numarası</th>
-                                <th style="width: 8%">Açıklama</th>
-                                <th style="width: 7%">Panel Yöneticisimi</th>
-                                <th style="width: 7%">Şifresi</th>
+                                <th style="width: 7%"></th>
+                                <th style="width: 6%">#Lawyer Id</th>
+                                <th style="width: 6%">Avukat Adı</th>
+                                <th style="width: 6%">Avukat Soyadı</th>
+                                <th style="width: 6%">Rütbesi</th>
+                                <th style="width: 6%">Fotoğrafı</th>
+                                <th style="width: 6%">Facebook</th>
+                                <th style="width: 6%">Twitter</th>
+                                <th style="width: 6%">Instgram</th>
+                                <th style="width: 6%">Linkedln</th>
+                                <th style="width: 6%">Email</th>
+                                <th style="width: 9%">Telefon Numarası</th>
+                                <th style="width: 10%">Açıklama</th>
+                                <th style="width: 6%">Panel Yöneticisimi</th>
+                                <th style="width: 8%">Şifresi</th>
 
 
 
@@ -57,6 +66,21 @@
                             <asp:Repeater runat="server" ID="RLawyers">
                                 <ItemTemplate>
                                     <tr>
+                                        <td>
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                                                    <i class="fa-solid fa-cogs"></i>&nbsp;İşlem Yap&nbsp;
+                                                </button>
+                                                <div class="dropdown-menu p-0">
+                                                    <asp:LinkButton runat="server" ID="LbLawyerEdit" OnClick="LbLawyerEdit_Click" CommandArgument='<%#Eval("LawyerId") %>' CssClass="dropdown-item bg-info p-2">
+                                                            <i class="fa fa-pencil-alt"></i>&nbsp;Güncelle
+                                                    </asp:LinkButton>
+                                                    <asp:LinkButton runat="server" ID="LbLawyerDelete" OnClick="LbLawyerDelete_Click" CommandArgument='<%#Eval("LawyerId") %>' CssClass="dropdown-item bg-danger p-2">
+                                                            <i class="fa fa-trash"></i>&nbsp;Sil
+                                                    </asp:LinkButton>
+                                                </div>
+                                            </div>
+                                        </td>
 
                                         <td><%#Eval("LawyerId") %></td>
                                         <td><%#Eval("FirstName") %></td>
@@ -68,7 +92,7 @@
                                         <td><%#Eval("Instagram") %></td>
                                         <td><%#Eval("Linkedin") %></td>
                                         <td><%#Eval("Email") %></td>
-                                        <td><%#Eval("IsAdmin") %></td>
+                                        <td><%#Eval("PhoneNumber") %></td>
                                         <td><%#Eval("Description") %></td>
                                         <td><%#Eval("IsAdmin") %></td>
                                         <td><%#Eval("Password") %></td>
@@ -82,17 +106,18 @@
         </section>
     </div>
 
-    <div class="modal fade" id="modal-default">
+    <div class="modal fade" id="ModalLawyerNewEdit">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Yeni Avukat Ekle</h4>
+                    <h4 class="modal-title">
+                        <asp:Label runat="server" ID="LblLawyerAddEditHeader"></asp:Label></h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form class="form" role="form" autocomplete="off">
+                    <div class="form" role="form" autocomplete="off">
 
                         <div class="form-group row">
                             <label class="col-md-3 col-form-label form-control-label">Avukat Adı</label>
@@ -136,25 +161,25 @@
                                 <asp:TextBox runat="server" ID="txtLawyerInstgram" CssClass="form-control"></asp:TextBox>
                             </div>
                         </div>
-                         <div class="form-group row">
+                        <div class="form-group row">
                             <label class="col-md-3 col-form-label form-control-label">Linkedln</label>
                             <div class="col-md-9">
                                 <asp:TextBox runat="server" ID="txtLawyerLinkedln" CssClass="form-control"></asp:TextBox>
                             </div>
                         </div>
-                         <div class="form-group row">
+                        <div class="form-group row">
                             <label class="col-md-3 col-form-label form-control-label">Email</label>
                             <div class="col-md-9">
                                 <asp:TextBox runat="server" ID="txtLawyerEmail" CssClass="form-control"></asp:TextBox>
                             </div>
                         </div>
-                         <div class="form-group row">
+                        <div class="form-group row">
                             <label class="col-md-3 col-form-label form-control-label">Telefon Numarası</label>
                             <div class="col-md-9">
                                 <asp:TextBox runat="server" ID="txtLawyerTel" CssClass="form-control"></asp:TextBox>
                             </div>
                         </div>
-                         <div class="form-group row">
+                        <div class="form-group row">
                             <label class="col-md-3 col-form-label form-control-label">Açıklama</label>
                             <div class="col-md-9">
                                 <asp:TextBox runat="server" ID="txtLawyerDescription" CssClass="form-control"></asp:TextBox>
@@ -166,24 +191,43 @@
                                 <asp:TextBox runat="server" ID="txtLawyerAdmin" placeHolder="Admin ise 1 değilse 0 verilmesi gerekiyor" CssClass="form-control"></asp:TextBox>
                             </div>
                         </div>
-                         <div class="form-group row">
-                            <label class ="col-md-3 col-form-label form-control-label">Şifresi</label>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label form-control-label">Şifresi</label>
                             <div class="col-md-9">
                                 <asp:TextBox runat="server" ID="txtLawyerPassword" CssClass="form-control"></asp:TextBox>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
 
 
 
-                <div class="modal-footer justify-content-between">
-                    <asp:LinkButton runat="server" ID="lnkCloseLawyer" CssClass="btn btn-danger" OnClick="lnkCloseLawyer_Click">Pencereyi Kapat</asp:LinkButton>
-                    <asp:LinkButton runat="server" ID="lnkAddLawyer" CssClass="btn btn-primary" OnClick="lnkAddLawyer_Click">Yeni Avukat Ekle</asp:LinkButton>
+                <div class="modal-footer justify-content-end">
+                    <asp:LinkButton runat="server" ID="lnkAddLawyer" CssClass="btn btn-primary" OnClick="lnkAddLawyer_Click"></asp:LinkButton>
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Pencereyi Kapat</a>
                 </div>
 
             </div>
         </div>
     </div>
-
+    <!-- Bilgilendirme -->
+    <div class="modal fade" id="ModalLawyerInformation">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        <asp:Label runat="server" ID="LblLawyerModalHeader" /></h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <asp:Label runat="server" ID="LblLawyerModalBody" />
+                    </p>
+                </div>
+                <div class="modal-footer text-right">
+                    <a href="#" class="btn btn-primary" data-dismiss="modal">Tamam</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bilgilendirme -->
 </asp:Content>

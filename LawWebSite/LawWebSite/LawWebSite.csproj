@@ -1939,6 +1939,7 @@
     <Content Include="Management\SettingsLanguage.aspx" />
     <Content Include="Management\SettingsLawyer.aspx" />
     <Content Include="Management\SettingsMenu.aspx" />
+    <Content Include="Management\SettingsService.aspx" />
     <Content Include="Management\SettingsUserQuestions.aspx" />
     <Content Include="Models\LawEdModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -1951,7 +1952,9 @@
       <LastGenOutput>LawEdModel.cs</LastGenOutput>
     </Content>
     <Content Include="OurTeam.aspx" />
+    <Content Include="OurTeamDetail.aspx" />
     <Content Include="Question.aspx" />
+    <Content Include="ServiceDetail.aspx" />
     <Content Include="Services.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -2061,6 +2064,13 @@
     <Compile Include="Management\SettingsMenu.aspx.designer.cs">
       <DependentUpon>SettingsMenu.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Management\SettingsService.aspx.cs">
+      <DependentUpon>SettingsService.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management\SettingsService.aspx.designer.cs">
+      <DependentUpon>SettingsService.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Management\SettingsUserQuestions.aspx.cs">
       <DependentUpon>SettingsUserQuestions.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2114,6 +2124,13 @@
     <Compile Include="OurTeam.aspx.designer.cs">
       <DependentUpon>OurTeam.aspx</DependentUpon>
     </Compile>
+    <Compile Include="OurTeamDetail.aspx.cs">
+      <DependentUpon>OurTeamDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OurTeamDetail.aspx.designer.cs">
+      <DependentUpon>OurTeamDetail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Question.aspx.cs">
       <DependentUpon>Question.aspx</DependentUpon>
@@ -2121,6 +2138,13 @@
     </Compile>
     <Compile Include="Question.aspx.designer.cs">
       <DependentUpon>Question.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceDetail.aspx.cs">
+      <DependentUpon>ServiceDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ServiceDetail.aspx.designer.cs">
+      <DependentUpon>ServiceDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Services.aspx.cs">
       <DependentUpon>Services.aspx</DependentUpon>

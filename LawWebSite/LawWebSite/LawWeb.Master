@@ -29,7 +29,7 @@
     <form id="form1" runat="server">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" id="ftco-navbar">
             <div class="container">
-                <a class="navbar-brand" runat="server" href="~">Kozanoğlu Hukuk<span>.</span></a>
+                <a class="navbar-brand" runat="server" href="~"> <img src="Assets/images/category-2.jpg" class="img-fluid mr-2" alt="Kozanoğlu Hukuk" ></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="oi oi-menu"></span>Menu
                
@@ -68,7 +68,7 @@
                         <ItemTemplate>
                         <div class="col-md-4 ftco-animate">
                             <div class="blog-entry">
-                                <a href="single.html" class="img-2">
+                                <a href='BlogDetail?BlogDetailContent=<%#Eval("BlogId") %>' class="img-2">
                                     <img src="Assets/images/image_1.jpg" class="img-fluid" alt="Colorlib Template"></a>
                                 <div class="text pt-3">
                                     <p class="meta d-flex"><span class="pr-3"><%#Eval("BlogSubtitle") %></span><span class="ml-auto pl-3"><%#Eval("CreatedDate", "{0: dd/MM/yyyy}") %></span></p>

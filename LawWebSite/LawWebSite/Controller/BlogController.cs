@@ -81,7 +81,7 @@ namespace LawWebSite.Controller
                     {
                         returnModel.Is_Error = true;
                         returnModel.Message_Header = "Veritabanı Hatası";
-                        returnModel.Message_Content = "Veritabanından menü listesi alınamadı";
+                        returnModel.Message_Content = "Veritabanından blog listesi alınamadı";
                         returnModel.Model = null;
                         goto ReturnPointer;
                     }

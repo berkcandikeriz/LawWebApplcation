@@ -30,6 +30,8 @@ public partial class Language
 
         this.Blogs = new HashSet<Blog>();
 
+        this.Services = new HashSet<Service>();
+
     }
 
 
@@ -56,6 +58,10 @@ public partial class Language
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
     public virtual ICollection<Blog> Blogs { get; set; }
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+    public virtual ICollection<Service> Services { get; set; }
 
 }
 

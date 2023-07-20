@@ -12206,8 +12206,8 @@ h5,
     }
 
         .btn.btn-black:hover {
-            border: 1px solid #fd5f00 !important;
-            background: #fd5f00 !important;
+            border: 1px solid #2e2d2d !important;
+            background: #2e2d2d !important;
             color: #fff;
         }
 
@@ -13762,34 +13762,12 @@ div.owl-nav {
         -o-transition: all 0.4s;
         transition: all 0.4s;
         border: 1px solid #dee2e6;
+        cursor:pointer;
     }
 
     .whos-speaking-area .speakers .spk-img {
         position: relative;
     }
-
-        .whos-speaking-area .speakers .spk-img:before {
-            background: rgb(0 0 0 / 80%);
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            -webkit-transform: scale(0);
-            -ms-transform: scale(0);
-            transform: scale(0);
-            -webkit-transition: all 0.4s;
-            -o-transition: all 0.4s;
-            transition: all 0.4s;
-            z-index: 5;
-        }
-
-        .whos-speaking-area .speakers .spk-img:hover:before {
-            -webkit-transform: scale(1);
-            -ms-transform: scale(1);
-            transform: scale(1);
-        }
 
         .whos-speaking-area .speakers .spk-img img {
             width: 100%;
@@ -13797,109 +13775,79 @@ div.owl-nav {
             border-top-right-radius: 6px;
         }
 
-        .whos-speaking-area .speakers .spk-img ul {
-            position: absolute;
+    .whos-speaking-area .speakers .spk-info ul {
+        position: absolute;
+        display: inline-block;
+        width: 100px;
+        line-height: 3;
+        display: none;
+        -webkit-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        transition: all 0.4s;
+    }
+
+        .whos-speaking-area .speakers .spk-info ul li {
             display: inline-block;
-            top: 35%;
-            left: 40%;
-            width: 100px;
-            line-height: 3;
-            opacity: 0;
-            -webkit-transition: all 0.4s;
-            -o-transition: all 0.4s;
-            transition: all 0.4s;
+            margin: 0 3px;
+            -webkit-transform: perspective(50px) rotatey(80deg);
+            transform: perspective(50px) rotatey(80deg);
+            -webkit-transition: all 0.5s ease 0.2s;
+            -o-transition: all 0.5s ease 0.2s;
+            transition: all 0.5s ease 0.2s;
+            margin: 0 5px;
         }
 
-            .whos-speaking-area .speakers .spk-img ul:before {
-                position: absolute;
-                content: "";
-                height: 110px;
-                width: 110px;
-                background: transparent;
-                top: -15%;
-                left: -15px;
-                border: 1px solid #fff;
-                -webkit-transform: rotate(44deg) scale(1.4);
-                -ms-transform: rotate(44deg) scale(1.4);
-                transform: rotate(44deg) scale(1.4);
-                opacity: 0;
+            .whos-speaking-area .speakers .spk-info ul li a i.fa {
+                color: rgba(255, 78, 0, 0.8);
+                font-size: 18px;
                 -webkit-transition: all 0.4s;
                 -o-transition: all 0.4s;
                 transition: all 0.4s;
+                width: 28px;
+                color: #fff;
+                height: 28px;
+                line-height: 21px;
+                text-align: center;
             }
 
-            .whos-speaking-area .speakers .spk-img ul li {
-                display: inline-block;
-                margin: 0 3px;
-                -webkit-transform: perspective(50px) rotatey(80deg);
-                transform: perspective(50px) rotatey(80deg);
-                -webkit-transition: all 0.5s ease 0.2s;
-                -o-transition: all 0.5s ease 0.2s;
-                transition: all 0.5s ease 0.2s;
-                margin: 0 5px;
+                .whos-speaking-area .speakers .spk-info ul li a i.fa:hover {
+                    color: #0075ff;
+                }
+
+            .whos-speaking-area .speakers .spk-info ul li:nth-child(1) {
+                -webkit-transform: translate3d(0px, 0px, 0);
+                transform: translate3d(0px, 0px, 0);
             }
 
-                .whos-speaking-area .speakers .spk-img ul li a i.fa {
-                    color: rgba(255, 78, 0, 0.8);
-                    font-size: 18px;
-                    -webkit-transition: all 0.4s;
-                    -o-transition: all 0.4s;
-                    transition: all 0.4s;
-                    width: 28px;
-                    color: #fff;
-                    height: 28px;
-                    line-height: 21px;
-                    text-align: center;
-                }
+    .whos-speaking-area .speakers:hover ul {
+        left: 27%;
+        display: block;
+        z-index: 9;
+    }
+    .whos-speaking-area .speakers:hover .spk-info li p {
+        display: block;
+    }
 
-                    .whos-speaking-area .speakers .spk-img ul li a i.fa:hover {
-                        color: #0075ff;
-                    }
+    .whos-speaking-area .speakers:hover .spk-info h3 {
+        display: none;
+    }
 
-                .whos-speaking-area .speakers .spk-img ul li:nth-child(1) {
-                    -webkit-transform: translate3d(-53px, -50px, 0);
-                    transform: translate3d(-53px, -50px, 0);
-                }
+    .whos-speaking-area .speakers:hover .spk-info p {
+        display: none;
+    }
 
-                .whos-speaking-area .speakers .spk-img ul li:nth-child(2) {
-                    -webkit-transform: translate3d(53px, -50px, 0);
-                    transform: translate3d(53px, -50px, 0);
-                }
+    .whos-speaking-area .speakers .spk-info:hover ul:before {
+        display: block;
+        -webkit-transform: rotate(44deg) scale(1);
+        -ms-transform: rotate(44deg) scale(1);
+        transform: rotate(44deg) scale(1);
+    }
 
-                .whos-speaking-area .speakers .spk-img ul li:nth-child(3) {
-                    -webkit-transform: translate3d(-53px, 50px, 0);
-                    transform: translate3d(-53px, 50px, 0);
-                }
-
-                .whos-speaking-area .speakers .spk-img ul li:nth-child(4) {
-                    -webkit-transform: translate3d(53px, 50px, 0);
-                    transform: translate3d(53px, 50px, 0);
-                }
-
-        .whos-speaking-area .speakers .spk-img:hover ul {
-            left: 35%;
-            opacity: 1;
-            z-index: 9;
-        }
-
-            .whos-speaking-area .speakers .spk-img:hover ul:before {
-                opacity: 1;
-                -webkit-transform: rotate(44deg) scale(1);
-                -ms-transform: rotate(44deg) scale(1);
-                transform: rotate(44deg) scale(1);
-            }
-
-            .whos-speaking-area .speakers .spk-img:hover ul li:nth-child(1),
-            .whos-speaking-area .speakers .spk-img:hover ul li:nth-child(2),
-            .whos-speaking-area .speakers .spk-img:hover ul li:nth-child(3),
-            .whos-speaking-area .speakers .spk-img:hover ul li:nth-child(4) {
-                -webkit-transform: translate3d(0, 0, 0);
-                transform: translate3d(0, 0, 0);
-            }
 
     .whos-speaking-area .speakers .spk-info {
         text-align: center;
         padding: 30px 0;
+        min-height: 114px;
     }
 
         .whos-speaking-area .speakers .spk-info h3 {
@@ -13922,6 +13870,7 @@ div.owl-nav {
             margin-bottom: 0;
             color: #656565;
         }
+
 
 .whos-speaking-area-two .title-text h2 {
     color: #fff;
@@ -14022,12 +13971,14 @@ ul {
 .mb50 {
     margin-bottom: 50px;
 }
+
 .list-icons .list-group-item {
     background-color: #000000;
     border: 1px solid rgb(255 255 255 / 53%);
     color: #fff;
 }
-.list-icons .list-group-item a {
-    color: #fff !important;
-}
+
+    .list-icons .list-group-item a {
+        color: #fff !important;
+    }
 /*Custom Codes*/

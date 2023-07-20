@@ -45,10 +45,8 @@
                 </ul>
             </nav>
             <aside class="main-sidebar sidebar-dark-primary elevation-4">
-                <a href="Default.aspx" class="brand-link">
-                    <!--Buraya logo gelecek-->
-                    <%--<img src="../Assets/img/logo-official-white.png" class="img-fluid ml-2" width="75%" />--%>
-                    <h3>Kozanoğlu Hukuk</h3>
+                <a href="/Default.aspx" class="brand-link"
+                    <img src="../Assets/images/category-2.jpg" class="img-fluid mr-2" alt="Kozanoğlu Hukuk" >
                 </a>
 
                 <div class="sidebar">
@@ -96,7 +94,7 @@
                             </li>
                             <li class="nav-item">
                                 <a href="SettingsService.aspx" class="nav-link">
-                                    <i class="nav-icon fa fa-th"></i>&nbsp;<p>Hizmetler</p>
+                                    <i class="nav-icon fa fa-th"></i>&nbsp;<p>Hizmetlerimiz Ayarları</p>
                                 </a>
                             </li>
                             <li class="nav-item">

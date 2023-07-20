@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\LawWebSite",
+    "\\LawWebSite\\LawWebSite",
+    "\\LawWebSite\\LawWebSite\\Controller",
+    "\\LawWebSite\\LawWebSite\\Management"
   ],
-  "SelectedNode": "\\LawWebSite.sln",
+  "SelectedNode": "\\LawWebSite\\LawWebSite\\Management\\SettingsBlog.aspx",
   "PreviewInSolutionExplorer": false
 }
