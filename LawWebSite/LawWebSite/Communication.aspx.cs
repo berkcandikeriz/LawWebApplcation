@@ -22,17 +22,21 @@ namespace LawWebSite
 
         private void GetCommunications()
         {
-            ReturnModel<Models.Communication> GetCommunicationList = communicationController.GetCommunications();
+            ReturnModel<Models.Communication> GetCommunicationList = communicationController.GetCommunicationsByLanguageId(Global.GlobalLanguage.LanguageId);
 
             if (!GetCommunicationList.Is_Error)
             {
                 RCommunication.DataSource = GetCommunicationList.Model;
                 RCommunication.DataBind();
-                RCommunication.DataSource = communicationController.GetCommunicationsByLanguageId(Global.GlobalLanguage.LanguageId).Model;
-                RCommunication.DataBind();
+            }
 
+            var mapModel = contentController.GetContent(Global.GlobalLanguage.LanguageId, "IFrmMap").Model;
+            if (mapModel != null && mapModel.Any())
+            {
+                IFrmMap.Src = mapModel.FirstOrDefault().Description;
             }
         }
+
         protected void lnkAddQuestion_Click(object sender, EventArgs e)
         {
             if (IsValid)

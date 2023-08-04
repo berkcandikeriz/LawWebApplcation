@@ -36,12 +36,12 @@
           </Key>
           <Property Name="CommunicationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="LanguageId" Type="int" Nullable="false" />
-          <Property Name="Address" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="PhoneNumber" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="Mail" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="MidWeek" Type="int" Nullable="false" />
-          <Property Name="Saturday" Type="int" Nullable="false" />
-          <Property Name="Sunday" Type="int" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Mail" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="MidWeek" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Saturday" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sunday" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Content">
           <Key>
@@ -495,12 +495,12 @@
           </Key>
           <Property Name="CommunicationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="LanguageId" Type="Int32" Nullable="false" />
-          <Property Name="Address" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Mail" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="MidWeek" Type="Int32" Nullable="false" />
-          <Property Name="Saturday" Type="Int32" Nullable="false" />
-          <Property Name="Sunday" Type="Int32" Nullable="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Mail" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="MidWeek" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Saturday" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sunday" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Language" Relationship="DBLAW23Model.Communication_FK" FromRole="Communication" ToRole="Language" />
         </EntityType>
         <Association Name="Communication_FK">

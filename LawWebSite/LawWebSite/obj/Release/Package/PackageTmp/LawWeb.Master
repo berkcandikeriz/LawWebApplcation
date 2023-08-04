@@ -1,0 +1,173 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="LawWeb.master.cs" Inherits="LawWebSite.LawWeb" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title><%: Page.Title %> - Kozanoğlu Hukuk</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
+    <link rel="stylesheet" href="Assets/css/open-iconic-bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="Assets/css/animate.css">
+    <link rel="stylesheet" href="Assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="Assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="Assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="Assets/css/aos.css">
+    <link rel="stylesheet" href="Assets/css/ionicons.min.css">
+    <link rel="stylesheet" href="Assets/css/flaticon.css">
+    <link rel="stylesheet" href="Assets/css/icomoon.css">
+    <link rel="stylesheet" href="Assets/css/style.css">
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" id="ftco-navbar">
+            <div class="container">
+                <a class="navbar-brand" runat="server" href="~"> <img src="Assets/images/category-2.jpg" class="img-fluid banner-image mr-2" alt="Kozanoğlu Hukuk" ></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="oi oi-menu"></span>Menu
+               
+               
+                </button>
+
+                <div class="collapse navbar-collapse" id="ftco-nav">
+                    <ul class="navbar-nav ml-auto">
+                        <asp:Repeater runat="server" ID="RMenus">
+                            <ItemTemplate>
+                                <li class="nav-item"><a href='<%#Eval("Url") %>' class="nav-link"><%#Eval("Name") %></a></li>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+
+
+        <section class="ftco-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7 heading-section ftco-animate">
+                        <h2 class="mb-4"><span>
+                            <asp:Label ID="LblMasterBlog" runat="server"></asp:Label></span></h2>
+                    </div>
+                </div>
+                <div class="row">
+                      <asp:Repeater runat="server" ID="RMasterBlogs">
+                        <ItemTemplate>
+                        <div class="col-md-4 ftco-animate">
+                            <div class="blog-entry">
+                                <a href='BlogDetail?BlogDetailContent=<%#Eval("BlogId") %>' class="img-2">
+                                    <img src="<%# GetBlogImageUrl(Eval("ImageUrl")) %>" class="img-fluid" alt="Colorlib Template"></a>
+                                <div class="text pt-3">
+                                    <p class="meta d-flex"><span class="pr-3"><%#Eval("BlogSubtitle") %></span><span class="ml-auto pl-3"><%#Eval("CreatedDate", "{0: dd/MM/yyyy}") %></span></p>
+                                    <h3><a href="#"><%#Eval("BlogTitle") %></a></h3>
+                                    <p class="mb-0"><a href='BlogDetail?BlogDetailContent=<%#Eval("BlogId") %>' class="btn btn-black py-2">Devamını Oku <span class="icon-arrow_forward ml-4"></span></a></p>
+                                </div>
+                            </div>
+                        </div>
+                            </ItemTemplate>
+                              </asp:Repeater>
+                </div>
+            </div>
+        </section>
+
+     
+        <footer class="ftco-footer ftco-footer-2 ftco-section">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-md">
+                        <div class="ftco-footer-widget mb-4">
+                            <h2 class="ftco-heading-2"><asp:Label runat="server" ID="LblFooterColumn1" /></h2>
+                            <p>
+                         <asp:Label runat="server" ID="LblFooterDescription" />
+                           
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="ftco-footer-widget mb-4 ml-md-5">
+                            <h2 class="ftco-heading-2"><asp:Label runat="server" ID="LblFooterColumn2" /></h2>
+                            <ul class="list-unstyled">
+                                <li><a href="#" class="py-2 d-block"><span class="icon-facebook"></span>&nbsp;Facebook</a></li>
+                                <li><a href="#" class="py-2 d-block"><span class="icon-twitter"></span>&nbsp;Twitter</a></li>
+                                <li><a href="#" class="py-2 d-block"><span class="icon-instagram"></span>&nbsp;Instagram</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="ftco-footer-widget mb-4 ml-md-5">
+                            <h2 class="ftco-heading-2"><asp:Label runat="server" ID="LblFooterColumn3" /></h2>
+                            <ul class="list-unstyled">
+                                <li><a href="#" class="py-2 d-block"><asp:Label runat="server" ID="LblFooterOurTeam" /></a></li>
+                                <li><a href="#" class="py-2 d-block"><asp:Label runat="server" ID="LblFooterOurServices" /></a></li>
+                                 <li><a href="#" class="py-2 d-block"><asp:Label runat="server" ID="LblFooterBlog" /></a></li>
+                                 <li><a href="#" class="py-2 d-block"><asp:Label runat="server" ID="LblFooterAboutMe" /></a></li>
+                         
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="ftco-footer-widget mb-4">
+                            <h2 class="ftco-heading-2"><asp:Label runat="server" ID="LblFooterColumn4" /></h2>
+                            <div class="block-23 mb-3">
+                                <ul>
+                                    <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
+                                    <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
+                                    <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@site.av.tr</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-5">
+                    <div class="col-md-12">
+                        <hr style="background: rgba(255, 255, 255, 0.7);" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <p>
+                            <asp:Label runat="server" ID="LblCopyright" />&nbsp;&copy;&nbsp;<script>document.write(new Date().getFullYear());</script>&nbsp;-&nbsp;Kozanoğlu Hukuk
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <div id="ftco-loader" class="show fullscreen">
+            <svg class="circular" width="48px" height="48px">
+                <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+                <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" />
+            </svg>
+        </div>
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+        <script src="Assets/js/jquery.min.js"></script>
+        <script src="Assets/js/jquery-migrate-3.0.1.min.js"></script>
+        <script src="Assets/js/popper.min.js"></script>
+        <script src="Assets/js/bootstrap.min.js"></script>
+        <script src="Assets/js/jquery.easing.1.3.js"></script>
+        <script src="Assets/js/jquery.waypoints.min.js"></script>
+        <script src="Assets/js/jquery.stellar.min.js"></script>
+        <script src="Assets/js/owl.carousel.min.js"></script>
+        <script src="Assets/js/jquery.magnific-popup.min.js"></script>
+        <script src="Assets/js/aos.js"></script>
+        <script src="Assets/js/jquery.animateNumber.min.js"></script>
+        <script src="Assets/js/scrollax.min.js"></script>
+        <script src="Assets/js/google-map.js"></script>
+        <script src="Assets/js/main.js"></script>
+    </form>
+</body>
+</html>

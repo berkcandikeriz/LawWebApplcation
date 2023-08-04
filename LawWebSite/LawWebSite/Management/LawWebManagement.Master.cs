@@ -20,6 +20,11 @@ namespace LawWebSite.Management
                     LoginLawyer = Session["LoginLawyer"] as Models.Lawyer;
                     LblNameSurname.Text = LoginLawyer.FirstName + " " + LoginLawyer.LastName;
                 }
+                else
+                {
+                    Session.Abandon();
+                    Response.Redirect("~/Management/Login.aspx");
+                }
             }
             
         }

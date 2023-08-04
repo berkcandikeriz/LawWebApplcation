@@ -2,6 +2,7 @@
 using LawWebSite.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -26,7 +27,7 @@ namespace LawWebSite.Management
             var getLawyerModel = lawyerController.GetLawyers();
             if (!getLawyerModel.Is_Error)
             {
-                var sortedLawyers = getLawyerModel.Model.OrderBy(m => m.IsAdmin).ToList();
+                var sortedLawyers = getLawyerModel.Model.OrderBy(m => m.LawyerId).ToList();
                 RLawyers.DataSource = sortedLawyers;
                 RLawyers.DataBind();
             }
@@ -37,7 +38,7 @@ namespace LawWebSite.Management
             txtLawyerName.Text = string.Empty;
             txtLawyerSurname.Text = string.Empty;
             txtLawyerTitle.Text = string.Empty;
-            txtLawyerImage.Text = string.Empty;
+            Session["LawyerImage"] = null;
             txtLawyerFacebook.Text = string.Empty;
             txtLawyerTwitter.Text = string.Empty;
             txtLawyerInstgram.Text = string.Empty;
@@ -46,7 +47,6 @@ namespace LawWebSite.Management
             txtLawyerTel.Text = string.Empty;
             txtLawyerDescription.Text = string.Empty;
             DdlAdminSeciniz.SelectedIndex = 0;
-            txtLawyerPassword.Text = string.Empty;
         }
 
         protected void lnkAddLawyer_Click(object sender, EventArgs e)
@@ -55,13 +55,34 @@ namespace LawWebSite.Management
             {
                 Models.Lawyer selectedLawyerItem = Session["selectedLawyerItem"] as Models.Lawyer;
 
+                string LawyerImage = string.Empty;
+                if (Session["LawyerImage"] != null)
+                {
+                    LawyerImage = Session["LawyerImage"].ToString();
+                }
+
+                if (FuLawyerPhoto.HasFile)
+                {
+                    string DeleteImagePath = Path.Combine(Server.MapPath("~/Assets/Uploads/"), LawyerImage);
+                    if (File.Exists(DeleteImagePath))
+                        File.Delete(DeleteImagePath);
+
+                    Guid guid = Guid.NewGuid();
+                    FileInfo fi = new FileInfo(FuLawyerPhoto.FileName);
+                    string NewImagePath = Path.Combine(Server.MapPath("~/Assets/Uploads/"), guid + fi.Extension);
+                    string NewImageName = guid + fi.Extension;
+
+                    FuLawyerPhoto.SaveAs(NewImagePath);
+                    LawyerImage = NewImageName;
+                }
+
                 Models.Lawyer newLawyer = new Models.Lawyer()
                 {
                     LawyerId = selectedLawyerItem.LawyerId,
                     FirstName = txtLawyerName.Text,
                     LastName = txtLawyerSurname.Text,
                     Title = txtLawyerTitle.Text,
-                    ImgUrl = txtLawyerImage.Text,
+                    ImgUrl = LawyerImage,
                     Facebook = txtLawyerFacebook.Text,
                     Twitter = txtLawyerTwitter.Text,
                     Instagram = txtLawyerInstgram.Text,
@@ -71,17 +92,10 @@ namespace LawWebSite.Management
                     Description = txtLawyerDescription.Text
                 };
 
-                
-                if (bool.TryParse(DdlAdminSeciniz.SelectedValue, out bool isAdmin))
-                {
-                    newLawyer.IsAdmin = isAdmin;
-                }
-                else
-                {
-                    newLawyer.IsAdmin = false;
-                }
 
-                newLawyer.Password = txtLawyerPassword.Text;
+                newLawyer.IsAdmin = int.Parse(DdlAdminSeciniz.SelectedValue) == 1 ? true : false;
+
+                newLawyer.Password = selectedLawyerItem.Password;
 
                 var result = lawyerController.UpdateLawyer(newLawyer);
 
@@ -104,12 +118,29 @@ namespace LawWebSite.Management
             }
             else
             {
+
+                string LawyerImage = string.Empty;
+                if (FuLawyerPhoto.HasFile)
+                {
+                    Guid guid = Guid.NewGuid();
+                    FileInfo fi = new FileInfo(FuLawyerPhoto.FileName);
+                    string NewImagePath = Path.Combine(Server.MapPath("~/Assets/Uploads/"), guid + fi.Extension);
+                    string NewImageName = guid + fi.Extension;
+
+                    FuLawyerPhoto.SaveAs(NewImagePath);
+                    LawyerImage = NewImageName;
+                }
+                else
+                {
+                    LawyerImage = "user_profil.jpg";
+                }
+
                 Models.Lawyer newLawyer = new Models.Lawyer()
                 {
                     FirstName = txtLawyerName.Text,
                     LastName = txtLawyerSurname.Text,
                     Title = txtLawyerTitle.Text,
-                    ImgUrl = txtLawyerImage.Text,
+                    ImgUrl = LawyerImage,
                     Facebook = txtLawyerFacebook.Text,
                     Twitter = txtLawyerTwitter.Text,
                     Instagram = txtLawyerInstgram.Text,
@@ -119,17 +150,9 @@ namespace LawWebSite.Management
                     Description = txtLawyerDescription.Text
                 };
 
-             
-                if (bool.TryParse(DdlAdminSeciniz.SelectedValue, out bool isAdmin))
-                {
-                    newLawyer.IsAdmin = isAdmin;
-                }
-                else
-                {
-                    newLawyer.IsAdmin = false;
-                }
+                newLawyer.IsAdmin = int.Parse(DdlAdminSeciniz.SelectedValue) == 1 ? true : false;
 
-                newLawyer.Password = txtLawyerPassword.Text;
+                newLawyer.Password = string.Empty;
 
                 var result = lawyerController.InsertLawyer(newLawyer);
 
@@ -167,7 +190,7 @@ namespace LawWebSite.Management
                 txtLawyerName.Text = selectedLawyerItem.FirstName;
                 txtLawyerSurname.Text = selectedLawyerItem.LastName;
                 txtLawyerTitle.Text = selectedLawyerItem.Title;
-                txtLawyerImage.Text = selectedLawyerItem.ImgUrl;
+                Session["LawyerImage"] = selectedLawyerItem.ImgUrl;
                 txtLawyerFacebook.Text = selectedLawyerItem.Facebook;
                 txtLawyerTwitter.Text = selectedLawyerItem.Twitter;
                 txtLawyerInstgram.Text = selectedLawyerItem.Instagram;
@@ -176,7 +199,6 @@ namespace LawWebSite.Management
                 txtLawyerTel.Text = selectedLawyerItem.PhoneNumber;
                 txtLawyerDescription.Text = selectedLawyerItem.Description;
                 DdlAdminSeciniz.SelectedValue = selectedLawyerItem.IsAdmin.ToString();
-                txtLawyerPassword.Text = selectedLawyerItem.Password;
 
                 Session["selectedLawyerItem"] = selectedLawyerItem;
 

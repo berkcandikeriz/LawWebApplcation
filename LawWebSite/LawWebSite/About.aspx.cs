@@ -23,7 +23,6 @@ namespace LawWebSite
             {
                 GetAbouts();
                 RenderBody();
-                GetAboutImage();
             }
         }
 
@@ -33,51 +32,33 @@ namespace LawWebSite
             if (aboutModel != null && aboutModel.Any())
             {
                 LblAbout.Text = aboutModel.FirstOrDefault().Description;
+                Page.Title = aboutModel.FirstOrDefault().Description;
             }
         }
 
         private void GetAbouts()
         {
-            ReturnModel<Models.About> GetAboutList = aboutController.GetAbouts();
+            ReturnModel<Models.About> GetAboutList = aboutController.GetAboutsByLanguageId(Global.GlobalLanguage.LanguageId);
 
             if (!GetAboutList.Is_Error)
             {
                 RAbouts.DataSource = GetAboutList.Model;
                 RAbouts.DataBind();
-                RAbouts.DataSource = aboutController.GetAboutsByLanguageId(Global.GlobalLanguage.LanguageId).Model;
-                RAbouts.DataBind();
 
-            }
-        }
-
-        private void GetAboutImage()
-        {
-            if (!string.IsNullOrEmpty(Request.QueryString["AboutContent"]))
-            {
-                int AboutId = 0;
-                if (int.TryParse(Request.QueryString["AboutContent"], out AboutId))
+                if (!string.IsNullOrEmpty(GetAboutList.Model[0].ImageUrl.Trim()) && GetAboutList.Model[0].ImageUrl.Trim() != "#")
                 {
-                    var result = aboutController.GetAboutByAboutId(AboutId);
-                    if (!result.Is_Error)
+                    if (GetAboutList.Model[0].ImageUrl.Contains("http"))
                     {
-                        var SelectedAbout = result.Model[0];
-
-                        if (!string.IsNullOrEmpty(SelectedAbout.ImageUrl.Trim()) && SelectedAbout.ImageUrl.Trim() != "#")
-                        {
-                            if (SelectedAbout.ImageUrl.Contains("http"))
-                            {
-                                ImgAboutImageUrl.ImageUrl = SelectedAbout.ImageUrl;
-                            }
-                            else
-                            {
-                                ImgAboutImageUrl.ImageUrl = "/Assets/Uploads/" + SelectedAbout.ImageUrl;
-                            }
-                        }
-                        else
-                        {
-                            ImgAboutImageUrl.ImageUrl = "Assets/images/aile-siddet.jpg";
-                        }
+                        ImgAboutImageUrl.ImageUrl = GetAboutList.Model[0].ImageUrl;
                     }
+                    else
+                    {
+                        ImgAboutImageUrl.ImageUrl = "Assets/Uploads/" + GetAboutList.Model[0].ImageUrl;
+                    }
+                }
+                else
+                {
+                    ImgAboutImageUrl.ImageUrl = "Assets/images/aile-siddet.jpg";
                 }
             }
         }

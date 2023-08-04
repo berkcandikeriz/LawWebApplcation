@@ -33,6 +33,7 @@ namespace LawWebSite
             if (blogModel != null && blogModel.Any())
             {
                 LblBlog.Text = blogModel.FirstOrDefault().Description;
+                Page.Title = blogModel.FirstOrDefault().Description;
             }
         }
 

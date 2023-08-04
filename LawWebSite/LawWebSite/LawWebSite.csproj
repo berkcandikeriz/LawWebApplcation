@@ -135,6 +135,7 @@
     <Content Include="Assets\fonts\ionicons\css\ionicons.min.css" />
     <Content Include="Assets\fonts\ionicons\fonts\ionicons.svg" />
     <Content Include="Assets\fonts\open-iconic\open-iconic.svg" />
+    <Content Include="Assets\images\user_profil.jpg" />
     <Content Include="Assets\js\aos.js" />
     <Content Include="Assets\js\bootstrap.min.js" />
     <Content Include="Assets\js\google-map.js" />
@@ -150,6 +151,9 @@
     <Content Include="Assets\js\owl.carousel.min.js" />
     <Content Include="Assets\js\popper.min.js" />
     <Content Include="Assets\js\scrollax.min.js" />
+    <Content Include="Assets\Uploads\3c15dafd-4074-4088-bb7a-6ddcfa194171.jpg" />
+    <Content Include="Assets\Uploads\bf9bb0e0-1ba5-4be1-87db-2c0046790522.jpg" />
+    <Content Include="Assets\Uploads\user_profil.jpg" />
     <Content Include="Blog.aspx" />
     <Content Include="BlogDetail.aspx" />
     <Content Include="Communication.aspx" />
@@ -197,7 +201,6 @@
     <Content Include="Assets\images\blog-5.jpg" />
     <Content Include="Assets\images\blog-6.jpg" />
     <Content Include="Assets\images\blog-7.jpg" />
-    <Content Include="Assets\images\blog-8.jpg" />
     <Content Include="Assets\images\blog-9.jpg" />
     <Content Include="Assets\images\category-1.jpg" />
     <Content Include="Assets\images\category-2.jpg" />
@@ -2172,7 +2175,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Assets\Uploads\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Html_Template\.DS_Store" />

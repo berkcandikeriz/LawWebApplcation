@@ -45,17 +45,5 @@ namespace LawWebSite
                 ROurTeam.DataBind();
             }
         }
-
-        protected string GetOurTeamImageUrl(object imageObject)
-        {
-            string imageUrl = imageObject as string;
-
-            if (string.IsNullOrEmpty(imageUrl) || imageUrl == "#")
-            {
-                return "Assets/images/user_profil.jpg";
-            }
-
-            return imageUrl;
-        }
     }
 }

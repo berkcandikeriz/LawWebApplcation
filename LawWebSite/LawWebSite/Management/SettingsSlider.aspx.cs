@@ -71,8 +71,8 @@ namespace LawWebSite.Management
                 {
                     SliderId = selectedSliderItem.SliderId,
                     LanguageId = int.Parse(DdlSliderDilSeciniz.SelectedValue),
-                    SliderTitle = txtSliderTitle.Text,
-                    SliderSubTitle = txtSliderSubtitle.Text,
+                    SliderTitle = txtSliderTitle.Text.ToUpper(),
+                    SliderSubTitle = txtSliderSubtitle.Text.ToUpper(),
                     SliderDescription = txtSliderDescription.Text,
                     ImageUrl = txtSliderImgUrl.Text,
                 };
@@ -101,8 +101,8 @@ namespace LawWebSite.Management
                 Models.Slider newSlider = new Models.Slider()
                 {
                     LanguageId = int.Parse(DdlSliderDilSeciniz.SelectedValue),
-                    SliderTitle = txtSliderTitle.Text,
-                    SliderSubTitle = txtSliderSubtitle.Text,
+                    SliderTitle = txtSliderTitle.Text.ToUpper(),
+                    SliderSubTitle = txtSliderSubtitle.Text.ToUpper(),
                     SliderDescription = txtSliderDescription.Text,
                     ImageUrl = txtSliderImgUrl.Text,
                 };
