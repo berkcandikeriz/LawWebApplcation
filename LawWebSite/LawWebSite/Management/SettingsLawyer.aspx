@@ -21,7 +21,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">Avukatlarımız</a></li>
                             <li class="breadcrumb-item active"><i class="fa fa-users"></i>&nbsp;<%: Page.Title %></li>
                         </ol>
                     </div>
@@ -188,7 +188,12 @@
                         <div class="form-group row">
                             <label class="col-md-3 col-form-label form-control-label">Panel Yöneticisimi</label>
                             <div class="col-md-9">
-                                <asp:TextBox runat="server" ID="txtLawyerAdmin" placeHolder="Admin ise 1 değilse 0 verilmesi gerekiyor" CssClass="form-control"></asp:TextBox>
+                                <asp:DropDownList runat="server" ID="DdlAdminSeciniz" CssClass="form-control">
+
+                                    <asp:ListItem Text="Evet" Value="1"></asp:ListItem>
+                                    <asp:ListItem Text="Hayır" Value="0"></asp:ListItem>
+
+                                </asp:DropDownList>
                             </div>
                         </div>
                         <div class="form-group row">

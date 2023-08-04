@@ -50,8 +50,8 @@ namespace LawWebSite.Management
 
                 if (!result.Is_Error)
                 {
-                    LblLanguageModalHeader.Text = "Language Update Successful";
-                    LblLanguageModalBody.Text = "The language has been successfully updated.";
+                    LblLanguageModalHeader.Text = "Dil Güncelleme Başarılı";
+                    LblLanguageModalBody.Text = "Dil başarıyla güncellenmiştir.";
                     ClientScript.RegisterStartupScript(this.GetType(), "Popup", "PopUpLanguageModalInformation();", true);
 
                     GetLanguages();
@@ -77,8 +77,8 @@ namespace LawWebSite.Management
 
                 if (!result.Is_Error)
                 {
-                    LblLanguageModalHeader.Text = "Language Addition Successful";
-                    LblLanguageModalBody.Text = "The language has been successfully added.";
+                    LblLanguageModalHeader.Text = "Dil Güncelleme Başarılı";
+                    LblLanguageModalBody.Text = "Dil başarıyla güncellenmiştir.";
                     ClientScript.RegisterStartupScript(this.GetType(), "Popup", "PopUpLanguageModalInformation();", true);
 
                     GetLanguages();

@@ -30,7 +30,9 @@
                 <div class="inner-box">
 
                     <div class="icon-box">
-                     <img class="w-100"  src="https://www.agahhukuk.com/wp-content/themes/avukat/ortak/assets/images/idarehukuk.jpg" alt="<%#Eval("Title") %>">
+                        
+                  <img class="w-100" src="<%# GetServiceImageUrl(Eval("Image")) %>" alt="<%#Eval("Title") %>">
+
 
                     <h3><%#Eval("Title") %></h3>
 
@@ -53,6 +55,7 @@
                 </div>
 
             </div>
+                </div>
                   </ItemTemplate>
                 </asp:Repeater>
         </div>

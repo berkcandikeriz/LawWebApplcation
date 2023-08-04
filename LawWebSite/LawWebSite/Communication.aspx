@@ -4,32 +4,86 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <section class="mb-5">
+
         <div class="container mt-5">
-            <div class="row d-flex justify-content-center">
-                <div class="col-lg-6 text-end">
-                 
-                    <h4 class="heading-primary text-center"><asp:Label ID="LblContactInformation" runat="server" ></asp:Label></h4>
-                    <ul class="list-group list list-icons list-icons-style-3 mt-4 text-center">
-
-                        <li class="list-group-item">İstanbul/Türkiye</li>
-
-                        <li class="list-group-item"><a href="https://api.whatsapp.com/send?phone=9+90 544 651 0420">+90 544 651 0420 </a></li>
-
-                        <li class="list-group-item"><strong></strong><a href="mailto:#">İnfo@kozanoglu.av.tr</a></li>
-
-                    </ul>
+            <div class="row d-flex justify-content-cen
+                ter">
+                <div class="col-lg-7">
+                    <div class="form" role="form" autocomplete="off">
+                        <h4 style="margin-bottom: 28px; text-align: center;">İletişim Formu</h4>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label form-control-label">Ad</label>
+                            <div class="col-lg-7">
+                                <asp:TextBox runat="server" ID="questionName" CssClass="form-control"></asp:TextBox>
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="questionName"
+                                    ErrorMessage="Ad alanı boş bırakılamaz." ValidationGroup="validationGroup"></asp:RequiredFieldValidator>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Soyad</label>
+                            <div class="col-lg-7">
+                                <asp:TextBox runat="server" ID="questionSurname" CssClass="form-control"></asp:TextBox>
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="questionSurname"
+                                    ErrorMessage="Soyad alanı boş bırakılamaz." ValidationGroup="validationGroup"></asp:RequiredFieldValidator>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">E-posta:</label>
+                            <div class="col-lg-7">
+                                <asp:TextBox runat="server" ID="questionMail" CssClass="form-control"></asp:TextBox>
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="questionMail"
+                                    ErrorMessage="E-posta alanı boş bırakılamaz." ValidationGroup="validationGroup"></asp:RequiredFieldValidator>
+                                <asp:RegularExpressionValidator runat="server" ControlToValidate="questionMail"
+                                    ErrorMessage="Geçerli bir e-posta adresi giriniz." ValidationExpression="^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$"
+                                    ValidationGroup="validationGroup"></asp:RegularExpressionValidator>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Telefon:</label>
+                            <div class="col-lg-7">
+                                <asp:TextBox runat="server" ID="questionPhoneNumber" CssClass="form-control"></asp:TextBox>
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="questionPhoneNumber"
+                                    ErrorMessage="Telefon alanı boş bırakılamaz." ValidationGroup="validationGroup"></asp:RequiredFieldValidator>
+                                <asp:RegularExpressionValidator runat="server" ControlToValidate="questionPhoneNumber"
+                                    ErrorMessage="Geçerli bir telefon numarası giriniz." ValidationExpression="^\d[\d\s-]*\d$"
+                                    ValidationGroup="validationGroup"></asp:RegularExpressionValidator>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Soru:</label>
+                            <div class="col-lg-7">
+                                <asp:TextBox runat="server" TextMode="MultiLine" Rows="5" ID="question" CssClass="form-control"></asp:TextBox>
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="question"
+                                    ErrorMessage="Soru alanı boş bırakılamaz." ValidationGroup="validationGroup"></asp:RequiredFieldValidator>
+                            </div>
+                        </div>
+                        <div class="modal-footer justify-content-end">
+                            <asp:LinkButton runat="server" ID="questionSubmitBtn" CssClass="btn btn-black" OnClick="lnkAddQuestion_Click" ValidationGroup="validationGroup">Gönder</asp:LinkButton>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="col-lg-6" style="border-left: 1px solid #e2e2e2;">
-                    <h4 class="heading-primary text-center"><asp:Label runat="server" ID="LblWorkHour" /></h4>
-                    <ul class="list-group list list-icons list-dark mt-4 text-center">
+                <asp:Repeater runat="server" ID="RCommunication">
+                    <ItemTemplate>
+                        <div class="col-lg-5" style="border-left: 1px solid #e2e2e2;">
+                            <h4 class="heading-primary text-center">İletişim Bilgileri</h4>
 
-                        <li class="list-group-item"><i class="far fa-clock"></i>Hafta içi - 09:00 - 19.00</li>
-                        <li class="list-group-item"><i class="far fa-clock"></i>Cumartesi - 09:00 - 19.00</li>
-                        <li class="list-group-item"><i class="far fa-clock"></i>Pazar - Kapalı</li>
+                            <ul class="list-group list list-icons list-icons-style-3 mt-4 text-center">
+                                <li class="list-group-item"><%#Eval("Adress") %></li>
+                                <li class="list-group-item"><%#Eval("PhoneNumber") %></li>
+                                <li class="list-group-item"><%#Eval("Mail") %></li>
+                            </ul>
+                            <h4 class="heading-primary text-center mt-5">Çalışma Saatleri</h4>
+                            <ul class="list-group list list-icons list-dark mt-4 text-center">
 
-                    </ul>
-                </div>
+                                <li class="list-group-item"><i class="far fa-clock"></i>Pazartesi - Cuma: <%#Eval("MidWeek") %></li>
+                                <li class="list-group-item"><i class="far fa-clock"></i>Cumartesi: <%#Eval("Saturday") %></li>
+                                <li class="list-group-item"><i class="far fa-clock"></i>Pazar: <%#Eval("Sunday") %></li>
+
+                            </ul>
+                        </div>
+                    </ItemTemplate>
+                </asp:Repeater>
             </div>
 
         </div>
@@ -39,8 +93,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-12" style="width: 100%;">
-                    <iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=tr&amp;q=Levent+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a
-                        href="https://www.maps.ie/distance-area-calculator.html">measure area map</a></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3015.178820685519!2d29.175904615411103!3d40.91182487931068!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDDCsDU0JzQyLjYiTiAyOcKwMTAnNDEuMSJF!5e0!3m2!1str!2str!4v1690627214418!5m2!1str!2str" width="100%" height="450" style="border: 0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
                 </div>
             </div>
         </div>

@@ -25,7 +25,7 @@
 
                 <div class="col-lg-4 sidebar pr-lg-5 ftco-animate">
                     <div class="sidebar-box ftco-animate">
-                        <asp:Image runat="server" ID="ImgImageUrl" CssClass="img-fluid img-thumbnail" />
+                        <asp:Image runat="server" ID="ServiceDetailImageUrl" CssClass="img-fluid img-thumbnail" />
                     </div>                        
                 </div>
             </div>

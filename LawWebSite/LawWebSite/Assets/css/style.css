@@ -151,6 +151,10 @@ small {
     font-size: 80%;
 }
 
+.ourTeam small {
+    display: flex !important;
+}
+
 sub,
 sup {
     position: relative;
@@ -6384,6 +6388,26 @@ a.close.disabled {
     pointer-events: none;
 }
 
+.fa-twitter {
+    color: #000 !important
+}
+
+.fa-envelope {
+    color: #000 !important
+}
+
+.fa-linkedin {
+    color: #000 !important;
+}
+
+.fa-instagram {
+    color: #000 !important
+}
+
+.fa-phone {
+    color: #000 !important
+}
+
 .toast {
     max-width: 350px;
     overflow: hidden;
@@ -11553,7 +11577,7 @@ h5,
 
 @media (max-width: 991.98px) {
     .ftco-navbar-light {
-        background: #000000 !important;
+        background: #fff !important;
         position: relative;
         top: 0;
         padding-top: 0;
@@ -11578,6 +11602,12 @@ h5,
 }
 
 @media (max-width: 991.98px) {
+    .banner-image {
+        max-width: 35%;
+        height: auto;
+    }
+}
+@media (max-width: 991.98px) {
     .ftco-navbar-light .navbar-nav {
         padding-bottom: 20px;
         margin-left: 20px !important;
@@ -11594,11 +11624,12 @@ h5,
     color: #000000;
     font-weight: 400;
     opacity: 1 !important;
+    text-wrap: nowrap;
 }
 
     .ftco-navbar-light .navbar-nav > .nav-item > .nav-link:hover,
     .ftco-navbar-light .navbar-nav > .nav-item > .nav-link:focus {
-        color: #000000;
+        border-bottom: 1px solid #fff;
     }
 
 @media (max-width: 991.98px) {
@@ -11684,7 +11715,7 @@ h5,
 
 .ftco-navbar-light .navbar-toggler {
     border: none;
-    color: rgba(255, 255, 255, 0.5) !important;
+    color: #000 !important;
     cursor: pointer;
     padding-right: 0;
     text-transform: uppercase;
@@ -11746,7 +11777,11 @@ h5,
 .ftco-navbar-light.scrolled .nav-item.cta.cta-colored span {
     border-color: #fd5f00;
 }
-
+@media (max-width: 991.98px) {
+    #ftco-nav {
+       background:#000;
+    }
+}
 @media (max-width: 991.98px) {
     .ftco-navbar-light.scrolled .navbar-nav {
         background: none;
@@ -13762,7 +13797,7 @@ div.owl-nav {
         -o-transition: all 0.4s;
         transition: all 0.4s;
         border: 1px solid #dee2e6;
-        cursor:pointer;
+        cursor: pointer;
     }
 
     .whos-speaking-area .speakers .spk-img {
@@ -13824,6 +13859,7 @@ div.owl-nav {
         display: block;
         z-index: 9;
     }
+
     .whos-speaking-area .speakers:hover .spk-info li p {
         display: block;
     }
@@ -13973,9 +14009,11 @@ ul {
 }
 
 .list-icons .list-group-item {
-    background-color: #000000;
-    border: 1px solid rgb(255 255 255 / 53%);
+    border: none;
     color: #fff;
+    margin: 1px;
+    border-bottom: 1px solid #ececec;
+    background-color: #000
 }
 
     .list-icons .list-group-item a {

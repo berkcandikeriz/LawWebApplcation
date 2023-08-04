@@ -26,6 +26,7 @@ namespace LawWebSite
                 RenderBody();
             }
         }
+
         private void RenderBody()
         {
             var ourTeamModel = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblOurLawyers").Model;
@@ -34,6 +35,7 @@ namespace LawWebSite
                 LblOurLawyers.Text = ourTeamModel.FirstOrDefault().Description;
             }
         }
+
         private void GetLawyers()
         {
             ReturnModel<Lawyer> GetLawyerList = lawyerController.GetLawyers();
@@ -42,6 +44,18 @@ namespace LawWebSite
                 ROurTeam.DataSource = GetLawyerList.Model;
                 ROurTeam.DataBind();
             }
+        }
+
+        protected string GetOurTeamImageUrl(object imageObject)
+        {
+            string imageUrl = imageObject as string;
+
+            if (string.IsNullOrEmpty(imageUrl) || imageUrl == "#")
+            {
+                return "Assets/images/user_profil.jpg";
+            }
+
+            return imageUrl;
         }
     }
 }

@@ -22,7 +22,8 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">Menü
+                                                        </a></li>
                             <li class="breadcrumb-item active"><i class="fa fa-list nav-icon"></i>&nbsp;<%: Page.Title %></li>
                         </ol>
                     </div>

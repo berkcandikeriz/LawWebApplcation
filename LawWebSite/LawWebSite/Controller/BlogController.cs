@@ -116,7 +116,7 @@ namespace LawWebSite.Controller
                     ent.Configuration.LazyLoadingEnabled = false;
                     ent.Configuration.ProxyCreationEnabled = false;
 
-                    var getBlogs = ent.Blogs.Include("Language").Where(x => x.LanguageId == LanguageId).OrderByDescending(x => x.CreatedDate).ToList();
+                    var getBlogs = ent.Blogs.Include("Language").Where(x => x.LanguageId == LanguageId).OrderBy(x => x.OrderNumber).ToList();
                     if (getBlogs != null && getBlogs.Count > 0)
                     {
                         returnModel.Is_Error = false;
@@ -260,6 +260,7 @@ namespace LawWebSite.Controller
                     selectedBlogItem.ImageUrl = model.ImageUrl;
                     selectedBlogItem.CreatedDate = model.CreatedDate;
                     selectedBlogItem.UpdateDate = model.UpdateDate;
+                    selectedBlogItem.OrderNumber = model.OrderNumber;
 
                     int affectedRows = ent.SaveChanges();
 

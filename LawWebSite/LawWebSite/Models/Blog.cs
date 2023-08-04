@@ -38,6 +38,8 @@ public partial class Blog
 
     public Nullable<System.DateTime> UpdateDate { get; set; }
 
+    public Nullable<int> OrderNumber { get; set; }
+
 
 
     public virtual Language Language { get; set; }

@@ -2,40 +2,45 @@
 using LawWebSite.Controller;
 using LawWebSite.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace LawWebSite
 {
     public partial class Default : System.Web.UI.Page
     {
-        #region
-        HomeController homeController = new HomeController();
-        #endregion
+        private SliderController sliderController = new SliderController();
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                GetHomes();
+                GetSliders();
+     
             }
         }
 
-        private void GetHomes()
+        private void GetSliders()
         {
-            ReturnModel<Models.Home> GetHomeList = homeController.GetHomes();
+            ReturnModel<Models.Slider> GetSliderList = sliderController.GetSlidersByLanguageId(Global.GlobalLanguage.LanguageId);
 
-            if (!GetHomeList.Is_Error)
+            if (!GetSliderList.Is_Error)
             {
-                RHomes.DataSource = GetHomeList.Model;
-                RHomes.DataBind();
-                RHomes.DataSource = homeController.GetHomesByLanguageId(Global.GlobalLanguage.LanguageId).Model;
-                RHomes.DataBind();
-
+                RSliders.DataSource = GetSliderList.Model;
+                RSliders.DataBind();
             }
         }
+
+        protected string GetImageUrl(object ImageUrl)
+        {
+            string imageUrl = ImageUrl as string;
+
+            if (string.IsNullOrEmpty(imageUrl) || imageUrl == "#")
+            {
+                return "Assets/images/bg_6.jpg";
+            }
+
+            return imageUrl;
+        }
+
     }
 }

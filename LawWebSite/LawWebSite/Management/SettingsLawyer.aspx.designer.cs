@@ -141,13 +141,13 @@ namespace LawWebSite.Management
         protected global::System.Web.UI.WebControls.TextBox txtLawyerDescription;
 
         /// <summary>
-        /// txtLawyerAdmin control.
+        /// DdlAdminSeciniz control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLawyerAdmin;
+        protected global::System.Web.UI.WebControls.DropDownList DdlAdminSeciniz;
 
         /// <summary>
         /// txtLawyerPassword control.

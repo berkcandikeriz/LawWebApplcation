@@ -29,7 +29,7 @@
                                 <div class="col-md-4 ftco-animate">
                                     <div class="blog-entry">
                                         <a href='BlogDetail?BlogDetailContent=<%#Eval("BlogId") %>' class="img-2">
-                                            <img src="Assets/images/image_1.jpg" class="img-fluid" alt="Colorlib Template"></a>
+                                            <img src="<%# GetBlogImageUrl(Eval("ImageUrl")) %>" class="img-fluid" alt="Colorlib Template"></a>
                                         <div class="text pt-3">
                                             <p class="meta d-flex"><span class="pr-3"><%#Eval("BlogSubtitle") %></span><span class="ml-auto pl-3"><%#Eval("CreatedDate", "{0: dd/MM/yyyy}") %></span></p>
                                             <h3><a href="#"><%#Eval("BlogTitle") %></a></h3>

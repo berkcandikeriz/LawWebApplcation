@@ -45,7 +45,7 @@ namespace LawWebSite.Management
             txtLawyerEmail.Text = string.Empty;
             txtLawyerTel.Text = string.Empty;
             txtLawyerDescription.Text = string.Empty;
-            txtLawyerAdmin.Text = string.Empty;
+            DdlAdminSeciniz.SelectedIndex = 0;
             txtLawyerPassword.Text = string.Empty;
         }
 
@@ -54,6 +54,7 @@ namespace LawWebSite.Management
             if (Session["selectedLawyerItem"] != null)
             {
                 Models.Lawyer selectedLawyerItem = Session["selectedLawyerItem"] as Models.Lawyer;
+
                 Models.Lawyer newLawyer = new Models.Lawyer()
                 {
                     LawyerId = selectedLawyerItem.LawyerId,
@@ -67,10 +68,21 @@ namespace LawWebSite.Management
                     Linkedin = txtLawyerLinkedln.Text,
                     Email = txtLawyerEmail.Text,
                     PhoneNumber = txtLawyerTel.Text,
-                    Description = txtLawyerDescription.Text,
-                    IsAdmin = int.Parse(txtLawyerAdmin.Text) == 1 ? true : false,
-                    Password = txtLawyerPassword.Text
+                    Description = txtLawyerDescription.Text
                 };
+
+                
+                if (bool.TryParse(DdlAdminSeciniz.SelectedValue, out bool isAdmin))
+                {
+                    newLawyer.IsAdmin = isAdmin;
+                }
+                else
+                {
+                    newLawyer.IsAdmin = false;
+                }
+
+                newLawyer.Password = txtLawyerPassword.Text;
+
                 var result = lawyerController.UpdateLawyer(newLawyer);
 
                 if (!result.Is_Error)
@@ -83,21 +95,17 @@ namespace LawWebSite.Management
                     Clear();
                     Session["selectedLawyerItem"] = null;
                 }
-
                 else
                 {
                     LblLawyerModalHeader.Text = "Avukat Güncelleme Başarısız";
                     LblLawyerModalBody.Text = "Avukat güncelleme işlemi yaparken bir hata ile karşılaşıldı. Daha sonra tekrar deneyiniz.";
                     ClientScript.RegisterStartupScript(this.GetType(), "Popup", "PopUpModalLawyerInformation();", true);
                 }
-
             }
-
             else
             {
                 Models.Lawyer newLawyer = new Models.Lawyer()
                 {
-
                     FirstName = txtLawyerName.Text,
                     LastName = txtLawyerSurname.Text,
                     Title = txtLawyerTitle.Text,
@@ -108,10 +116,20 @@ namespace LawWebSite.Management
                     Linkedin = txtLawyerLinkedln.Text,
                     Email = txtLawyerEmail.Text,
                     PhoneNumber = txtLawyerTel.Text,
-                    Description = txtLawyerDescription.Text,
-                    IsAdmin = int.Parse(txtLawyerAdmin.Text) == 1 ? true : false,
-                    Password = txtLawyerPassword.Text
+                    Description = txtLawyerDescription.Text
                 };
+
+             
+                if (bool.TryParse(DdlAdminSeciniz.SelectedValue, out bool isAdmin))
+                {
+                    newLawyer.IsAdmin = isAdmin;
+                }
+                else
+                {
+                    newLawyer.IsAdmin = false;
+                }
+
+                newLawyer.Password = txtLawyerPassword.Text;
 
                 var result = lawyerController.InsertLawyer(newLawyer);
 
@@ -132,6 +150,9 @@ namespace LawWebSite.Management
                 }
             }
         }
+
+
+
         protected void LbLawyerEdit_Click(object sender, EventArgs e)
         {
             string lawyerId = ((LinkButton)sender).CommandArgument;
@@ -154,7 +175,7 @@ namespace LawWebSite.Management
                 txtLawyerEmail.Text = selectedLawyerItem.Email;
                 txtLawyerTel.Text = selectedLawyerItem.PhoneNumber;
                 txtLawyerDescription.Text = selectedLawyerItem.Description;
-                txtLawyerAdmin.Text = selectedLawyerItem.IsAdmin.ToString();
+                DdlAdminSeciniz.SelectedValue = selectedLawyerItem.IsAdmin.ToString();
                 txtLawyerPassword.Text = selectedLawyerItem.Password;
 
                 Session["selectedLawyerItem"] = selectedLawyerItem;

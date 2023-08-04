@@ -1,6 +1,7 @@
 ﻿using LawWebSite.Controller;
 using System;
 using System.Collections.Generic;
+using System.EnterpriseServices;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -16,34 +17,41 @@ namespace LawWebSite
         {
             if (!IsPostBack)
             {
-                if (!string.IsNullOrEmpty(Request.QueryString["ServiceDetailContent"]))
-                {
-                    int ServiceId = 0;
-                    if (int.TryParse(Request.QueryString["ServiceDetailContent"], out ServiceId))
-                    {
-                        var result = serviceController.GetServiceByServiceId(ServiceId);
-                        if (!result.Is_Error)
-                        {
-                            var SelectedService = result.Model[0];
-                            Page.Title = LblServiceHeader.Text = SelectedService.Title;
-                            LblCreatedDate.Text = SelectedService.CreatedDate.Value.ToString("d");
-                            LblServiceContent.Text = SelectedService.Description;
+                GetServiceDetails();
+            }
 
-                            if (!string.IsNullOrEmpty(SelectedService.Image.Trim()) && SelectedService.Image.Trim() != "#")
+          
+        }
+
+        private void GetServiceDetails()
+        {
+            if (!string.IsNullOrEmpty(Request.QueryString["ServiceDetailContent"]))
+            {
+                int ServiceId = 0;
+                if (int.TryParse(Request.QueryString["ServiceDetailContent"], out ServiceId))
+                {
+                    var result = serviceController.GetServiceByServiceId(ServiceId);
+                    if (!result.Is_Error)
+                    {
+                        var SelectedService = result.Model[0];
+                        Page.Title = LblServiceHeader.Text = SelectedService.Title;
+                        LblCreatedDate.Text = SelectedService.CreatedDate.Value.ToString("d");
+                        LblServiceContent.Text = SelectedService.Description;
+
+                        if (!string.IsNullOrEmpty(SelectedService.Image.Trim()) && SelectedService.Image.Trim() != "#")
+                        {
+                            if (SelectedService.Image.Contains("http"))
                             {
-                                if (SelectedService.Image.Contains("http"))
-                                {
-                                    ImgImageUrl.ImageUrl = SelectedService.Image;
-                                }
-                                else
-                                {
-                                    ImgImageUrl.ImageUrl = "/Assets/Uploads/" + SelectedService.Image;
-                                }
+                                ServiceDetailImageUrl.ImageUrl = SelectedService.Image;
                             }
                             else
                             {
-                                ImgImageUrl.ImageUrl = "Assets/images/aile-siddet.jpg";
+                                ServiceDetailImageUrl.ImageUrl = "/Assets/Uploads/" + SelectedService.Image;
                             }
+                        }
+                        else
+                        {
+                            ServiceDetailImageUrl.ImageUrl = "Assets/images/aile-siddet.jpg";
                         }
                     }
                 }

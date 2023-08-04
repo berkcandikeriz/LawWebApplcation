@@ -1,4 +1,6 @@
-﻿using LawWebSite.Controller;
+﻿using LawWebSite.Common;
+using LawWebSite.Controller;
+using LawWebSite.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,24 +12,53 @@ namespace LawWebSite
 {
     public partial class Communication : System.Web.UI.Page
     {
+        CommunicationController communicationController = new CommunicationController();
         ContentController contentController = new ContentController();
+        QuestionController questionController = new QuestionController();
         protected void Page_Load(object sender, EventArgs e)
         {
-            RenderBody();
+            GetCommunications();
         }
 
-        private void RenderBody()
+        private void GetCommunications()
         {
-           
-            var contentModel = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblWorkHour").Model;
-            if (contentModel != null && contentModel.Any())
+            ReturnModel<Models.Communication> GetCommunicationList = communicationController.GetCommunications();
+
+            if (!GetCommunicationList.Is_Error)
             {
-                LblWorkHour.Text = contentModel.FirstOrDefault().Description;
+                RCommunication.DataSource = GetCommunicationList.Model;
+                RCommunication.DataBind();
+                RCommunication.DataSource = communicationController.GetCommunicationsByLanguageId(Global.GlobalLanguage.LanguageId).Model;
+                RCommunication.DataBind();
+
             }
-            var contentInformation = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblContactInformation").Model; 
-            if (contentInformation != null && contentInformation.Any())
+        }
+        protected void lnkAddQuestion_Click(object sender, EventArgs e)
+        {
+            if (IsValid)
             {
-                LblContactInformation.Text = contentInformation.FirstOrDefault().Description;
+                Models.UserList newUserList = new Models.UserList()
+                {
+                    Name = questionName.Text,
+                    Surname = questionSurname.Text,
+                    Mail = questionMail.Text,
+                    PhoneNumber = questionPhoneNumber.Text,
+                    Question = question.Text,
+                    CreatedDate = DateTime.Now
+                };
+                var result = questionController.InsertUserList(newUserList);
+
+                if (!result.Is_Error)
+                {
+                    questionName.Text = string.Empty;
+                    questionSurname.Text = string.Empty;
+                    questionMail.Text = string.Empty;
+                    questionPhoneNumber.Text = string.Empty;
+                    question.Text = string.Empty;
+                }
+                else
+                {
+                }
             }
         }
     }

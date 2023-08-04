@@ -69,24 +69,6 @@ namespace LawWebSite
         protected global::System.Web.UI.WebControls.Repeater RMasterBlogs;
 
         /// <summary>
-        /// LblMasterOurTeam control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblMasterOurTeam;
-
-        /// <summary>
-        /// RMasterOurTeam control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RMasterOurTeam;
-
-        /// <summary>
         /// LblFooterColumn1 control.
         /// </summary>
         /// <remarks>
@@ -123,15 +105,6 @@ namespace LawWebSite
         protected global::System.Web.UI.WebControls.Label LblFooterColumn3;
 
         /// <summary>
-        /// LblFooterAboutMe control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblFooterAboutMe;
-
-        /// <summary>
         /// LblFooterOurTeam control.
         /// </summary>
         /// <remarks>
@@ -157,6 +130,15 @@ namespace LawWebSite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LblFooterBlog;
+
+        /// <summary>
+        /// LblFooterAboutMe control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblFooterAboutMe;
 
         /// <summary>
         /// LblFooterColumn4 control.

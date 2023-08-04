@@ -26,7 +26,7 @@ namespace LawWebSite
                 RenderBody();
             }
         }
-
+    
         private void RenderBody()
         {
             var serviceModel = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblServices").Model;
@@ -35,6 +35,7 @@ namespace LawWebSite
                 LblServices.Text = serviceModel.FirstOrDefault().Description;
             }
         }
+
         private void GetServices()
         {
             ReturnModel<Models.Service> GetServiceList = serviceController.GetServices();
@@ -44,6 +45,19 @@ namespace LawWebSite
                 RServices.DataBind();
             }
         }
+
+        protected string GetServiceImageUrl(object imageObject)
+        {
+            string imageUrl = imageObject as string;
+
+            if (string.IsNullOrEmpty(imageUrl) || imageUrl == "#")
+            {
+                return "Assets/images/aile-siddet.jpg";
+            }
+
+            return imageUrl;
+        }
+
 
     }
 }

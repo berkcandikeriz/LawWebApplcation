@@ -68,13 +68,18 @@
                                 </a>
                             </li>
                             <li class="nav-item">
+                                <a href="SettingsAbout.aspx" class="nav-link">
+                                   <i class="fa-solid fa-house"></i>&nbsp;<p> Hakkımızda Ayarları</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a href="SettingsSlider.aspx" class="nav-link">
                                     <i class="fa fa-image nav-icon"></i>&nbsp;<p>Slayt Ayarları</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="SettingsUserQuestions.aspx" class="nav-link">
-                                    <i class="fa fa-question nav-icon"></i>&nbsp;<p>Kullanıcı Soruları</p>
+                                    <i class="fa-solid fa-user"></i>&nbsp;<p>Kullanıcı Soruları</p>
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -99,7 +104,7 @@
                             </li>
                             <li class="nav-item">
                                 <a href="SettingsBlog.aspx" class="nav-link">
-                                    <i class="nav-icon fas fa-cogs"></i>&nbsp;<p>Bloglar</p>
+                                   <i class="fa fa-pencil-square-o"></i>&nbsp;<p>Bloglar</p>
                                 </a>
                             </li>
                             <li class="nav-item">

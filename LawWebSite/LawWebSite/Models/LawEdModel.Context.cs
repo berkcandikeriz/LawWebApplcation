@@ -42,11 +42,15 @@ public partial class DBLAW23Entities : DbContext
 
     public virtual DbSet<Service> Services { get; set; }
 
-    public virtual DbSet<Home> Homes { get; set; }
-
     public virtual DbSet<Blog> Blogs { get; set; }
 
     public virtual DbSet<UserList> UserLists { get; set; }
+
+    public virtual DbSet<Slider> Sliders { get; set; }
+
+    public virtual DbSet<About> Abouts { get; set; }
+
+    public virtual DbSet<Communication> Communications { get; set; }
 
 }
 

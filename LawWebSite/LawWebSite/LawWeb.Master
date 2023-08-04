@@ -29,7 +29,7 @@
     <form id="form1" runat="server">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" id="ftco-navbar">
             <div class="container">
-                <a class="navbar-brand" runat="server" href="~"> <img src="Assets/images/category-2.jpg" class="img-fluid mr-2" alt="Kozanoğlu Hukuk" ></a>
+                <a class="navbar-brand" runat="server" href="~"> <img src="Assets/images/category-2.jpg" class="img-fluid banner-image mr-2" alt="Kozanoğlu Hukuk" ></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="oi oi-menu"></span>Menu
                
@@ -69,7 +69,7 @@
                         <div class="col-md-4 ftco-animate">
                             <div class="blog-entry">
                                 <a href='BlogDetail?BlogDetailContent=<%#Eval("BlogId") %>' class="img-2">
-                                    <img src="Assets/images/image_1.jpg" class="img-fluid" alt="Colorlib Template"></a>
+                                    <img src="<%# GetBlogImageUrl(Eval("ImageUrl")) %>" class="img-fluid" alt="Colorlib Template"></a>
                                 <div class="text pt-3">
                                     <p class="meta d-flex"><span class="pr-3"><%#Eval("BlogSubtitle") %></span><span class="ml-auto pl-3"><%#Eval("CreatedDate", "{0: dd/MM/yyyy}") %></span></p>
                                     <h3><a href="#"><%#Eval("BlogTitle") %></a></h3>
@@ -83,57 +83,7 @@
             </div>
         </section>
 
-        <section class="ftco-section ftco-no-pt">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="row">
-                            <div class="col-md-12 heading-section ftco-animate">
-                                <h2 class="mb-4"><span>
-                                    <asp:Label ID="LblMasterOurTeam" runat="server"></asp:Label></span></h2>
-                            </div>
-                        </div>
-                        <div class="row">
-            <div class="whos-speaking-area speakers pad100">
-            <div class="container">
-                <div class="row mb-3">
-                    <asp:Repeater runat="server" ID="RMasterOurTeam">
-                        <ItemTemplate>
-                            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-3">
-                                <div class="speakers xs-mb-3">
-                                    <div class="spk-img">
-                                        <img class="img-fluid" src="Assets/images/user_profil.jpg" alt="trainer-img">
-                                        <ul>
-                                            <li>
-                                                <a href='<%#Eval("Twitter") %>' target="_blank"><i class="fa fa-twitter"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href='<%#Eval("Linkedin") %>' target="_blank"><i class="fa fa-linkedin"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href='<%#Eval("Facebook") %>' target="_blank"><i class="fa fa-facebook"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href='<%#Eval("Email") %>' target="_blank"><i class="fa fa-envelope"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="spk-info">
-                                        <h3><%#Eval("FirstName") %>&nbsp;<%#Eval("LastName") %></h3>
-                                        <p><%#Eval("Title") %></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </ItemTemplate>
-                    </asp:Repeater>
-                </div>
-            </div>
-        </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+     
         <footer class="ftco-footer ftco-footer-2 ftco-section">
             <div class="container">
                 <div class="row mb-5">
@@ -160,10 +110,11 @@
                         <div class="ftco-footer-widget mb-4 ml-md-5">
                             <h2 class="ftco-heading-2"><asp:Label runat="server" ID="LblFooterColumn3" /></h2>
                             <ul class="list-unstyled">
-                                <li><a href="#" class="py-2 d-block"><asp:Label runat="server" ID="LblFooterAboutMe" /></a></li>
                                 <li><a href="#" class="py-2 d-block"><asp:Label runat="server" ID="LblFooterOurTeam" /></a></li>
                                 <li><a href="#" class="py-2 d-block"><asp:Label runat="server" ID="LblFooterOurServices" /></a></li>
-                                <li><a href="#" class="py-2 d-block"><asp:Label runat="server" ID="LblFooterBlog" /></a></li>
+                                 <li><a href="#" class="py-2 d-block"><asp:Label runat="server" ID="LblFooterBlog" /></a></li>
+                                 <li><a href="#" class="py-2 d-block"><asp:Label runat="server" ID="LblFooterAboutMe" /></a></li>
+                         
                             </ul>
                         </div>
                     </div>

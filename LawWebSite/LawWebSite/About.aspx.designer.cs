@@ -15,6 +15,15 @@ namespace LawWebSite
     {
 
         /// <summary>
+        /// ImgAboutImageUrl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image ImgAboutImageUrl;
+
+        /// <summary>
         /// LblAbout control.
         /// </summary>
         /// <remarks>
@@ -24,12 +33,12 @@ namespace LawWebSite
         protected global::System.Web.UI.WebControls.Label LblAbout;
 
         /// <summary>
-        /// LblAboutUsInformation control.
+        /// RAbouts control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblAboutUsInformation;
+        protected global::System.Web.UI.WebControls.Repeater RAbouts;
     }
 }

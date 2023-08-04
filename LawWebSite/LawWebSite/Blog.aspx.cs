@@ -14,9 +14,10 @@ namespace LawWebSite
     {
         #region
        BlogController blogController = new BlogController();
+        ContentController contentController = new ContentController();
         #endregion
 
-        ContentController contentController = new ContentController();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -34,6 +35,7 @@ namespace LawWebSite
                 LblBlog.Text = blogModel.FirstOrDefault().Description;
             }
         }
+
         private void GetBlogs()
         {
             ReturnModel<Models.Blog> GetBlogList = blogController.GetBlogs();
@@ -46,6 +48,18 @@ namespace LawWebSite
                 RBlogs.DataBind();
 
             }
+        }
+
+        protected string GetBlogImageUrl(object imageObject)
+        {
+            string imageUrl = imageObject as string;
+
+            if (string.IsNullOrEmpty(imageUrl) || imageUrl == "#")
+            {
+                return "Assets/images/image_1.jpg";
+            }
+
+            return imageUrl;
         }
     }
 }

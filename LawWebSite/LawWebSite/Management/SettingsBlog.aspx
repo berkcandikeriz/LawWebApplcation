@@ -23,7 +23,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">Bloglar</a></li>
                             <li class="breadcrumb-item active"><i class="fa fa-pencil-square-o"></i>&nbsp;<%: Page.Title %></li>
                         </ol>
                     </div>
@@ -49,10 +49,12 @@
                                 <th style="width: 10%">Dil</th>
                                 <th style="width: 10%">Blog Adı</th>
                                 <th style="width: 10%">Blog Alt Başlık</th>
-                                <th style="width: 20%">Açıklama</th>
+                                <th style="width: 10%">Açıklama</th>
                                 <th style="width: 10%">Yazar</th>
-                                <th style="width: 10%">Url</th>
                                 <th style="width: 10%">Görsel Linki</th>
+                                <th style="width: 10%">Oluşturma Tarihi</th>
+                                <th style="width: 10%">Sıralama</th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -93,10 +95,13 @@
                                             <%# Eval("Author") %>
                                         </td>
                                         <td>
-                                            <%# Eval("Url") %>
-                                        </td>
-                                        <td>
                                             <%# Eval("ImageUrl") %>
+                                        </td>
+                                         <td>
+                                            <%# Eval("CreatedDate") %>
+                                        </td>
+                                         <td>
+                                            <%# Eval("OrderNumber") %>
                                         </td>
                                     </tr>
                                 </ItemTemplate>
@@ -151,15 +156,21 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-md-3 col-form-label form-control-label">Url</label>
-                            <div class="col-md-9">
-                                <asp:TextBox runat="server" ID="txtBlogUrl" CssClass="form-control"></asp:TextBox>
-                            </div>
-                        </div>
-                        <div class="form-group row">
                             <label class="col-md-3 col-form-label form-control-label">Görsel Linki</label>
                             <div class="col-md-9">
                                 <asp:TextBox runat="server" ID="txtBlogGorselLinki" CssClass="form-control"></asp:TextBox>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label form-control-label">Oluşturma Tarihi</label>
+                            <div class="col-md-9">
+                                <asp:TextBox runat="server" ID="txtBlogCreatedDate" CssClass="form-control"></asp:TextBox>
+                            </div>
+                        </div>
+                           <div class="form-group row">
+                            <label class="col-md-3 col-form-label form-control-label">Sıralama</label>
+                            <div class="col-md-9">
+                                <asp:TextBox runat="server" ID="txtBlogOrder" CssClass="form-control"></asp:TextBox>
                             </div>
                         </div>
                     </div>

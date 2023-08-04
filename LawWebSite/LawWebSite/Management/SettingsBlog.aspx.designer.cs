@@ -87,15 +87,6 @@ namespace LawWebSite.Management
         protected global::System.Web.UI.WebControls.TextBox txtBlogYazar;
 
         /// <summary>
-        /// txtBlogUrl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBlogUrl;
-
-        /// <summary>
         /// txtBlogGorselLinki control.
         /// </summary>
         /// <remarks>
@@ -103,6 +94,24 @@ namespace LawWebSite.Management
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtBlogGorselLinki;
+
+        /// <summary>
+        /// txtBlogCreatedDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBlogCreatedDate;
+
+        /// <summary>
+        /// txtBlogOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBlogOrder;
 
         /// <summary>
         /// lnkAddBlog control.

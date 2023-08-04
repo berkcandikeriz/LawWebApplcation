@@ -25,8 +25,8 @@ namespace LawWebSite
                         if (!result.Is_Error)
                         {
                             var SelectedLawyer = result.Model[0];
-                            Page.Title = LblLawyerTitle.Text = SelectedLawyer.Title;
-                            LblLawyerName.Text = SelectedLawyer.FirstName + " " + SelectedLawyer.LastName;
+                            Page.Title = LblLawyerName.Text = SelectedLawyer.FirstName + " " + SelectedLawyer.LastName;
+                            LblLawyerTitle.Text = SelectedLawyer.Title;
                             LblLawyerDescription.Text = SelectedLawyer.Description;
                             LblLawyerPhone.Text=SelectedLawyer.PhoneNumber.ToString();
                             LblLawyerInstagram.Text = SelectedLawyer.Instagram;

@@ -24,8 +24,8 @@ namespace LawWebSite
         {
             GetMenus();
             RenderBody();
-            GetLawyers();
             GetBlogs();
+
         }
 
         private void GetBlogs()
@@ -34,18 +34,14 @@ namespace LawWebSite
 
             if (!GetBlogList.Is_Error)
             {
-                RMasterBlogs.DataSource = GetBlogList.Model.Take(6).ToList();
-                RMasterBlogs.DataBind();
-            }
-        }
+                var sortedBlogs = GetBlogList.Model
+            .Where(m => m.OrderNumber.HasValue)
+            .OrderBy(m => m.OrderNumber)
+            .Take(3)
+            .ToList();
 
-        private void GetLawyers()
-        {
-            ReturnModel<Lawyer> GetLawyerList = lawyerController.GetLawyers();
-            if (!GetLawyerList.Is_Error)
-            {
-                RMasterOurTeam.DataSource = GetLawyerList.Model;
-                RMasterOurTeam.DataBind();
+                RMasterBlogs.DataSource = sortedBlogs;
+                RMasterBlogs.DataBind();
             }
         }
 
@@ -88,22 +84,12 @@ namespace LawWebSite
                 LblMasterBlog.Text = masterBlogModel.FirstOrDefault().Description;
             }
 
-            var masterTeamModel = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblMasterOurTeam").Model;
-            if (masterTeamModel != null && masterTeamModel.Any())
-            {
-                LblMasterOurTeam.Text = masterTeamModel.FirstOrDefault().Description;
-            }
+
 
             var descriptionModel = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblFooterDescription").Model;
             if (descriptionModel != null && descriptionModel.Any())
             {
                 LblFooterDescription.Text = descriptionModel.FirstOrDefault().Description;
-            }
-
-            var servicesModel = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblFooterOurServices").Model;
-            if (servicesModel != null && servicesModel.Any())
-            {
-                LblFooterOurServices.Text = servicesModel.FirstOrDefault().Description;
             }
 
             var aboutModel = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblFooterAboutMe").Model;
@@ -112,10 +98,10 @@ namespace LawWebSite
                 LblFooterAboutMe.Text = aboutModel.FirstOrDefault().Description;
             }
 
-            var blogModel = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblFooterBlog").Model;
-            if (blogModel != null && blogModel.Any())
+            var servicesModel = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblFooterOurServices").Model;
+            if (servicesModel != null && servicesModel.Any())
             {
-                LblFooterBlog.Text = blogModel.FirstOrDefault().Description;
+                LblFooterOurServices.Text = servicesModel.FirstOrDefault().Description;
             }
 
             var teamModel = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblFooterOurTeam").Model;
@@ -123,13 +109,37 @@ namespace LawWebSite
             {
                 LblFooterOurTeam.Text = teamModel.FirstOrDefault().Description;
             }
-        }
 
+            var blogModel = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblFooterBlog").Model;
+            if (blogModel != null && blogModel.Any())
+            {
+                LblFooterBlog.Text = blogModel.FirstOrDefault().Description;
+            }
+            var Model = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblFooterBlog").Model;
+            if (blogModel != null && blogModel.Any())
+            {
+                LblFooterBlog.Text = blogModel.FirstOrDefault().Description;
+            }
+
+
+        }
 
         private void GetMenus()
         {
             RMenus.DataSource = menuController.GetMenusByLanguageId(Global.GlobalLanguage.LanguageId).Model;
             RMenus.DataBind();
+        }
+
+        protected string GetBlogImageUrl(object imageObject)
+        {
+            string imageUrl = imageObject as string;
+
+            if (string.IsNullOrEmpty(imageUrl) || imageUrl == "#")
+            {
+                return "Assets/images/image_1.jpg";
+            }
+
+            return imageUrl;
         }
     }
 }

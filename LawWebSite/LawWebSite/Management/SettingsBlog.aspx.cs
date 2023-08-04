@@ -36,7 +36,6 @@ namespace LawWebSite.Management
                 foreach (var item in dilListesi.Model)
                 {
                     DdlDilSeciniz.Items.Add(new ListItem() { Text = item.Name, Value = item.LanguageId.ToString() });
-
                 }
             }
         }
@@ -59,8 +58,8 @@ namespace LawWebSite.Management
             txtBlogAltBaslik.Text = string.Empty;
             txtBlogAciklama.Text = string.Empty;
             txtBlogYazar.Text = string.Empty;
-            txtBlogUrl.Text = string.Empty;
             txtBlogGorselLinki.Text = string.Empty;
+            txtBlogOrder.Text = string.Empty;
         }
 
         protected void lnkAddBlog_Click(object sender, EventArgs e)
@@ -76,10 +75,13 @@ namespace LawWebSite.Management
                     BlogSubtitle = txtBlogAltBaslik.Text,
                     Description = txtBlogAciklama.Text,
                     Author = txtBlogYazar.Text,
-                    Url = txtBlogUrl.Text,
+                    Url = "#",
                     ImageUrl = txtBlogGorselLinki.Text,
-                    CreatedDate = selectedBlogItem.CreatedDate,
-                    UpdateDate = DateTime.Now
+                    CreatedDate = DateTime.Parse(txtBlogCreatedDate.Text),
+                    UpdateDate = DateTime.Now,
+                    OrderNumber = string.IsNullOrEmpty(txtBlogOrder.Text) ? '*' : (int.TryParse(txtBlogOrder.Text, out int order) ? order : '*')
+
+
                 };
 
                 var result = blogController.UpdateBlog(newBlog);
@@ -110,11 +112,14 @@ namespace LawWebSite.Management
                     BlogSubtitle = txtBlogAltBaslik.Text,
                     Description = txtBlogAciklama.Text,
                     Author = txtBlogYazar.Text,
-                    Url = txtBlogUrl.Text,
+                    Url = "#",
                     ImageUrl = txtBlogGorselLinki.Text,
-                    CreatedDate = DateTime.Now,
-                    UpdateDate = DateTime.Now
+                    CreatedDate = DateTime.Parse(txtBlogCreatedDate.Text),
+                    UpdateDate = DateTime.Now,
+                    OrderNumber = string.IsNullOrEmpty(txtBlogOrder.Text) ? '*' : (int.TryParse(txtBlogOrder.Text, out int order) ? order : '*')
                 };
+
+
 
                 var result = blogController.InsertBlog(newBlog);
 
@@ -151,8 +156,9 @@ namespace LawWebSite.Management
                 txtBlogAltBaslik.Text = selectedBlogItem.BlogSubtitle;
                 txtBlogAciklama.Text = selectedBlogItem.Description;
                 txtBlogYazar.Text = selectedBlogItem.Author;
-                txtBlogUrl.Text = selectedBlogItem.Url;
                 txtBlogGorselLinki.Text = selectedBlogItem.ImageUrl;
+                txtBlogCreatedDate.Text = selectedBlogItem.CreatedDate.ToString();
+                txtBlogOrder.Text = selectedBlogItem.OrderNumber.ToString();
 
                 Session["selectedBlogItem"] = selectedBlogItem;
 

@@ -22,7 +22,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">Hizmetlerimiz</a></li>
                             <li class="breadcrumb-item active"><i class="fa-solid fa-scale-balanced"></i>&nbsp;<%: Page.Title %></li>
                         </ol>
                     </div>

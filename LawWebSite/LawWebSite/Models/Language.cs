@@ -26,11 +26,15 @@ public partial class Language
 
         this.Menus = new HashSet<Menu>();
 
-        this.Homes = new HashSet<Home>();
-
         this.Blogs = new HashSet<Blog>();
 
         this.Services = new HashSet<Service>();
+
+        this.Sliders = new HashSet<Slider>();
+
+        this.Abouts = new HashSet<About>();
+
+        this.Communications = new HashSet<Communication>();
 
     }
 
@@ -53,15 +57,23 @@ public partial class Language
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
-    public virtual ICollection<Home> Homes { get; set; }
-
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-
     public virtual ICollection<Blog> Blogs { get; set; }
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
     public virtual ICollection<Service> Services { get; set; }
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+    public virtual ICollection<Slider> Sliders { get; set; }
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+    public virtual ICollection<About> Abouts { get; set; }
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+    public virtual ICollection<Communication> Communications { get; set; }
 
 }
 

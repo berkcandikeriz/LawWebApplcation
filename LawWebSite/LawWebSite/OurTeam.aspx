@@ -32,7 +32,7 @@
                                     <div class="speakers xs-mb-3">
                                           <a href='OurTeamDetail?LawyerDetailContent=<%#Eval("LawyerId") %>'>
                                         <div class="spk-img">
-                                            <img class="img-fluid" src="Assets/images/user_profil.jpg" alt="trainer-img">
+                                            <img class="img-fluid" src="<%# GetOurTeamImageUrl(Eval("ImgUrl")) %>" alt="trainer-img">
                                         </div>
                                               </a>
                                         <div class="spk-info">

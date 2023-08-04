@@ -33,13 +33,31 @@ namespace LawWebSite
         protected global::System.Web.UI.WebControls.Label LblLawyerTitle;
 
         /// <summary>
-        /// LblLawyerTwitter control.
+        /// LblLawyerDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblLawyerTwitter;
+        protected global::System.Web.UI.WebControls.Label LblLawyerDescription;
+
+        /// <summary>
+        /// ImgImageUrl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image ImgImageUrl;
+
+        /// <summary>
+        /// LblLawyerInstagram control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblLawyerInstagram;
 
         /// <summary>
         /// LblLawyerMail control.
@@ -60,13 +78,13 @@ namespace LawWebSite
         protected global::System.Web.UI.WebControls.Label LblLawyerLinkdln;
 
         /// <summary>
-        /// LblLawyerInstagram control.
+        /// LblLawyerTwitter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblLawyerInstagram;
+        protected global::System.Web.UI.WebControls.Label LblLawyerTwitter;
 
         /// <summary>
         /// LblLawyerPhone control.
@@ -76,23 +94,5 @@ namespace LawWebSite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LblLawyerPhone;
-
-        /// <summary>
-        /// LblLawyerDescription control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblLawyerDescription;
-
-        /// <summary>
-        /// ImgImageUrl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image ImgImageUrl;
     }
 }
