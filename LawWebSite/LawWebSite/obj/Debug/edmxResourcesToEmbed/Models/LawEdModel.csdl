@@ -247,6 +247,7 @@
     <Property Name="Saturday" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Sunday" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Language" Relationship="DBLAW23Model.Communication_FK" FromRole="Communication" ToRole="Language" />
+    <Property Name="MapUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
   </EntityType>
   <Association Name="Communication_FK">
     <End Type="DBLAW23Model.Language" Role="Language" Multiplicity="1" />

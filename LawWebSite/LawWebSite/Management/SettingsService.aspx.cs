@@ -2,6 +2,7 @@
 using LawWebSite.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -56,7 +57,7 @@ namespace LawWebSite.Management
             txtServiceAdi.Text = string.Empty;
             txtServiceAciklama.Text = string.Empty;
             txtServiceUrl.Text = string.Empty;
-            txtServiceGorselLinki.Text = string.Empty;
+            Session["ServiceImage"] = null;
         }
 
         protected void lnkAddService_Click(object sender, EventArgs e)
@@ -64,12 +65,32 @@ namespace LawWebSite.Management
             if (Session["selectedServiceItem"] != null)
             {
                 Models.Service selectedServiceItem = Session["selectedServiceItem"] as Models.Service;
+                string ServiceImage = string.Empty;
+                if (Session["ServiceImage"] != null)
+                {
+                    ServiceImage = Session["ServiceImage"].ToString();
+                }
+
+                if (FuServicePhoto.HasFile)
+                {
+                    string DeleteImagePath = Path.Combine(Server.MapPath("~/Assets/Uploads/"), ServiceImage);
+                    if (File.Exists(DeleteImagePath))
+                        File.Delete(DeleteImagePath);
+
+                    Guid guid = Guid.NewGuid();
+                    FileInfo fi = new FileInfo(FuServicePhoto.FileName);
+                    string NewImagePath = Path.Combine(Server.MapPath("~/Assets/Uploads/"), guid + fi.Extension);
+                    string NewImageName = guid + fi.Extension;
+
+                    FuServicePhoto.SaveAs(NewImagePath);
+                    ServiceImage = NewImageName;
+                }
                 Models.Service newService = new Models.Service()
                 {
                     ServiceId = selectedServiceItem.ServiceId,
                     LanguageId = int.Parse(DdlServiceDilSeciniz.SelectedValue),
                     Title = txtServiceAdi.Text,
-                    Image = txtServiceGorselLinki.Text,
+                    Image = ServiceImage,
                     Description = txtServiceAciklama.Text,
                     Url = txtServiceUrl.Text,
                     CreatedDate = selectedServiceItem.CreatedDate,
@@ -97,13 +118,28 @@ namespace LawWebSite.Management
             }
             else
             {
+                string ServiceImage = string.Empty;
+                if (FuServicePhoto.HasFile)
+                {
+                    Guid guid = Guid.NewGuid();
+                    FileInfo fi = new FileInfo(FuServicePhoto.FileName);
+                    string NewImagePath = Path.Combine(Server.MapPath("~/Assets/Uploads/"), guid + fi.Extension);
+                    string NewImageName = guid + fi.Extension;
+
+                    FuServicePhoto.SaveAs(NewImagePath);
+                    ServiceImage = NewImageName;
+                }
+                else
+                {
+                    ServiceImage = "bg_7.jpg";
+                }
                 Models.Service newService = new Models.Service()
                 {
                     LanguageId = int.Parse(DdlServiceDilSeciniz.SelectedValue),
                     Title = txtServiceAdi.Text,
                     Description = txtServiceAciklama.Text,
                     Url = txtServiceUrl.Text,
-                    Image = txtServiceGorselLinki.Text,
+                    Image = ServiceImage,
                     CreatedDate = DateTime.Now,
                     UpdateDate = DateTime.Now
                 };
@@ -142,7 +178,7 @@ namespace LawWebSite.Management
                 txtServiceAdi.Text = selectedServiceItem.Title;
                 txtServiceAciklama.Text = selectedServiceItem.Description;
                 txtServiceUrl.Text = selectedServiceItem.Url;
-                txtServiceGorselLinki.Text = selectedServiceItem.Image;
+                Session["ServiceImage"] = selectedServiceItem.Image;
 
                 Session["selectedServiceItem"] = selectedServiceItem;
 

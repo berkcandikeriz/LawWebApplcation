@@ -19,12 +19,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1><i class="fa fa-pencil-square-o"></i>&nbsp;<%: Page.Title %></h1>
+                        <h1><i class="nav-icon fas fa-pencil"></i>&nbsp;<%: Page.Title %></h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Bloglar</a></li>
-                            <li class="breadcrumb-item active"><i class="fa fa-pencil-square-o"></i>&nbsp;<%: Page.Title %></li>
+                            <li class="breadcrumb-item active"><i class="nav-icon fas fa-pencil"></i>&nbsp;<%: Page.Title %></li>
                         </ol>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
         <section class="content">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title"><i class="fa fa-pencil-square-o"></i>&nbsp;<%: Page.Title %></h3>
+                    <h3 class="card-title"><i class="nav-icon fas fa-pencil"></i>&nbsp;<%: Page.Title %></h3>
                 </div>
                 <div class="card-body p-0">
                     <table class="table table-striped projects">
@@ -94,13 +94,11 @@
                                         <td>
                                             <%# Eval("Author") %>
                                         </td>
+                                         <td><img src='../Assets/Uploads/<%#Eval("ImageUrl") %>' class="img-fluid" width="50%" /> </td>
                                         <td>
-                                            <%# Eval("ImageUrl") %>
-                                        </td>
-                                         <td>
                                             <%# Eval("CreatedDate") %>
                                         </td>
-                                         <td>
+                                        <td>
                                             <%# Eval("OrderNumber") %>
                                         </td>
                                     </tr>
@@ -117,7 +115,8 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title"><asp:Label runat="server" ID="LblBlogAddEditHeader"></asp:Label></h4>
+                    <h4 class="modal-title">
+                        <asp:Label runat="server" ID="LblBlogAddEditHeader"></asp:Label></h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -155,10 +154,10 @@
                                 <asp:TextBox runat="server" ID="txtBlogYazar" CssClass="form-control"></asp:TextBox>
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label class="col-md-3 col-form-label form-control-label">Görsel Linki</label>
+                       <div class="form-group row">
+                            <label class="col-md-3 col-form-label form-control-label">Görsel</label>
                             <div class="col-md-9">
-                                <asp:TextBox runat="server" ID="txtBlogGorselLinki" CssClass="form-control"></asp:TextBox>
+                                <asp:FileUpload runat="server" ID="FuBlogPhoto" AllowMultiple="false"/>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -167,7 +166,7 @@
                                 <asp:TextBox runat="server" ID="txtBlogCreatedDate" CssClass="form-control"></asp:TextBox>
                             </div>
                         </div>
-                           <div class="form-group row">
+                        <div class="form-group row">
                             <label class="col-md-3 col-form-label form-control-label">Sıralama</label>
                             <div class="col-md-9">
                                 <asp:TextBox runat="server" ID="txtBlogOrder" CssClass="form-control"></asp:TextBox>

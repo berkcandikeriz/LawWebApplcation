@@ -4,6 +4,7 @@ using LawWebSite.Models;
 using System;
 using System.Collections.Generic;
 using System.EnterpriseServices;
+using System.IO;
 using System.Linq;
 using System.Security.Policy;
 using System.Web;
@@ -51,14 +52,14 @@ namespace LawWebSite.Management
             }
         }
 
-        private void Temizle()
+        private void Clear()
         {
             DdlDilSeciniz.SelectedIndex = 0;
             txtBlogAdi.Text = string.Empty;
             txtBlogAltBaslik.Text = string.Empty;
             txtBlogAciklama.Text = string.Empty;
             txtBlogYazar.Text = string.Empty;
-            txtBlogGorselLinki.Text = string.Empty;
+            Session["BlogImage"] = null;
             txtBlogOrder.Text = string.Empty;
         }
 
@@ -67,6 +68,26 @@ namespace LawWebSite.Management
             if (Session["selectedBlogItem"] != null)
             {
                 Models.Blog selectedBlogItem = Session["selectedBlogItem"] as Models.Blog;
+                string BlogImage = string.Empty;
+                if (Session["BlogImage"] != null)
+                {
+                    BlogImage = Session["BlogImage"].ToString();
+                }
+
+                if (FuBlogPhoto.HasFile)
+                {
+                    string DeleteImagePath = Path.Combine(Server.MapPath("~/Assets/Uploads/"), BlogImage);
+                    if (File.Exists(DeleteImagePath))
+                        File.Delete(DeleteImagePath);
+
+                    Guid guid = Guid.NewGuid();
+                    FileInfo fi = new FileInfo(FuBlogPhoto.FileName);
+                    string NewImagePath = Path.Combine(Server.MapPath("~/Assets/Uploads/"), guid + fi.Extension);
+                    string NewImageName = guid + fi.Extension;
+
+                    FuBlogPhoto.SaveAs(NewImagePath);
+                    BlogImage = NewImageName;
+                }
                 Models.Blog newBlog = new Models.Blog()
                 {
                     BlogId = selectedBlogItem.BlogId,
@@ -76,7 +97,7 @@ namespace LawWebSite.Management
                     Description = txtBlogAciklama.Text,
                     Author = txtBlogYazar.Text,
                     Url = "#",
-                    ImageUrl = txtBlogGorselLinki.Text,
+                    ImageUrl = BlogImage,
                     CreatedDate = DateTime.Parse(txtBlogCreatedDate.Text),
                     UpdateDate = DateTime.Now,
                     OrderNumber = string.IsNullOrEmpty(txtBlogOrder.Text) ? '*' : (int.TryParse(txtBlogOrder.Text, out int order) ? order : '*')
@@ -93,7 +114,7 @@ namespace LawWebSite.Management
                     ClientScript.RegisterStartupScript(this.GetType(), "Popup", "PopUpModalInformation();", true);
 
                     GetBlogs();
-                    Temizle();
+                    Clear();
                     Session["selectedBlogItem"] = null;
                 }
                 else
@@ -105,6 +126,22 @@ namespace LawWebSite.Management
             }
             else
             {
+
+                string BlogImage = string.Empty;
+                if (FuBlogPhoto.HasFile)
+                {
+                    Guid guid = Guid.NewGuid();
+                    FileInfo fi = new FileInfo(FuBlogPhoto.FileName);
+                    string NewImagePath = Path.Combine(Server.MapPath("~/Assets/Uploads/"), guid + fi.Extension);
+                    string NewImageName = guid + fi.Extension;
+
+                    FuBlogPhoto.SaveAs(NewImagePath);
+                    BlogImage = NewImageName;
+                }
+                else
+                {
+                    BlogImage = "image_1.jpg";
+                }
                 Models.Blog newBlog = new Models.Blog()
                 {
                     LanguageId = int.Parse(DdlDilSeciniz.SelectedValue),
@@ -113,7 +150,7 @@ namespace LawWebSite.Management
                     Description = txtBlogAciklama.Text,
                     Author = txtBlogYazar.Text,
                     Url = "#",
-                    ImageUrl = txtBlogGorselLinki.Text,
+                    ImageUrl = BlogImage,
                     CreatedDate = DateTime.Parse(txtBlogCreatedDate.Text),
                     UpdateDate = DateTime.Now,
                     OrderNumber = string.IsNullOrEmpty(txtBlogOrder.Text) ? '*' : (int.TryParse(txtBlogOrder.Text, out int order) ? order : '*')
@@ -130,7 +167,7 @@ namespace LawWebSite.Management
                     ClientScript.RegisterStartupScript(this.GetType(), "Popup", "PopUpModalInformation();", true);
 
                     GetBlogs();
-                    Temizle();
+                    Clear();
                 }
                 else
                 {
@@ -156,7 +193,7 @@ namespace LawWebSite.Management
                 txtBlogAltBaslik.Text = selectedBlogItem.BlogSubtitle;
                 txtBlogAciklama.Text = selectedBlogItem.Description;
                 txtBlogYazar.Text = selectedBlogItem.Author;
-                txtBlogGorselLinki.Text = selectedBlogItem.ImageUrl;
+                Session["BlogImage"] = selectedBlogItem.ImageUrl;
                 txtBlogCreatedDate.Text = selectedBlogItem.CreatedDate.ToString();
                 txtBlogOrder.Text = selectedBlogItem.OrderNumber.ToString();
 

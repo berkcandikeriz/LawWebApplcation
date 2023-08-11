@@ -30,17 +30,5 @@ namespace LawWebSite
             }
         }
 
-        protected string GetImageUrl(object ImageUrl)
-        {
-            string imageUrl = ImageUrl as string;
-
-            if (string.IsNullOrEmpty(imageUrl) || imageUrl == "#")
-            {
-                return "Assets/images/bg_6.jpg";
-            }
-
-            return imageUrl;
-        }
-
     }
 }

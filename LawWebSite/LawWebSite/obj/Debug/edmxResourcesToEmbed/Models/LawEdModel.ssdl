@@ -37,6 +37,7 @@
     <Property Name="MidWeek" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Saturday" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Sunday" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MapUrl" Type="varchar" MaxLength="255" />
   </EntityType>
   <EntityType Name="Content">
     <Key>

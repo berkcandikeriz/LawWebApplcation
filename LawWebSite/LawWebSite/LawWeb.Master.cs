@@ -130,16 +130,5 @@ namespace LawWebSite
             RMenus.DataBind();
         }
 
-        protected string GetBlogImageUrl(object imageObject)
-        {
-            string imageUrl = imageObject as string;
-
-            if (string.IsNullOrEmpty(imageUrl) || imageUrl == "#")
-            {
-                return "Assets/images/image_1.jpg";
-            }
-
-            return imageUrl;
-        }
     }
 }

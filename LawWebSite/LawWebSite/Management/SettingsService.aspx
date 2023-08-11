@@ -87,9 +87,7 @@
                                         <td>
                                             <%# Eval("Url") %>
                                         </td>
-                                        <td>
-                                            <%# Eval("Image") %>
-                                        </td>
+                                          <td><img src='../Assets/Uploads/<%#Eval("Image") %>' class="img-fluid" width="50%" /> </td>
 
                                     </tr>
                                 </ItemTemplate>
@@ -132,10 +130,10 @@
                                 <asp:TextBox runat="server" ID="txtServiceUrl" CssClass="form-control"></asp:TextBox>
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label class="col-md-3 col-form-label form-control-label">Görsel Linki</label>
+                           <div class="form-group row">
+                            <label class="col-md-3 col-form-label form-control-label">Görsel</label>
                             <div class="col-md-9">
-                                <asp:TextBox runat="server" ID="txtServiceGorselLinki" CssClass="form-control"></asp:TextBox>
+                                <asp:FileUpload runat="server" ID="FuServicePhoto" AllowMultiple="false"/>
                             </div>
                         </div>
                         <div class="form-group row">

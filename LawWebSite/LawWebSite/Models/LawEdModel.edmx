@@ -42,6 +42,7 @@
           <Property Name="MidWeek" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Saturday" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Sunday" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MapUrl" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="Content">
           <Key>
@@ -502,6 +503,7 @@
           <Property Name="Saturday" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Sunday" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Language" Relationship="DBLAW23Model.Communication_FK" FromRole="Communication" ToRole="Language" />
+          <Property Name="MapUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="Communication_FK">
           <End Type="DBLAW23Model.Language" Role="Language" Multiplicity="1" />
@@ -642,6 +644,7 @@
           <EntitySetMapping Name="Communications">
             <EntityTypeMapping TypeName="DBLAW23Model.Communication">
               <MappingFragment StoreEntitySet="Communication">
+                <ScalarProperty Name="MapUrl" ColumnName="MapUrl" />
                 <ScalarProperty Name="Sunday" ColumnName="Sunday" />
                 <ScalarProperty Name="Saturday" ColumnName="Saturday" />
                 <ScalarProperty Name="MidWeek" ColumnName="MidWeek" />

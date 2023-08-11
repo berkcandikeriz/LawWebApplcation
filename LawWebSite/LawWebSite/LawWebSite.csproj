@@ -153,6 +153,8 @@
     <Content Include="Assets\js\scrollax.min.js" />
     <Content Include="Assets\Uploads\3c15dafd-4074-4088-bb7a-6ddcfa194171.jpg" />
     <Content Include="Assets\Uploads\bf9bb0e0-1ba5-4be1-87db-2c0046790522.jpg" />
+    <Content Include="Assets\Uploads\bg_6.jpg" />
+    <Content Include="Assets\Uploads\bg_7.jpg" />
     <Content Include="Assets\Uploads\user_profil.jpg" />
     <Content Include="Blog.aspx" />
     <Content Include="BlogDetail.aspx" />
@@ -204,7 +206,7 @@
     <Content Include="Assets\images\blog-9.jpg" />
     <Content Include="Assets\images\category-1.jpg" />
     <Content Include="Assets\images\category-2.jpg" />
-    <Content Include="Assets\images\image_1.jpg" />
+    <Content Include="Assets\Uploads\image_1.jpg" />
     <Content Include="Assets\images\image_2.jpg" />
     <Content Include="Assets\images\image_3.jpg" />
     <Content Include="Assets\images\image_4.jpg" />
@@ -1940,6 +1942,8 @@
     <Content Include="Management\plugins\toastr\toastr.min.js" />
     <Content Include="Management\SettingsAbout.aspx" />
     <Content Include="Management\SettingsBlog.aspx" />
+    <Content Include="Management\SettingsCommunication.aspx" />
+    <Content Include="Management\SettingsContent.aspx" />
     <Content Include="Management\SettingsLanguage.aspx" />
     <Content Include="Management\SettingsLawyer.aspx" />
     <Content Include="Management\SettingsMenu.aspx" />
@@ -2055,6 +2059,20 @@
     </Compile>
     <Compile Include="Management\SettingsBlog.aspx.designer.cs">
       <DependentUpon>SettingsBlog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Management\SettingsCommunication.aspx.cs">
+      <DependentUpon>SettingsCommunication.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management\SettingsCommunication.aspx.designer.cs">
+      <DependentUpon>SettingsCommunication.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Management\SettingsContent.aspx.cs">
+      <DependentUpon>SettingsContent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management\SettingsContent.aspx.designer.cs">
+      <DependentUpon>SettingsContent.aspx</DependentUpon>
     </Compile>
     <Compile Include="Management\SettingsLanguage.aspx.cs">
       <DependentUpon>SettingsLanguage.aspx</DependentUpon>

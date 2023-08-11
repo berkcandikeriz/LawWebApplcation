@@ -87,13 +87,13 @@ namespace LawWebSite.Management
         protected global::System.Web.UI.WebControls.TextBox txtBlogYazar;
 
         /// <summary>
-        /// txtBlogGorselLinki control.
+        /// FuBlogPhoto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBlogGorselLinki;
+        protected global::System.Web.UI.WebControls.FileUpload FuBlogPhoto;
 
         /// <summary>
         /// txtBlogCreatedDate control.

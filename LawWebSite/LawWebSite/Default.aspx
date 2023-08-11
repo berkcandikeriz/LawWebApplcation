@@ -9,7 +9,7 @@
                 <div class="slider-item">
                     <div class="container">
                         <div class="row d-flex slider-text justify-content-center align-items-center" data-scrollax-parent="true">
-                            <div class="img" style="background-image: url('<%# GetImageUrl(Eval("ImageUrl")) %>');">
+                            <div class="img" style="background-image: url('../Assets/Uploads/<%#Eval("ImageUrl") %>');">
                                 &nbsp;
                             </div>
                             <div class="text d-flex align-items-center ftco-animate">

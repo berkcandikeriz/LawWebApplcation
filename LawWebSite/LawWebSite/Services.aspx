@@ -31,7 +31,7 @@
 
                     <div class="icon-box">
                         
-                  <img class="w-100" src="<%# GetServiceImageUrl(Eval("Image")) %>" alt="<%#Eval("Title") %>">
+                 <img class="img-fluid" src='../Assets/Uploads/<%#Eval("Image") %>'>
 
 
                     <h3><%#Eval("Title") %></h3>

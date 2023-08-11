@@ -4,6 +4,7 @@ using LawWebSite.Models;
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -58,7 +59,7 @@ namespace LawWebSite.Management
             txtSliderTitle.Text = string.Empty;
             txtSliderSubtitle.Text = string.Empty;
             txtSliderDescription.Text = string.Empty;
-            txtSliderImgUrl.Text = string.Empty;
+            Session["SliderImage"] = null;
 
         }
 
@@ -67,6 +68,27 @@ namespace LawWebSite.Management
             if (Session["selectedSliderItem"] != null)
             {
                 Models.Slider selectedSliderItem = Session["selectedSliderItem"] as Models.Slider;
+                string SliderImage = string.Empty;
+                if (Session["SliderImage"] != null)
+                {
+                    SliderImage = Session["SliderImage"].ToString();
+                }
+
+                if (FuSliderPhoto.HasFile)
+                {
+                    string DeleteImagePath = Path.Combine(Server.MapPath("~/Assets/Uploads/"), SliderImage);
+                    if (File.Exists(DeleteImagePath))
+                        File.Delete(DeleteImagePath);
+
+                    Guid guid = Guid.NewGuid();
+                    FileInfo fi = new FileInfo(FuSliderPhoto.FileName);
+                    string NewImagePath = Path.Combine(Server.MapPath("~/Assets/Uploads/"), guid + fi.Extension);
+                    string NewImageName = guid + fi.Extension;
+
+                    FuSliderPhoto.SaveAs(NewImagePath);
+                    SliderImage = NewImageName;
+                }
+
                 Models.Slider newSlider = new Models.Slider()
                 {
                     SliderId = selectedSliderItem.SliderId,
@@ -74,7 +96,7 @@ namespace LawWebSite.Management
                     SliderTitle = txtSliderTitle.Text.ToUpper(),
                     SliderSubTitle = txtSliderSubtitle.Text.ToUpper(),
                     SliderDescription = txtSliderDescription.Text,
-                    ImageUrl = txtSliderImgUrl.Text,
+                    ImageUrl = SliderImage,
                 };
                 var result = sliderController.UpdateSlider(newSlider);
 
@@ -98,13 +120,29 @@ namespace LawWebSite.Management
 
             else
             {
+
+                string SliderImage = string.Empty;
+                if (FuSliderPhoto.HasFile)
+                {
+                    Guid guid = Guid.NewGuid();
+                    FileInfo fi = new FileInfo(FuSliderPhoto.FileName);
+                    string NewImagePath = Path.Combine(Server.MapPath("~/Assets/Uploads/"), guid + fi.Extension);
+                    string NewImageName = guid + fi.Extension;
+
+                    FuSliderPhoto.SaveAs(NewImagePath);
+                    SliderImage = NewImageName;
+                }
+                else
+                {
+                    SliderImage = "bg_6.jpg";
+                }
                 Models.Slider newSlider = new Models.Slider()
                 {
                     LanguageId = int.Parse(DdlSliderDilSeciniz.SelectedValue),
                     SliderTitle = txtSliderTitle.Text.ToUpper(),
                     SliderSubTitle = txtSliderSubtitle.Text.ToUpper(),
                     SliderDescription = txtSliderDescription.Text,
-                    ImageUrl = txtSliderImgUrl.Text,
+                    ImageUrl = SliderImage,
                 };
 
                 var result = sliderController.InsertSlider(newSlider);
@@ -146,7 +184,7 @@ namespace LawWebSite.Management
                 txtSliderTitle.Text = selectedSliderItem.SliderTitle;
                 txtSliderSubtitle.Text = selectedSliderItem.SliderSubTitle;
                 txtSliderDescription.Text = selectedSliderItem.SliderDescription;
-                txtSliderImgUrl.Text = selectedSliderItem.ImageUrl;
+                Session["SliderImage"] = selectedSliderItem.ImageUrl;
 
                 Session["selectedSliderItem"] = selectedSliderItem;
 

@@ -39,28 +39,13 @@ namespace LawWebSite
 
         private void GetBlogs()
         {
-            ReturnModel<Models.Blog> GetBlogList = blogController.GetBlogs();
-
+            ReturnModel<Models.Blog> GetBlogList = blogController.GetBlogsByLanguageId(Global.GlobalLanguage.LanguageId);
             if (!GetBlogList.Is_Error)
             {
                 RBlogs.DataSource = GetBlogList.Model;
                 RBlogs.DataBind();
-                RBlogs.DataSource = blogController.GetBlogsByLanguageId(Global.GlobalLanguage.LanguageId).Model;
-                RBlogs.DataBind();
 
             }
-        }
-
-        protected string GetBlogImageUrl(object imageObject)
-        {
-            string imageUrl = imageObject as string;
-
-            if (string.IsNullOrEmpty(imageUrl) || imageUrl == "#")
-            {
-                return "Assets/images/image_1.jpg";
-            }
-
-            return imageUrl;
         }
     }
 }

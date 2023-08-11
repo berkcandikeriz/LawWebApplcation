@@ -78,13 +78,13 @@ namespace LawWebSite.Management
         protected global::System.Web.UI.WebControls.TextBox txtSliderDescription;
 
         /// <summary>
-        /// txtSliderImgUrl control.
+        /// FuSliderPhoto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSliderImgUrl;
+        protected global::System.Web.UI.WebControls.FileUpload FuSliderPhoto;
 
         /// <summary>
         /// lnkAddSlider control.

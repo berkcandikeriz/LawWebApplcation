@@ -122,6 +122,7 @@
     <EntitySetMapping Name="Communications">
       <EntityTypeMapping TypeName="DBLAW23Model.Communication">
         <MappingFragment StoreEntitySet="Communication">
+          <ScalarProperty Name="MapUrl" ColumnName="MapUrl" />
           <ScalarProperty Name="Sunday" ColumnName="Sunday" />
           <ScalarProperty Name="Saturday" ColumnName="Saturday" />
           <ScalarProperty Name="MidWeek" ColumnName="MidWeek" />

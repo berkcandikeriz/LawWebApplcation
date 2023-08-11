@@ -82,23 +82,33 @@
 
                             </ul>
                         </div>
+
                     </ItemTemplate>
                 </asp:Repeater>
             </div>
-
         </div>
     </section>
 
     <section>
         <div class="container">
             <div class="row">
-                <div class="col-12" style="width: 100%;">
-                    <iframe runat="server" id="IFrmMap" src="" width="100%" height="450" style="border: 0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <asp:Repeater runat="server" ID="RMaps">
+                    <ItemTemplate>
+                        <div class="col-12" style="width: 100%;">
+                            <iframe runat="server" src='<%# Eval("MapUrl") %>' width="100%" height="450" style="border: 0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
 
-                </div>
+                    </ItemTemplate>
+                </asp:Repeater>
             </div>
         </div>
-    </section>
 
+    </section>
+    <section>
+
+        <div class="kvkk-container">
+            <p class="kvkk-text">6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) uyarınca, Şirketimiz tarafından, Veri Sorumlusu sıfatıyla, kişisel verileriniz, iş amaçlarıyla bağlı olarak, aşağıda açıklandığı çerçevede kullanılmak, kaydedilmek, saklanmak, güncellenmek, aktarılmak ve/veya sınıflandırılmak suretiyle işlenecektir.  Bu kapsamda Şirketimiz tarafından başta özel hayatın gizliliği olmak üzere, kişilerin temel hak ve özgürlüklerini korumak ve kişisel verilerin korunması amacıyla düzenlenen Kanun ve Yönetmelikler gereğince Şirketimiz, kişisel verilerinizin hukuka aykırı olarak işlenmesini önleme, hukuka aykırı olarak erişilmesini önleme ve muhafazasını sağlama amacıyla, uygun güvenlik düzeyini temin etmeye yönelik tüm teknik ve idari tedbirleri almaktadır.</p>
+        </div>
+    </section>
 </asp:Content>
 

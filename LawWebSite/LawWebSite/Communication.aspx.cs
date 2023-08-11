@@ -17,7 +17,11 @@ namespace LawWebSite
         QuestionController questionController = new QuestionController();
         protected void Page_Load(object sender, EventArgs e)
         {
-            GetCommunications();
+            if (!IsPostBack)
+            {
+                GetCommunications();
+            }
+         
         }
 
         private void GetCommunications()
@@ -26,15 +30,12 @@ namespace LawWebSite
 
             if (!GetCommunicationList.Is_Error)
             {
+                RMaps.DataSource = GetCommunicationList.Model;
+                RMaps.DataBind();
                 RCommunication.DataSource = GetCommunicationList.Model;
                 RCommunication.DataBind();
             }
 
-            var mapModel = contentController.GetContent(Global.GlobalLanguage.LanguageId, "IFrmMap").Model;
-            if (mapModel != null && mapModel.Any())
-            {
-                IFrmMap.Src = mapModel.FirstOrDefault().Description;
-            }
         }
 
         protected void lnkAddQuestion_Click(object sender, EventArgs e)

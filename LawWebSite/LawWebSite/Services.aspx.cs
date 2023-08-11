@@ -46,17 +46,7 @@ namespace LawWebSite
             }
         }
 
-        protected string GetServiceImageUrl(object imageObject)
-        {
-            string imageUrl = imageObject as string;
 
-            if (string.IsNullOrEmpty(imageUrl) || imageUrl == "#")
-            {
-                return "Assets/images/aile-siddet.jpg";
-            }
-
-            return imageUrl;
-        }
 
 
     }

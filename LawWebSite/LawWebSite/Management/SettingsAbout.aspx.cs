@@ -2,6 +2,7 @@
 using LawWebSite.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -56,7 +57,7 @@ namespace LawWebSite.Management
 
             DdlAboutDilSeciniz.SelectedIndex = 0;
             txtAboutIsim.Text = string.Empty;
-            txtAboutUrl.Text = string.Empty;
+            Session["AboutImage"] = null;
 
 
         }
@@ -71,12 +72,32 @@ namespace LawWebSite.Management
             if (Session["selectedAboutItem"] != null)
             {
                 Models.About selectedAboutItem = Session["selectedAboutItem"] as Models.About;
+                string AboutImage = string.Empty;
+                if (Session["AboutImage"] != null)
+                {
+                    AboutImage = Session["AboutImage"].ToString();
+                }
+
+                if (FuAboutPhoto.HasFile)
+                {
+                    string DeleteImagePath = Path.Combine(Server.MapPath("~/Assets/Uploads/"), AboutImage);
+                    if (File.Exists(DeleteImagePath))
+                        File.Delete(DeleteImagePath);
+
+                    Guid guid = Guid.NewGuid();
+                    FileInfo fi = new FileInfo(FuAboutPhoto.FileName);
+                    string NewImagePath = Path.Combine(Server.MapPath("~/Assets/Uploads/"), guid + fi.Extension);
+                    string NewImageName = guid + fi.Extension;
+
+                    FuAboutPhoto.SaveAs(NewImagePath);
+                    AboutImage = NewImageName;
+                }
                 Models.About newAbout = new Models.About()
                 {
                     AboutId = selectedAboutItem.AboutId,
                     LanguageId = int.Parse(DdlAboutDilSeciniz.SelectedValue),
                     AboutDescription = txtAboutIsim.Text,
-                    ImageUrl = txtAboutUrl.Text,
+                    ImageUrl = AboutImage,
 
                 };
                 var result = aboutController.UpdateAbout(newAbout);
@@ -112,7 +133,7 @@ namespace LawWebSite.Management
                 Models.About selectedAboutItem = result.Model[0];
                 DdlAboutDilSeciniz.SelectedValue = selectedAboutItem.LanguageId.ToString();
                 txtAboutIsim.Text = selectedAboutItem.AboutDescription;
-                txtAboutUrl.Text = selectedAboutItem.ImageUrl;
+                Session["AboutImage"] = selectedAboutItem.ImageUrl;
 
 
                 Session["selectedAboutItem"] = selectedAboutItem;
