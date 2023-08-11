@@ -17,15 +17,15 @@ namespace LawWebSite
         MenuController menuController = new MenuController();
         ContentController contentController = new ContentController();
         BlogController blogController = new BlogController();
+        CommunicationController communicationController = new CommunicationController();
         #endregion
-
 
         protected void Page_Load(object sender, EventArgs e)
         {
             GetMenus();
             RenderBody();
             GetBlogs();
-
+            GetCommunication();
         }
 
         private void GetBlogs()
@@ -84,50 +84,35 @@ namespace LawWebSite
                 LblMasterBlog.Text = masterBlogModel.FirstOrDefault().Description;
             }
 
-
-
             var descriptionModel = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblFooterDescription").Model;
             if (descriptionModel != null && descriptionModel.Any())
             {
                 LblFooterDescription.Text = descriptionModel.FirstOrDefault().Description;
             }
-
-            var aboutModel = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblFooterAboutMe").Model;
-            if (aboutModel != null && aboutModel.Any())
-            {
-                LblFooterAboutMe.Text = aboutModel.FirstOrDefault().Description;
-            }
-
-            var servicesModel = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblFooterOurServices").Model;
-            if (servicesModel != null && servicesModel.Any())
-            {
-                LblFooterOurServices.Text = servicesModel.FirstOrDefault().Description;
-            }
-
-            var teamModel = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblFooterOurTeam").Model;
-            if (teamModel != null && teamModel.Any())
-            {
-                LblFooterOurTeam.Text = teamModel.FirstOrDefault().Description;
-            }
-
-            var blogModel = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblFooterBlog").Model;
-            if (blogModel != null && blogModel.Any())
-            {
-                LblFooterBlog.Text = blogModel.FirstOrDefault().Description;
-            }
-            var Model = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblFooterBlog").Model;
-            if (blogModel != null && blogModel.Any())
-            {
-                LblFooterBlog.Text = blogModel.FirstOrDefault().Description;
-            }
-
-
         }
 
+        /// <summary>
+        /// Location = 1 ise üstteki menü, Location 2 ise alttaki menü dolar
+        /// </summary>
         private void GetMenus()
         {
-            RMenus.DataSource = menuController.GetMenusByLanguageId(Global.GlobalLanguage.LanguageId).Model;
+            RMenus.DataSource = menuController.GetMenusByLanguageId(Global.GlobalLanguage.LanguageId).Model.Where(x => x.Location == 1);
             RMenus.DataBind();
+
+            RMenusBottom.DataSource = menuController.GetMenusByLanguageId(Global.GlobalLanguage.LanguageId).Model.Where(x => x.Location == 2);
+            RMenusBottom.DataBind();
+        }
+
+        private void GetCommunication()
+        {
+            ReturnModel<Models.Communication> GetCommunicationList = communicationController.GetCommunicationsByLanguageId(Global.GlobalLanguage.LanguageId);
+
+            if (!GetCommunicationList.Is_Error)
+            {
+                RCommunication.DataSource = GetCommunicationList.Model;
+                RCommunication.DataBind();
+            }
+
         }
 
     }

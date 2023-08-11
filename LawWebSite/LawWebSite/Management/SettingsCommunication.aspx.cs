@@ -15,9 +15,11 @@ namespace LawWebSite.Management
         LanguageController languageController = new LanguageController();
         protected void Page_Load(object sender, EventArgs e)
         {
-            GetCommunications();
-            GetLanguagesByDdlDilSeciniz();
-
+            if (!IsPostBack)
+            {
+                GetCommunications();
+                GetLanguagesByDdlDilSeciniz();
+            }
         }
 
         private void GetLanguagesByDdlDilSeciniz()
@@ -57,6 +59,7 @@ namespace LawWebSite.Management
             txtCommunicationPazar.Text = string.Empty;
 
         }
+
         protected void lnkAddCommunication_Click(object sender, EventArgs e)
         {
             if (Session["selectedCommunicationItem"] != null)
@@ -93,21 +96,6 @@ namespace LawWebSite.Management
                     ClientScript.RegisterStartupScript(this.GetType(), "Popup", "PopUpModalCommunicationInformation();", true);
                 }
             }
-            else
-            {
-                Models.Communication newCommunication = new Models.Communication()
-                {
-                    LanguageId = int.Parse(DdlCommunicationDilSeciniz.SelectedValue),
-                    Address = txtCommunicationAdres.Text,
-                    PhoneNumber = txtCommunicationMail.Text,
-                    MapUrl = txtCommunicationMap.Text,
-                    Mail = txtCommunicationTel.Text,
-                    MidWeek = txtCommunicationHaftaIci.Text,
-                    Saturday = txtCommunicationCumartesi.Text,
-                    Sunday = txtCommunicationPazar.Text,
-                };
-            }
-
         }
 
         protected void LbCommunicationEdit_Click(object sender, EventArgs e)
@@ -157,18 +145,5 @@ namespace LawWebSite.Management
                 ClientScript.RegisterStartupScript(this.GetType(), "Popup", "PopUpModalCommunicationInformation();", true);
             }
         }
-
-        protected string ShortenAndEllipsis(string text, int maxLength)
-        {
-            if (text.Length <= maxLength)
-            {
-                return text;
-            }
-            else
-            {
-                return text.Substring(0, maxLength - 3) + "...";
-            }
-        }
-
     }
 }

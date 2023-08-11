@@ -78,7 +78,7 @@
                                             <%# Eval("PhoneNumber") %>
                                         </td>
                                          <td>
-                                             <%# ShortenAndEllipsis(Eval("MapUrl").ToString(), 50) %>
+                                             <%# Eval("MapUrl").ToString().Substring(0, 50 - 3) + " <span alt='Devamı için güncellemeye tıklayabilirsiniz' title='Devamı için güncellemeye tıklayabilirsiniz'>[...]</span>" %>
                                              
                                         </td>
                                         <td>

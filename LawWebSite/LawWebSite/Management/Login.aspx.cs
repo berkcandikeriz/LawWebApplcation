@@ -32,9 +32,17 @@ namespace LawWebSite.Management
 
                 if (!result.Is_Error)
                 {
-                    // Giriş başarılı, admin paneline yönlendirme işlemi
-                    Session["LoginLawyer"] = result.Model.FirstOrDefault();
-                    Response.Redirect("~/Management/Logged.aspx");
+                    if (result.Model.FirstOrDefault().IsAdmin == true)
+                    {
+                        // Giriş başarılı, admin paneline yönlendirme işlemi
+                        Session["LoginLawyer"] = result.Model.FirstOrDefault();
+                        Response.Redirect("~/Management/Logged.aspx");
+                    }
+                    else
+                    {
+                        LblInformation.Text = "Kullanıcı adı veya şifreniz doğru fakat yönetici yetkiniz bulunmamakta.";
+                        LblInformation.CssClass = "text-danger";
+                    }
                 }
                 else
                 {

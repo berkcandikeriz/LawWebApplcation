@@ -60,6 +60,15 @@ namespace LawWebSite
         protected global::System.Web.UI.WebControls.TextBox question;
 
         /// <summary>
+        /// LblKVKK control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblKVKK;
+
+        /// <summary>
         /// questionSubmitBtn control.
         /// </summary>
         /// <remarks>
@@ -67,6 +76,15 @@ namespace LawWebSite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton questionSubmitBtn;
+
+        /// <summary>
+        /// LblSendTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblSendTitle;
 
         /// <summary>
         /// RCommunication control.
@@ -85,5 +103,23 @@ namespace LawWebSite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater RMaps;
+
+        /// <summary>
+        /// LblKVKKHeader control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblKVKKHeader;
+
+        /// <summary>
+        /// LblKVKKContent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblKVKKContent;
     }
 }

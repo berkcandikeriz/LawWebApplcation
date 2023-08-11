@@ -57,8 +57,14 @@
                                     ErrorMessage="Soru alanı boş bırakılamaz." ValidationGroup="validationGroup"></asp:RequiredFieldValidator>
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <div class="col-lg-12">
+                                <asp:Label runat="server" ID="LblKVKK"></asp:Label>
+                            </div>
+                        </div>
                         <div class="modal-footer justify-content-end">
-                            <asp:LinkButton runat="server" ID="questionSubmitBtn" CssClass="btn btn-black" OnClick="lnkAddQuestion_Click" ValidationGroup="validationGroup">Gönder</asp:LinkButton>
+                            <asp:LinkButton runat="server" ID="questionSubmitBtn" CssClass="btn btn-black" OnClick="lnkAddQuestion_Click" ValidationGroup="validationGroup">
+                                <asp:Label runat="server" ID="LblSendTitle"></asp:Label></asp:LinkButton>
                         </div>
                     </div>
                 </div>
@@ -75,14 +81,11 @@
                             </ul>
                             <h4 class="heading-primary text-center mt-5">Çalışma Saatleri</h4>
                             <ul class="list-group list list-icons list-dark mt-4 text-center">
-
                                 <li class="list-group-item"><i class="far fa-clock"></i>Pazartesi - Cuma: <%#Eval("MidWeek") %></li>
                                 <li class="list-group-item"><i class="far fa-clock"></i>Cumartesi: <%#Eval("Saturday") %></li>
                                 <li class="list-group-item"><i class="far fa-clock"></i>Pazar: <%#Eval("Sunday") %></li>
-
                             </ul>
                         </div>
-
                     </ItemTemplate>
                 </asp:Repeater>
             </div>
@@ -102,13 +105,22 @@
                 </asp:Repeater>
             </div>
         </div>
-
     </section>
-    <section>
 
-        <div class="kvkk-container">
-            <p class="kvkk-text">6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) uyarınca, Şirketimiz tarafından, Veri Sorumlusu sıfatıyla, kişisel verileriniz, iş amaçlarıyla bağlı olarak, aşağıda açıklandığı çerçevede kullanılmak, kaydedilmek, saklanmak, güncellenmek, aktarılmak ve/veya sınıflandırılmak suretiyle işlenecektir.  Bu kapsamda Şirketimiz tarafından başta özel hayatın gizliliği olmak üzere, kişilerin temel hak ve özgürlüklerini korumak ve kişisel verilerin korunması amacıyla düzenlenen Kanun ve Yönetmelikler gereğince Şirketimiz, kişisel verilerinizin hukuka aykırı olarak işlenmesini önleme, hukuka aykırı olarak erişilmesini önleme ve muhafazasını sağlama amacıyla, uygun güvenlik düzeyini temin etmeye yönelik tüm teknik ve idari tedbirleri almaktadır.</p>
+    <div class="modal fade" id="ModalKVKK">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"><asp:Label runat="server" ID="LblKVKKHeader"></asp:Label></h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p><asp:Label runat="server" ID="LblKVKKContent"></asp:Label></p>
+                </div>
+            </div>
         </div>
-    </section>
+    </div>
 </asp:Content>
 

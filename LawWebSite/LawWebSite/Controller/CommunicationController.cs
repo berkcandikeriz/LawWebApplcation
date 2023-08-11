@@ -211,6 +211,7 @@ namespace LawWebSite.Controller
                     selectedCommunicationItem.LanguageId = model.LanguageId;
                     selectedCommunicationItem.Address = model.Address;
                     selectedCommunicationItem.PhoneNumber = model.PhoneNumber;
+                    selectedCommunicationItem.MapUrl = model.MapUrl;
                     selectedCommunicationItem.Mail = model.Mail;
                     selectedCommunicationItem.MidWeek = model.MidWeek;
                     selectedCommunicationItem.Saturday = model.Saturday;

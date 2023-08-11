@@ -32,10 +32,35 @@ namespace LawWebSite
             {
                 RMaps.DataSource = GetCommunicationList.Model;
                 RMaps.DataBind();
+
                 RCommunication.DataSource = GetCommunicationList.Model;
                 RCommunication.DataBind();
             }
 
+            ReturnModel<Models.Content> GetContent = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblSendTitle");
+            if (!GetContent.Is_Error)
+            {
+                LblSendTitle.Text = GetContent.Model.FirstOrDefault().Description;
+            }
+
+            ReturnModel<Models.Content> GetContentKVKK = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblKVKK");
+            if (!GetContentKVKK.Is_Error)
+            {
+                LblKVKK.Text = GetContentKVKK.Model.FirstOrDefault().Description;
+            }
+
+
+            ReturnModel<Models.Content> GetContentKVKKHeader = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblKVKKHeader");
+            if (!GetContentKVKKHeader.Is_Error)
+            {
+                LblKVKKHeader.Text = GetContentKVKKHeader.Model.FirstOrDefault().Description;
+            }
+
+            ReturnModel<Models.Content> GetContentKVKKContent = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblKVKKContent");
+            if (!GetContentKVKKContent.Is_Error)
+            {
+                LblKVKKContent.Text = GetContentKVKKContent.Model.FirstOrDefault().Description;
+            }
         }
 
         protected void lnkAddQuestion_Click(object sender, EventArgs e)

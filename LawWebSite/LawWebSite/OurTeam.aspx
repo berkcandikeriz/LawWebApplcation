@@ -25,7 +25,7 @@
                                 <div class="speakers xs-mb-3">
                                     <a href='OurTeamDetail?LawyerDetailContent=<%#Eval("LawyerId") %>'>
                                         <div class="spk-img">
-                                            <img class="img-fluid" src='../Assets/Uploads/<%#Eval("ImgUrl") %>'>
+                                            <img class="img-fluid" src='Assets/Uploads/<%#Eval("ImgUrl") %>'>
                                         </div>
                                     </a>
                                     <div class="spk-info">

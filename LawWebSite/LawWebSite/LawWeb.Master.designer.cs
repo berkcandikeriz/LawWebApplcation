@@ -105,40 +105,13 @@ namespace LawWebSite
         protected global::System.Web.UI.WebControls.Label LblFooterColumn3;
 
         /// <summary>
-        /// LblFooterOurTeam control.
+        /// RMenusBottom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblFooterOurTeam;
-
-        /// <summary>
-        /// LblFooterOurServices control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblFooterOurServices;
-
-        /// <summary>
-        /// LblFooterBlog control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblFooterBlog;
-
-        /// <summary>
-        /// LblFooterAboutMe control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblFooterAboutMe;
+        protected global::System.Web.UI.WebControls.Repeater RMenusBottom;
 
         /// <summary>
         /// LblFooterColumn4 control.
@@ -148,6 +121,15 @@ namespace LawWebSite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LblFooterColumn4;
+
+        /// <summary>
+        /// RCommunication control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater RCommunication;
 
         /// <summary>
         /// LblCopyright control.

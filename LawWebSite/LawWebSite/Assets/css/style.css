@@ -14028,21 +14028,18 @@ ul {
 
 .blog-entry .img-fluid {
     aspect-ratio: 1/1;
-    background-size: cover;
-    height: 300px;
     width: 100%;
+    height: auto;
 }
 .spk-img .img-fluid {
     aspect-ratio: 1/1;
-    background-size: cover;
-    height: 300px;
     width: 100%;
+    height: auto;
 }
 .services-block-two .img-fluid {
     aspect-ratio: 1/1;
-    background-size: cover;
-    height: 300px;
     width: 100%;
+    height: auto;
 }
 .kvkk-container {
     position: fixed;

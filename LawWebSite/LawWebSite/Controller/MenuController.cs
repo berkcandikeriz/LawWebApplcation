@@ -57,6 +57,7 @@ namespace LawWebSite.Controller
         ReturnPointer:
             return returnModel;
         }
+       
         public ReturnModel<Models.Menu> GetMenuByMenuId(int MenuId)
         {
             ReturnModel<Models.Menu> returnModel = new ReturnModel<Models.Menu>();
