@@ -193,7 +193,7 @@ namespace LawWebSite.Management
                 txtLawyerEmail.Text = selectedLawyerItem.Email;
                 txtLawyerTel.Text = selectedLawyerItem.PhoneNumber;
                 txtLawyerDescription.Text = selectedLawyerItem.Description;
-                DdlAdminSeciniz.SelectedValue = selectedLawyerItem.IsAdmin.ToString();
+                DdlAdminSeciniz.SelectedValue = selectedLawyerItem.IsAdmin == true ? "1" : "0";
 
                 Session["selectedLawyerItem"] = selectedLawyerItem;
 

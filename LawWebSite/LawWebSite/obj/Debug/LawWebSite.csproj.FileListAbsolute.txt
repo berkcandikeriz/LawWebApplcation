@@ -229,3 +229,5 @@ C:\Users\Bahar Zerentürk\Desktop\Github_Projects\LawWebApplcation\LawWebSite\La
 C:\Users\Bahar Zerentürk\Desktop\Github_Projects\LawWebApplcation\LawWebSite\LawWebSite\obj\Debug\LawWebSite.csproj.CopyComplete
 C:\Users\Bahar Zerentürk\Desktop\Github_Projects\LawWebApplcation\LawWebSite\LawWebSite\obj\Debug\LawWebSite.dll
 C:\Users\Bahar Zerentürk\Desktop\Github_Projects\LawWebApplcation\LawWebSite\LawWebSite\obj\Debug\LawWebSite.pdb
+D:\Projeler\LawWebApplcation\Local\LawWebSite\LawWebSite\bin\CkEditor.dll
+D:\Projeler\LawWebApplcation\Local\LawWebSite\LawWebSite\bin\CKEditor.NET.dll
