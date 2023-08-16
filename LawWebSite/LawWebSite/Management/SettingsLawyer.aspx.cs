@@ -13,6 +13,7 @@ namespace LawWebSite.Management
     public partial class SettingsLawyer : System.Web.UI.Page
     {
         LawyerController lawyerController = new LawyerController();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -174,8 +175,6 @@ namespace LawWebSite.Management
             }
         }
 
-
-
         protected void LbLawyerEdit_Click(object sender, EventArgs e)
         {
             string lawyerId = ((LinkButton)sender).CommandArgument;
@@ -191,10 +190,6 @@ namespace LawWebSite.Management
                 txtLawyerSurname.Text = selectedLawyerItem.LastName;
                 txtLawyerTitle.Text = selectedLawyerItem.Title;
                 Session["LawyerImage"] = selectedLawyerItem.ImgUrl;
-                txtLawyerFacebook.Text = selectedLawyerItem.Facebook;
-                txtLawyerTwitter.Text = selectedLawyerItem.Twitter;
-                txtLawyerInstgram.Text = selectedLawyerItem.Instagram;
-                txtLawyerLinkedln.Text = selectedLawyerItem.Linkedin;
                 txtLawyerEmail.Text = selectedLawyerItem.Email;
                 txtLawyerTel.Text = selectedLawyerItem.PhoneNumber;
                 txtLawyerDescription.Text = selectedLawyerItem.Description;
@@ -236,7 +231,5 @@ namespace LawWebSite.Management
             ClientScript.RegisterStartupScript(this.GetType(), "Popup", "LbLawyerEditModal();", true);
 
         }
-
-
     }
 }

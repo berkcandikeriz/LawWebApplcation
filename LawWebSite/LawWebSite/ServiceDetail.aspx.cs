@@ -19,8 +19,6 @@ namespace LawWebSite
             {
                 GetServiceDetails();
             }
-
-          
         }
 
         private void GetServiceDetails()

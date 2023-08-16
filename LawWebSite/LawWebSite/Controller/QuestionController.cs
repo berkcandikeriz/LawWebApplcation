@@ -92,7 +92,7 @@ namespace LawWebSite.Controller
                 returnModel.Message_Content = "Hata Detayı: " + exc.Message;
                 returnModel.Model = null;
             }
-        
+
             return returnModel;
         }
 

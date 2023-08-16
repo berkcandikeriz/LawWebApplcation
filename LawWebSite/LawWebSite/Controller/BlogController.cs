@@ -53,7 +53,7 @@ namespace LawWebSite.Controller
                 goto ReturnPointer;
             }
 
-            ReturnPointer:
+        ReturnPointer:
             return returnModel;
         }
 
@@ -96,7 +96,7 @@ namespace LawWebSite.Controller
                 goto ReturnPointer;
             }
 
-            ReturnPointer:
+        ReturnPointer:
             return returnModel;
         }
 
@@ -144,7 +144,7 @@ namespace LawWebSite.Controller
                 goto ReturnPointer;
             }
 
-            ReturnPointer:
+        ReturnPointer:
             return returnModel;
         }
 
@@ -249,7 +249,7 @@ namespace LawWebSite.Controller
                     ent.Configuration.LazyLoadingEnabled = false;
                     ent.Configuration.ProxyCreationEnabled = false;
 
-                    var selectedBlogItem = ent.Blogs.FirstOrDefault(x=> x.BlogId == model.BlogId);
+                    var selectedBlogItem = ent.Blogs.FirstOrDefault(x => x.BlogId == model.BlogId);
 
                     selectedBlogItem.LanguageId = model.LanguageId;
                     selectedBlogItem.BlogTitle = model.BlogTitle;

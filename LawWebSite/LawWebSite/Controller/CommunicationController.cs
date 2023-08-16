@@ -145,6 +145,7 @@ namespace LawWebSite.Controller
         ReturnPointer:
             return returnModel;
         }
+
         public ReturnModel<Models.Communication> DeleteCommunication(string communicationId)
         {
             ReturnModel<Models.Communication> returnModel = new ReturnModel<Models.Communication>();
@@ -245,6 +246,5 @@ namespace LawWebSite.Controller
 
             return returnModel;
         }
-
     }
 }

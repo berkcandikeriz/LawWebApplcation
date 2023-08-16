@@ -64,7 +64,10 @@
                                             </div>
                                         </td>
                                         <td><%#Eval("Language.Name") %></td>
-                                        <td><%#Eval("AboutDescription") %></td>
+                                        <td>
+                                            <%# (Eval("AboutDescription").ToString().Length > 599) ? Eval("AboutDescription").ToString().Substring(0, 600) + " <span alt='Devamı için güncellemeye tıklayabilirsiniz' title='Devamı için güncellemeye tıklayabilirsiniz'>[...]</span>" : Eval("AboutDescription").ToString() %>
+
+                                        </td>
                                         <td>
                                             <img src='../Assets/Uploads/<%#Eval("ImageUrl") %>' class="img-fluid" width="50%" />
                                         </td>

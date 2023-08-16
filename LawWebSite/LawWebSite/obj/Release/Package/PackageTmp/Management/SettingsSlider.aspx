@@ -45,7 +45,7 @@
                                 <th style="width: 18%">Başlık</th>
                                 <th style="width: 18%">AltBaşlık</th>
                                 <th style="width: 18%">Açıklama</th>
-                                <th style="width: 18%">Görsel Url</th>
+                                <th style="width: 18%">Görsel</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -70,8 +70,8 @@
                                         <td><%#Eval("Language.Name") %></td>
                                         <td><%#Eval("SliderTitle") %></td>
                                         <td><%#Eval("SliderSubTitle") %></td>
-                                        <td><%#Eval("SliderDescription") %></td>
-                                        <td><%#Eval("ImageUrl") %></td>
+                                        <td>    <%# (Eval("SliderDescription").ToString().Length > 149) ? Eval("SliderDescription").ToString().Substring(0, 150) + " <span alt='Devamı için güncellemeye tıklayabilirsiniz' title='Devamı için güncellemeye tıklayabilirsiniz'>[...]</span>" : Eval("SliderDescription").ToString() %></td>
+                                         <td><img src='../Assets/Uploads/<%#Eval("ImageUrl") %>' class="img-fluid" width="50%" /> </td>
                                     </tr>
                                 </ItemTemplate>
                             </asp:Repeater>
@@ -123,10 +123,10 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Görsel Linki</label>
-                            <div class="col-lg-9">
-                                <asp:TextBox runat="server" ID="txtSliderImgUrl" CssClass="form-control"></asp:TextBox>
+                          <div class="form-group row">
+                            <label class="col-md-3 col-form-label form-control-label">Görsel</label>
+                            <div class="col-md-9">
+                                <asp:FileUpload runat="server" ID="FuSliderPhoto" AllowMultiple="false"/>
                             </div>
                         </div>
 

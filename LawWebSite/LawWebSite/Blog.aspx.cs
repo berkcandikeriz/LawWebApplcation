@@ -13,10 +13,9 @@ namespace LawWebSite
     public partial class Blog : System.Web.UI.Page
     {
         #region
-       BlogController blogController = new BlogController();
+        BlogController blogController = new BlogController();
         ContentController contentController = new ContentController();
         #endregion
-
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,13 +26,32 @@ namespace LawWebSite
             }
         }
 
+        protected void RMasterBlogs_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                Label lblReadMore = e.Item.FindControl("LblReadMore") as Label;
+
+                if (lblReadMore != null)
+                {
+                    ReturnModel<Models.Content> GetContentReadMore = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblReadMore");
+
+                    if (GetContentReadMore != null && !GetContentReadMore.Is_Error)
+                    {
+                        var readMoreDescription = GetContentReadMore.Model.FirstOrDefault().Description;
+                        lblReadMore.Text = readMoreDescription;
+                    }
+                }
+            }
+        }
+
         private void RenderBody()
         {
-            var blogModel = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblBlog").Model;
-            if (blogModel != null && blogModel.Any())
+            ReturnModel<Models.Content> GetContentBlogForm = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblBlog");
+            if (!GetContentBlogForm.Is_Error)
             {
-                LblBlog.Text = blogModel.FirstOrDefault().Description;
-                Page.Title = blogModel.FirstOrDefault().Description;
+                LblBlog.Text = GetContentBlogForm.Model.FirstOrDefault().Description;
+                Page.Title = GetContentBlogForm.Model.FirstOrDefault().Description;
             }
         }
 

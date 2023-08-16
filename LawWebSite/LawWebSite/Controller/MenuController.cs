@@ -10,7 +10,6 @@ namespace LawWebSite.Controller
 {
     public class MenuController
     {
-
         /// <summary>
         /// Veritabanındaki tüm menüleri listeleyen metod
         /// </summary>
@@ -57,7 +56,7 @@ namespace LawWebSite.Controller
         ReturnPointer:
             return returnModel;
         }
-       
+
         public ReturnModel<Models.Menu> GetMenuByMenuId(int MenuId)
         {
             ReturnModel<Models.Menu> returnModel = new ReturnModel<Models.Menu>();
@@ -289,8 +288,5 @@ namespace LawWebSite.Controller
 
             return returnModel;
         }
-
-
-
     }
 }

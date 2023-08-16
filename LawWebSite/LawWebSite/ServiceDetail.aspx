@@ -1,8 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/LawWeb.Master" AutoEventWireup="true" CodeBehind="ServiceDetail.aspx.cs" Inherits="LawWebSite.ServiceDetail" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
     <section class="ftco-section">
         <div class="container">
             <div class="row mb-3">
@@ -13,7 +13,7 @@
                     <small>
                         <i class="fa fa-calendar"></i>&nbsp;<asp:Label runat="server" ID="LblCreatedDate"></asp:Label>
                     </small>
-                <hr />
+                    <hr />
                 </div>
             </div>
             <div class="row">
@@ -26,7 +26,7 @@
                 <div class="col-lg-4 sidebar pr-lg-5 ftco-animate">
                     <div class="sidebar-box ftco-animate">
                         <asp:Image runat="server" ID="ServiceDetailImageUrl" CssClass="img-fluid img-thumbnail" />
-                    </div>                        
+                    </div>
                 </div>
             </div>
         </div>

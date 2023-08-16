@@ -18,7 +18,7 @@
         <div class="whos-speaking-area speakers pad100">
             <div class="container">
                 <div class="row mb-3">
-                    <asp:Repeater runat="server" ID="ROurTeam">
+                    <asp:Repeater runat="server" ID="ROurTeam" OnItemDataBound="ROurTeam_ItemDataBound">
                         <ItemTemplate>
                             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-3">
 
@@ -31,7 +31,11 @@
                                     <div class="spk-info">
                                         <ul>
                                             <li>
-                                                <p class="mb-0"><a href='OurTeamDetail?LawyerDetailContent=<%#Eval("LawyerId") %>' class="btn btn-black py-2">İncele<span class="icon-arrow_forward ml-4"></span></a></p>
+                                                <p class="mb-0">
+                                                    <a href='OurTeamDetail?LawyerDetailContent=<%#Eval("LawyerId") %>' class="btn btn-black py-2">
+                                                        <asp:Label ID="LblExamine" runat="server">
+                                                        </asp:Label></h1><span class="icon-arrow_forward ml-4"></span></a>
+                                                </p>
                                             </li>
                                         </ul>
                                         <h3><%#Eval("FirstName") %>&nbsp;<%#Eval("LastName") %></h3>

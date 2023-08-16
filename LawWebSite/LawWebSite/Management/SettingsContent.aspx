@@ -63,7 +63,7 @@
                                             </div>
                                         </td>
                                         <td><%#Eval("Language.Name") %></td>
-                                        <td><%#Eval("Description") %></td>
+                                        <td>    <%# (Eval("Description").ToString().Length > 249) ? Eval("Description").ToString().Substring(0, 250) + " <span alt='Devamı için güncellemeye tıklayabilirsiniz' title='Devamı için güncellemeye tıklayabilirsiniz'>[...]</span>" : Eval("Description").ToString() %></td>
 
                                     </tr>
                                 </ItemTemplate>

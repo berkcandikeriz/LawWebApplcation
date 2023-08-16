@@ -23,7 +23,7 @@ namespace LawWebSite.Controller
                     GetLanguage = languageController.GetLanguageByLanguageId(Global.GlobalLanguage.LanguageId).Model.FirstOrDefault();
                 }
                 else
-                { 
+                {
                     GetLanguage = languageController.GetLanguages().Model.FirstOrDefault(x => x.Name == "Türkçe");
                 }
 
@@ -31,7 +31,7 @@ namespace LawWebSite.Controller
             }
             catch (Exception exc)
             {
-                
+
             }
         }
     }

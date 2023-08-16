@@ -45,49 +45,79 @@ namespace LawWebSite
             }
         }
 
+        protected void RMasterBlogs_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                Label lblReadMore = e.Item.FindControl("LblReadMore") as Label;
+
+                if (lblReadMore != null)
+                {
+                    ReturnModel<Models.Content> GetContentReadMore = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblReadMore");
+
+                    if (GetContentReadMore != null && !GetContentReadMore.Is_Error)
+                    {
+                        var readMoreDescription = GetContentReadMore.Model.FirstOrDefault().Description;
+                        lblReadMore.Text = readMoreDescription;
+                    }
+                }
+            }
+        }
+
         private void RenderBody()
         {
-            var footerModel1 = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblFooterColumn1").Model;
-            if (footerModel1 != null && footerModel1.Any())
+            ReturnModel<Models.Content> GetContentFooterModel1 = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblFooterColumn1");
+            if (!GetContentFooterModel1.Is_Error)
             {
-                LblFooterColumn1.Text = footerModel1.FirstOrDefault().Description;
+                LblFooterColumn1.Text = GetContentFooterModel1.Model.FirstOrDefault().Description;
             }
 
-            var footerModel2 = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblFooterColumn2").Model;
-            if (footerModel2 != null && footerModel2.Any())
+            ReturnModel<Models.Content> GetContentFooterModel2 = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblFooterColumn2");
+            if (!GetContentFooterModel2.Is_Error)
             {
-                LblFooterColumn2.Text = footerModel2.FirstOrDefault().Description;
+                LblFooterColumn2.Text = GetContentFooterModel2.Model.FirstOrDefault().Description;
             }
 
-            var footerModel3 = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblFooterColumn3").Model;
-            if (footerModel3 != null && footerModel3.Any())
+            ReturnModel<Models.Content> GetContentFooterModel3 = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblFooterColumn3");
+            if (!GetContentFooterModel3.Is_Error)
             {
-                LblFooterColumn3.Text = footerModel3.FirstOrDefault().Description;
+                LblFooterColumn3.Text = GetContentFooterModel3.Model.FirstOrDefault().Description;
             }
 
-            var footerModel4 = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblFooterColumn4").Model;
-            if (footerModel4 != null && footerModel4.Any())
+            ReturnModel<Models.Content> GetContentFooterModel4 = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblFooterColumn4");
+            if (!GetContentFooterModel4.Is_Error)
             {
-                LblFooterColumn4.Text = footerModel4.FirstOrDefault().Description;
+                LblFooterColumn4.Text = GetContentFooterModel4.Model.FirstOrDefault().Description;
             }
 
-            var contentModel = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblCopyright").Model;
-            if (contentModel != null && contentModel.Any())
+            ReturnModel<Models.Content> GetContentCopyright = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblCopyright");
+            if (!GetContentCopyright.Is_Error)
             {
-                LblCopyright.Text = contentModel.FirstOrDefault().Description;
+                LblCopyright.Text = GetContentCopyright.Model.FirstOrDefault().Description;
             }
 
-
-            var masterBlogModel = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblMasterBlog").Model;
-            if (masterBlogModel != null && masterBlogModel.Any())
+            ReturnModel<Models.Content> GetContentMasterBlog = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblMasterBlog");
+            if (!GetContentMasterBlog.Is_Error)
             {
-                LblMasterBlog.Text = masterBlogModel.FirstOrDefault().Description;
+                LblMasterBlog.Text = GetContentMasterBlog.Model.FirstOrDefault().Description;
             }
 
-            var descriptionModel = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblFooterDescription").Model;
-            if (descriptionModel != null && descriptionModel.Any())
+            ReturnModel<Models.Content> GetContentFooterDescription = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblFooterDescription");
+            if (!GetContentFooterDescription.Is_Error)
             {
-                LblFooterDescription.Text = descriptionModel.FirstOrDefault().Description;
+                LblFooterDescription.Text = GetContentFooterDescription.Model.FirstOrDefault().Description;
+            }
+
+            ReturnModel<Models.Content> GetContentFooterMail = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblFooterMail");
+            if (!GetContentFooterMail.Is_Error)
+            {
+                LblFooterMail.Text = GetContentFooterMail.Model.FirstOrDefault().Description;
+            }
+
+            ReturnModel<Models.Content> GetContentFooterTwitter = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblFooterTwitter");
+            if (!GetContentFooterTwitter.Is_Error)
+            {
+                LblFooterTwitter.Text = GetContentFooterTwitter.Model.FirstOrDefault().Description;
             }
         }
 
@@ -113,6 +143,16 @@ namespace LawWebSite
                 RCommunication.DataBind();
             }
 
+        }
+
+        protected string GetLinkFromDatabase(string linkKey)
+        {
+            var linkModel = contentController.GetContent(Global.GlobalLanguage.LanguageId, linkKey).Model;
+            if (linkModel != null && linkModel.Any())
+            {
+                return linkModel.FirstOrDefault().Description;
+            }
+            return "#"; // Varsayılan bir link veya boş link
         }
 
     }

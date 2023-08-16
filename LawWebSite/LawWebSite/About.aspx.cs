@@ -28,11 +28,11 @@ namespace LawWebSite
 
         private void RenderBody()
         {
-            var aboutModel = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblAbout").Model;
-            if (aboutModel != null && aboutModel.Any())
+            ReturnModel<Models.Content> GetContentAbout = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblAboutMe");
+            if (!GetContentAbout.Is_Error)
             {
-                LblAbout.Text = aboutModel.FirstOrDefault().Description;
-                Page.Title = aboutModel.FirstOrDefault().Description;
+                LblAboutMe.Text = GetContentAbout.Model.FirstOrDefault().Description;
+                Page.Title = GetContentAbout.Model.FirstOrDefault().Description;
             }
         }
 
@@ -62,6 +62,5 @@ namespace LawWebSite
                 }
             }
         }
-
     }
 }

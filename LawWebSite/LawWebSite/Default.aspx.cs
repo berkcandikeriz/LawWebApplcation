@@ -15,14 +15,12 @@ namespace LawWebSite
             if (!IsPostBack)
             {
                 GetSliders();
-     
             }
         }
 
         private void GetSliders()
         {
             ReturnModel<Models.Slider> GetSliderList = sliderController.GetSlidersByLanguageId(Global.GlobalLanguage.LanguageId);
-
             if (!GetSliderList.Is_Error)
             {
                 RSliders.DataSource = GetSliderList.Model;

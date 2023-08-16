@@ -28,13 +28,7 @@ namespace LawWebSite
                             Page.Title = LblLawyerName.Text = SelectedLawyer.FirstName + " " + SelectedLawyer.LastName;
                             LblLawyerTitle.Text = SelectedLawyer.Title;
                             LblLawyerDescription.Text = SelectedLawyer.Description;
-                            LblLawyerPhone.Text=SelectedLawyer.PhoneNumber.ToString();
-                            LblLawyerInstagram.Text = SelectedLawyer.Instagram;
-                            LblLawyerLinkdln.Text = SelectedLawyer.Linkedin;
                             LblLawyerMail.Text = SelectedLawyer.Email;
-                            LblLawyerTwitter.Text = SelectedLawyer.Twitter;
-
-
 
 
                             if (!string.IsNullOrEmpty(SelectedLawyer.ImgUrl.Trim()) && SelectedLawyer.ImgUrl.Trim() != "#")

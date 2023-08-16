@@ -17,14 +17,14 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1><i class="fa-solid fa-house"></i>&nbsp;<%: Page.Title %></h1>
+                        <h1><i class="fa fa-house nav-icon"></i>&nbsp;<%: Page.Title %></h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item">
                                 <a href="#">Hakkımızda</a>
                             </li>
-                            <li class="breadcrumb-item active"><i class="fa-solid fa-house"></i></i>&nbsp;<%: Page.Title %></li>
+                            <li class="breadcrumb-item active"><i class="fa fa-house nav-icon"></i>&nbsp;<%: Page.Title %></li>
                         </ol>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
         <section class="content">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title"><i class="fa-solid fa-house"></i>&nbsp;<%: Page.Title %></h3>
+                    <h3 class="card-title"><i class="fa fa-house nav-icon"></i>&nbsp;<%: Page.Title %></h3>
                 </div>
                 <div class="card-body p-0">
                     <table class="table table-striped projects">
@@ -43,7 +43,7 @@
                                 <th style="width: 20%"></th>
                                 <th style="width: 20%">Dil</th>
                                 <th style="width: 40%">Açıklama</th>
-                                <th style="width: 20%">Görsel Linki</th>
+                                <th style="width: 20%">Görsel</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -64,8 +64,13 @@
                                             </div>
                                         </td>
                                         <td><%#Eval("Language.Name") %></td>
-                                        <td><%#Eval("AboutDescription") %></td>
-                                        <td><%#Eval("ImageUrl") %></td>
+                                        <td>
+                                            <%# (Eval("AboutDescription").ToString().Length > 599) ? Eval("AboutDescription").ToString().Substring(0, 600) + " <span alt='Devamı için güncellemeye tıklayabilirsiniz' title='Devamı için güncellemeye tıklayabilirsiniz'>[...]</span>" : Eval("AboutDescription").ToString() %>
+
+                                        </td>
+                                        <td>
+                                            <img src='../Assets/Uploads/<%#Eval("ImageUrl") %>' class="img-fluid" width="50%" />
+                                        </td>
                                     </tr>
                                 </ItemTemplate>
                             </asp:Repeater>
@@ -102,11 +107,10 @@
                                 <asp:TextBox runat="server" ID="txtAboutIsim" CssClass="form-control"></asp:TextBox>
                             </div>
                         </div>
-
                         <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Görsel Linki</label>
-                            <div class="col-lg-9">
-                                <asp:TextBox runat="server" ID="txtAboutUrl" CssClass="form-control"></asp:TextBox>
+                            <label class="col-md-3 col-form-label form-control-label">Görsel</label>
+                            <div class="col-md-9">
+                                <asp:FileUpload runat="server" ID="FuAboutPhoto" AllowMultiple="false" />
                             </div>
                         </div>
 

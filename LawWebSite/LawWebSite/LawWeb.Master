@@ -52,8 +52,6 @@
             </asp:ContentPlaceHolder>
         </div>
 
-
-
         <section class="ftco-section">
             <div class="container">
                 <div class="row">
@@ -63,7 +61,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <asp:Repeater runat="server" ID="RMasterBlogs">
+                    <asp:Repeater runat="server" ID="RMasterBlogs" OnItemDataBound="RMasterBlogs_ItemDataBound">
                         <ItemTemplate>
                             <div class="col-md-4 ftco-animate">
                                 <div class="blog-entry">
@@ -72,12 +70,19 @@
                                     <div class="text pt-3">
                                         <p class="meta d-flex"><span class="pr-3"><%#Eval("BlogSubtitle") %></span><span class="ml-auto pl-3"><%#Eval("CreatedDate", "{0: dd/MM/yyyy}") %></span></p>
                                         <h3><a href="#"><%#Eval("BlogTitle") %></a></h3>
-                                        <p class="mb-0"><a href='BlogDetail?BlogDetailContent=<%#Eval("BlogId") %>' class="btn btn-black py-2">Devamını Oku <span class="icon-arrow_forward ml-4"></span></a></p>
+                                        <p class="mb-0">
+                                            <a href='BlogDetail?BlogDetailContent=<%#Eval("BlogId") %>' class="btn btn-black py-2">
+                                                <asp:Label runat="server" ID="LblReadMore"></asp:Label>
+                                                <span class="icon-arrow_forward ml-4"></span>
+                                            </a>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                         </ItemTemplate>
                     </asp:Repeater>
+
+
                 </div>
             </div>
         </section>
@@ -101,12 +106,20 @@
                             <h2 class="ftco-heading-2">
                                 <asp:Label runat="server" ID="LblFooterColumn2" /></h2>
                             <ul class="list-unstyled">
-                                <li><a href="#" class="py-2 d-block"><span class="icon-facebook"></span>&nbsp;Facebook</a></li>
-                                <li><a href="#" class="py-2 d-block"><span class="icon-twitter"></span>&nbsp;Twitter</a></li>
-                                <li><a href="#" class="py-2 d-block"><span class="icon-instagram"></span>&nbsp;Instagram</a></li>
+                                <li>
+                                    <a href='<%= "mailto:" + GetLinkFromDatabase("LblMailLink") %>' id="mailLink" class="py-2 d-block">
+                                        <span class="icon-envelope"></span>&nbsp;<asp:Label runat="server" ID="LblFooterMail" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href='<%= GetLinkFromDatabase("LblTwiterLink") %>' id="twitterLink" class="py-2 d-block">
+                                        <span class="icon-twitter"></span>&nbsp;<asp:Label runat="server" ID="LblFooterTwitter" />
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
+
                     <div class="col-md">
                         <div class="ftco-footer-widget mb-4 ml-md-5">
                             <h2 class="ftco-heading-2">

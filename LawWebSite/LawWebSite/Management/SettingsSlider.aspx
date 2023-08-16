@@ -70,7 +70,7 @@
                                         <td><%#Eval("Language.Name") %></td>
                                         <td><%#Eval("SliderTitle") %></td>
                                         <td><%#Eval("SliderSubTitle") %></td>
-                                        <td><%#Eval("SliderDescription") %></td>
+                                        <td>    <%# (Eval("SliderDescription").ToString().Length > 149) ? Eval("SliderDescription").ToString().Substring(0, 150) + " <span alt='Devamı için güncellemeye tıklayabilirsiniz' title='Devamı için güncellemeye tıklayabilirsiniz'>[...]</span>" : Eval("SliderDescription").ToString() %></td>
                                          <td><img src='../Assets/Uploads/<%#Eval("ImageUrl") %>' class="img-fluid" width="50%" /> </td>
                                     </tr>
                                 </ItemTemplate>

@@ -134,7 +134,7 @@ namespace LawWebSite.Management
                 }
                 else
                 {
-                    SliderImage = "bg_6.jpg";
+                    SliderImage = "bg_7.jpg";
                 }
                 Models.Slider newSlider = new Models.Slider()
                 {

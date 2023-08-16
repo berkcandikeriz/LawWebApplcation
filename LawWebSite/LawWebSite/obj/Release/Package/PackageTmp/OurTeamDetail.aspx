@@ -12,7 +12,6 @@
                     </h1>
                     <h5 class="mb-3">
                         <asp:Label runat="server" ID="LblLawyerTitle"></asp:Label></h5>
-
                     <hr />
                 </div>
             </div>
@@ -22,13 +21,12 @@
                         <asp:Label runat="server" ID="LblLawyerDescription" CssClass="text-dark"></asp:Label>
                     </p>
                 </div>
-
                 <div class="col-lg-4 sidebar pr-lg-5 ftco-animate">
                     <div class="sidebar-box ftco-animate">
                         <asp:Image runat="server" ID="ImgImageUrl" CssClass="img-fluid img-thumbnail" />
                     </div>
                 </div>
-            </div> 
+            </div>
             <small>
                 <a runat="server" href='<%# Eval("Instagram") %>' target="_blank">
                     <i class="fa fa-instagram"></i>
@@ -62,5 +60,4 @@
             </small>
         </div>
     </section>
-
 </asp:Content>

@@ -15,6 +15,24 @@ namespace LawWebSite
     {
 
         /// <summary>
+        /// LblUserContactForm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblUserContactForm;
+
+        /// <summary>
+        /// LblUserName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblUserName;
+
+        /// <summary>
         /// questionName control.
         /// </summary>
         /// <remarks>
@@ -22,6 +40,15 @@ namespace LawWebSite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox questionName;
+
+        /// <summary>
+        /// LblUserSurname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblUserSurname;
 
         /// <summary>
         /// questionSurname control.
@@ -33,6 +60,15 @@ namespace LawWebSite
         protected global::System.Web.UI.WebControls.TextBox questionSurname;
 
         /// <summary>
+        /// LblUserMail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblUserMail;
+
+        /// <summary>
         /// questionMail control.
         /// </summary>
         /// <remarks>
@@ -42,6 +78,15 @@ namespace LawWebSite
         protected global::System.Web.UI.WebControls.TextBox questionMail;
 
         /// <summary>
+        /// LblUserPhone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblUserPhone;
+
+        /// <summary>
         /// questionPhoneNumber control.
         /// </summary>
         /// <remarks>
@@ -49,6 +94,15 @@ namespace LawWebSite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox questionPhoneNumber;
+
+        /// <summary>
+        /// LblUserQuestion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblUserQuestion;
 
         /// <summary>
         /// question control.

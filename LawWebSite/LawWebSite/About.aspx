@@ -8,7 +8,9 @@
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center">
                 <div class="col-md-9 ftco-animate pb-5 text-center">
-                    <h1 class="bread"><asp:Label ID="LblAbout" runat="server"></asp:Label></h1>
+                    <h1 class="bread">
+                          <asp:Label ID="LblAboutMe" runat="server"></asp:Label>
+                    </h1>
                 </div>
             </div>
         </div>

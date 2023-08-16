@@ -55,6 +55,7 @@ namespace LawWebSite.Controller
         ReturnPointer:
             return returnModel;
         }
+
         public ReturnModel<Models.About> GetAboutByAboutId(int AboutId)
         {
             ReturnModel<Models.About> returnModel = new ReturnModel<Models.About>();
@@ -97,6 +98,7 @@ namespace LawWebSite.Controller
         ReturnPointer:
             return returnModel;
         }
+
         /// <summary>
         /// Sistemde seçili olan dile ait Aboutları listeleyen metod
         /// </summary>

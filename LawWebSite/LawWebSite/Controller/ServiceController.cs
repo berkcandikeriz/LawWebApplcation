@@ -237,7 +237,6 @@ namespace LawWebSite.Controller
             return returnModel;
         }
 
-
         public ReturnModel<Models.Service> UpdateService(Models.Service model)
         {
             ReturnModel<Models.Service> returnModel = new ReturnModel<Models.Service>();
@@ -288,8 +287,5 @@ namespace LawWebSite.Controller
 
             return returnModel;
         }
-
-
-
     }
 }

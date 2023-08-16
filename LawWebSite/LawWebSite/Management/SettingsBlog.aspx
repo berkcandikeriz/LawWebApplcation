@@ -89,7 +89,7 @@
                                             <%# Eval("BlogSubtitle") %>
                                         </td>
                                         <td>
-                                            <%# Eval("Description") %>
+                                       <%# (Eval("Description").ToString().Length > 349) ? Eval("Description").ToString().Substring(0, 350) + " <span alt='Devamı için güncellemeye tıklayabilirsiniz' title='Devamı için güncellemeye tıklayabilirsiniz'>[...]</span>" : Eval("Description").ToString() %>
                                         </td>
                                         <td>
                                             <%# Eval("Author") %>

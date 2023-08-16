@@ -257,8 +257,5 @@ namespace LawWebSite.Controller
 
             return returnModel;
         }
-
-
-
     }
 }

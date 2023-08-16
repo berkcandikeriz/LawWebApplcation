@@ -51,6 +51,7 @@ namespace LawWebSite.Controller
         ReturnPointer:
             return returnModel;
         }
+
         public ReturnModel<Models.Content> GetContent(int LanguageId, string ComponentId)
         {
             ReturnModel<Models.Content> returnModel = new ReturnModel<Models.Content>();
@@ -62,7 +63,7 @@ namespace LawWebSite.Controller
                     ent.Configuration.LazyLoadingEnabled = false;
                     ent.Configuration.ProxyCreationEnabled = false;
 
-                    var getContents = ent.Contents.Where(x=> x.LanguageId == LanguageId && x.ComponentId == ComponentId).ToList();
+                    var getContents = ent.Contents.Where(x => x.LanguageId == LanguageId && x.ComponentId == ComponentId).ToList();
                     if (getContents != null && getContents.Count > 0)
                     {
                         returnModel.Is_Error = false;
@@ -90,9 +91,10 @@ namespace LawWebSite.Controller
                 goto ReturnPointer;
             }
 
-            ReturnPointer:
+        ReturnPointer:
             return returnModel;
         }
+
         public ReturnModel<Models.Content> GetContentByContentId(int ContentId)
         {
             ReturnModel<Models.Content> returnModel = new ReturnModel<Models.Content>();
@@ -135,6 +137,7 @@ namespace LawWebSite.Controller
         ReturnPointer:
             return returnModel;
         }
+
         /// <summary>
         /// Sistemde seçili olan dile ait İçerikleri listeleyen metod
         /// </summary>
@@ -182,6 +185,7 @@ namespace LawWebSite.Controller
         ReturnPointer:
             return returnModel;
         }
+
         public ReturnModel<Models.Content> InsertContent(Models.Content model)
         {
             ReturnModel<Models.Content> returnModel = new ReturnModel<Models.Content>();
@@ -221,6 +225,7 @@ namespace LawWebSite.Controller
 
             return returnModel;
         }
+
         public ReturnModel<Models.Content> DeleteContent(string contentId)
         {
             ReturnModel<Models.Content> returnModel = new ReturnModel<Models.Content>();
@@ -270,6 +275,7 @@ namespace LawWebSite.Controller
 
             return returnModel;
         }
+
         public ReturnModel<Models.Content> UpdateContent(Models.Content model)
         {
             ReturnModel<Models.Content> returnModel = new ReturnModel<Models.Content>();
@@ -285,7 +291,7 @@ namespace LawWebSite.Controller
 
                     selectedContentItem.LanguageId = model.LanguageId;
                     selectedContentItem.Description = model.Description;
-                    
+
 
                     int affectedRows = ent.SaveChanges();
 
@@ -314,11 +320,6 @@ namespace LawWebSite.Controller
             }
 
             return returnModel;
-        }
-
-        internal object GetContent()
-        {
-            throw new NotImplementedException();
         }
     }
 }

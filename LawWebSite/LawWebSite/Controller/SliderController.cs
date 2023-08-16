@@ -14,10 +14,10 @@ namespace LawWebSite.Controller
         /// Veritabanındaki tüm slide listeleyen metod
         /// </summary>
         /// <returns></returns>
+
         public ReturnModel<Models.Slider> GetSliders()
         {
-           ReturnModel<Models.Slider> returnModel = new ReturnModel<Models.Slider>();
-
+            ReturnModel<Models.Slider> returnModel = new ReturnModel<Models.Slider>();
             try
             {
                 using (DBLAW23Entities ent = new DBLAW23Entities())
@@ -52,14 +52,13 @@ namespace LawWebSite.Controller
                 returnModel.Model = null;
                 goto ReturnPointer;
             }
-
         ReturnPointer:
             return returnModel;
         }
+
         public ReturnModel<Models.Slider> GetSliderBySliderId(int SliderId)
         {
             ReturnModel<Models.Slider> returnModel = new ReturnModel<Models.Slider>();
-
             try
             {
                 using (DBLAW23Entities ent = new DBLAW23Entities())
@@ -94,7 +93,6 @@ namespace LawWebSite.Controller
                 returnModel.Model = null;
                 goto ReturnPointer;
             }
-
         ReturnPointer:
             return returnModel;
         }
@@ -104,6 +102,7 @@ namespace LawWebSite.Controller
         /// </summary>
         /// <param name="LanguageId">Dil Id Bilgisi Parametresi</param>
         /// <returns></returns>
+
         public ReturnModel<Models.Slider> GetSlidersByLanguageId(int LanguageId)
         {
             ReturnModel<Models.Slider> returnModel = new ReturnModel<Models.Slider>();

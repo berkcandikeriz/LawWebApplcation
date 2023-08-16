@@ -21,7 +21,37 @@ namespace LawWebSite
             {
                 GetCommunications();
             }
-         
+
+        }
+
+        protected void RCommunication_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                Label lblContactInfo = e.Item.FindControl("LblContactInfo") as Label;
+                Label lblWorkHour = e.Item.FindControl("LblWorkHour") as Label;
+
+
+                if (lblContactInfo != null)
+                {
+                    ReturnModel<Models.Content> GetContentContactInfo = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblContactInfo");
+                    if (GetContentContactInfo != null && !GetContentContactInfo.Is_Error)
+                    {
+                        var contactInfoDescription = GetContentContactInfo.Model.FirstOrDefault().Description;
+                        lblContactInfo.Text = contactInfoDescription;
+                    }
+                }
+                if (lblWorkHour != null)
+                {
+                    ReturnModel<Models.Content> GetContentWorkHour = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblWorkHour");
+                    if (GetContentWorkHour != null && !GetContentWorkHour.Is_Error)
+                    {
+                        var workHourDescription = GetContentWorkHour.Model.FirstOrDefault().Description;
+                        lblWorkHour.Text = workHourDescription;
+                    }
+                }
+
+            }
         }
 
         private void GetCommunications()
@@ -49,7 +79,6 @@ namespace LawWebSite
                 LblKVKK.Text = GetContentKVKK.Model.FirstOrDefault().Description;
             }
 
-
             ReturnModel<Models.Content> GetContentKVKKHeader = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblKVKKHeader");
             if (!GetContentKVKKHeader.Is_Error)
             {
@@ -61,6 +90,43 @@ namespace LawWebSite
             {
                 LblKVKKContent.Text = GetContentKVKKContent.Model.FirstOrDefault().Description;
             }
+
+            ReturnModel<Models.Content> GetContentContactForm = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblUserContactForm");
+            if (!GetContentContactForm.Is_Error)
+            {
+                LblUserContactForm.Text = GetContentContactForm.Model.FirstOrDefault().Description;
+            }
+
+            ReturnModel<Models.Content> GetContentContactName = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblUserName");
+            if (!GetContentContactName.Is_Error)
+            {
+                LblUserName.Text = GetContentContactName.Model.FirstOrDefault().Description;
+            }
+
+            ReturnModel<Models.Content> GetContentContactSurname = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblUserSurname");
+            if (!GetContentContactSurname.Is_Error)
+            {
+                LblUserSurname.Text = GetContentContactSurname.Model.FirstOrDefault().Description;
+            }
+
+            ReturnModel<Models.Content> GetContentContactMail = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblUserMail");
+            if (!GetContentContactMail.Is_Error)
+            {
+                LblUserMail.Text = GetContentContactMail.Model.FirstOrDefault().Description;
+            }
+
+            ReturnModel<Models.Content> GetContentContactPhone = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblUserPhone");
+            if (!GetContentContactPhone.Is_Error)
+            {
+                LblUserPhone.Text = GetContentContactPhone.Model.FirstOrDefault().Description;
+            }
+
+            ReturnModel<Models.Content> GetContentContactQuestion = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblUserQuestion");
+            if (!GetContentContactQuestion.Is_Error)
+            {
+                LblUserQuestion.Text = GetContentContactQuestion.Model.FirstOrDefault().Description;
+            }
+
         }
 
         protected void lnkAddQuestion_Click(object sender, EventArgs e)
