@@ -36,6 +36,8 @@ public partial class Language
 
         this.Communications = new HashSet<Communication>();
 
+        this.Faqs = new HashSet<Faq>();
+
     }
 
 
@@ -74,6 +76,10 @@ public partial class Language
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
     public virtual ICollection<Communication> Communications { get; set; }
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+    public virtual ICollection<Faq> Faqs { get; set; }
 
 }
 

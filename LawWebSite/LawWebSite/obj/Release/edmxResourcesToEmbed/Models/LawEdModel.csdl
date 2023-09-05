@@ -39,6 +39,11 @@
       <End Role="Language" EntitySet="Languages" />
       <End Role="Communication" EntitySet="Communications" />
     </AssociationSet>
+    <EntitySet Name="Faqs" EntityType="DBLAW23Model.Faq" />
+    <AssociationSet Name="Faq_FK" Association="DBLAW23Model.Faq_FK">
+      <End Role="Language" EntitySet="Languages" />
+      <End Role="Faq" EntitySet="Faqs" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Content">
     <Key>
@@ -48,7 +53,7 @@
     <Property Name="LanguageId" Type="Int32" Nullable="false" />
     <Property Name="ComponentId" Type="String" Nullable="false" MaxLength="75" FixedLength="false" Unicode="true" />
     <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Url" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Url" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Language" Relationship="DBLAW23Model.Content_FK" FromRole="Content" ToRole="Language" />
   </EntityType>
   <EntityType Name="Language">
@@ -57,7 +62,7 @@
     </Key>
     <Property Name="LanguageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-    <Property Name="Flag" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Flag" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Contents" Relationship="DBLAW23Model.Content_FK" FromRole="Language" ToRole="Content" />
     <NavigationProperty Name="Menus" Relationship="DBLAW23Model.Menu_FK" FromRole="Language" ToRole="Menu" />
     <NavigationProperty Name="Blogs" Relationship="DBLAW23Model.Blog_FK" FromRole="Language" ToRole="Blog" />
@@ -65,6 +70,7 @@
     <NavigationProperty Name="Sliders" Relationship="DBLAW23Model.Home_FK" FromRole="Language" ToRole="Slider" />
     <NavigationProperty Name="Abouts" Relationship="DBLAW23Model.About_FK" FromRole="Language" ToRole="About" />
     <NavigationProperty Name="Communications" Relationship="DBLAW23Model.Communication_FK" FromRole="Language" ToRole="Communication" />
+    <NavigationProperty Name="Faqs" Relationship="DBLAW23Model.Faq_FK" FromRole="Language" ToRole="Faq" />
   </EntityType>
   <EntityType Name="Menu">
     <Key>
@@ -73,7 +79,7 @@
     <Property Name="MenuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="LanguageId" Type="Int32" Nullable="false" />
     <Property Name="Name" Type="String" Nullable="false" MaxLength="75" FixedLength="false" Unicode="true" />
-    <Property Name="Url" Type="String" Nullable="false" MaxLength="75" FixedLength="false" Unicode="true" />
+    <Property Name="Url" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
     <Property Name="Order" Type="Int32" Nullable="false" />
     <Property Name="Location" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Language" Relationship="DBLAW23Model.Menu_FK" FromRole="Menu" ToRole="Language" />
@@ -111,13 +117,13 @@
     <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="ImgUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="Facebook" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="Twitter" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="Instagram" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="Linkedin" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Facebook" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Twitter" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Instagram" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Linkedin" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="IsAdmin" Type="Boolean" />
     <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
@@ -128,7 +134,7 @@
     <Property Name="ServiceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Title" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="Image" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="Url" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Url" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="LanguageId" Type="Int32" />
     <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="CreatedDate" Type="DateTime" Precision="3" />
@@ -144,7 +150,7 @@
     <Property Name="BlogTitle" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="BlogSubtitle" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="Url" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Url" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="ImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Author" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
@@ -195,7 +201,7 @@
     <Property Name="SliderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="LanguageId" Type="Int32" Nullable="false" />
     <Property Name="SliderTitle" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="SliderDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="SliderDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="ImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="SliderSubTitle" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Language" Relationship="DBLAW23Model.Home_FK" FromRole="Slider" ToRole="Language" />
@@ -247,7 +253,7 @@
     <Property Name="Saturday" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Sunday" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Language" Relationship="DBLAW23Model.Communication_FK" FromRole="Communication" ToRole="Language" />
-    <Property Name="MapUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="MapUrl" Type="String" MaxLength="750" FixedLength="false" Unicode="true" Nullable="false" />
   </EntityType>
   <Association Name="Communication_FK">
     <End Type="DBLAW23Model.Language" Role="Language" Multiplicity="1" />
@@ -257,6 +263,29 @@
         <PropertyRef Name="LanguageId" />
       </Principal>
       <Dependent Role="Communication">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Faq">
+    <Key>
+      <PropertyRef Name="FaqId" />
+    </Key>
+    <Property Name="FaqId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LanguageId" Type="Int32" Nullable="false" />
+    <Property Name="Url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Question" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Answer" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Language" Relationship="DBLAW23Model.Faq_FK" FromRole="Faq" ToRole="Language" />
+  </EntityType>
+  <Association Name="Faq_FK">
+    <End Type="DBLAW23Model.Language" Role="Language" Multiplicity="1" />
+    <End Type="DBLAW23Model.Faq" Role="Faq" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="Faq">
         <PropertyRef Name="LanguageId" />
       </Dependent>
     </ReferentialConstraint>

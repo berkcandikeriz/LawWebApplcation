@@ -106,14 +106,20 @@
                             <h2 class="ftco-heading-2">
                                 <asp:Label runat="server" ID="LblFooterColumn2" /></h2>
                             <ul class="list-unstyled">
-                                <li><a href="<%= GetLinkFromDatabase("LblFacebookLink") %>" id="facebookLink" class="py-2 d-block"><span class="icon-facebook"></span>&nbsp;<asp:Label runat="server" ID="LblFooterFacebook" /></a></li>
-                                <li><a href="<%= GetLinkFromDatabase("LblTwiterLink") %>#" id="twitterLink" class="py-2 d-block"><span class="icon-twitter"></span>&nbsp;<asp:Label runat="server" ID="LblFooterTwitter" /></a></li>
-                                <li><a href="<%= GetLinkFromDatabase("LblInstagramLink") %>" id="instagramLink" class="py-2 d-block"><span class="icon-instagram"></span>&nbsp;<asp:Label runat="server" ID="LblFooterInstagram" /></a></li>
-
+                                <li>
+                                    <a href='<%= "mailto:" + GetLinkFromDatabase("LblMailLink") %>' id="mailLink" class="py-2 d-block">
+                                        <span class="icon-envelope"></span>&nbsp;<asp:Label runat="server" ID="LblFooterMail" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href='<%= GetLinkFromDatabase("LblTwiterLink") %>' id="twitterLink" class="py-2 d-block">
+                                        <span class="icon-twitter"></span>&nbsp;<asp:Label runat="server" ID="LblFooterTwitter" />
+                                    </a>
+                                </li>
                             </ul>
-
                         </div>
                     </div>
+
                     <div class="col-md">
                         <div class="ftco-footer-widget mb-4 ml-md-5">
                             <h2 class="ftco-heading-2">

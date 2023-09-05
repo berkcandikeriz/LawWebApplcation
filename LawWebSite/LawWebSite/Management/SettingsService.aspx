@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="Hizmetlerimiz Ayarları" Language="C#" MasterPageFile="~/Management/LawWebManagement.Master" AutoEventWireup="true" CodeBehind="SettingsService.aspx.cs" Inherits="LawWebSite.Management.SettingsService" %>
-
+<%@ Register Assembly="CKEditor.NET" Namespace="CKEditor.NET" TagPrefix="CKEditor" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script>
         function LbServiceEdit() {
@@ -7,7 +7,7 @@
         }
 
         function PopUpModalServiceInformation() {
-            $("#ModalServicelInformation").modal("show");
+            $("#ModalServiceInformation").modal("show");
         }
     </script>
 </asp:Content>
@@ -100,7 +100,7 @@
     </div>
 
     <div class="modal fade" id="ModalServiceNewEdit">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">
@@ -139,7 +139,8 @@
                         <div class="form-group row">
                             <label class="col-md-3 col-form-label form-control-label">Açıklama</label>
                             <div class="col-md-9">
-                                <asp:TextBox runat="server" ID="txtServiceAciklama" CssClass="form-control"></asp:TextBox>
+                                 <CKEditor:CKEditorControl ID="txtServiceAciklama" BasePath="/../Assets/ckeditor/" runat="server">
+                                </CKEditor:CKEditorControl>
                             </div>
                         </div>
 
@@ -155,7 +156,7 @@
     </div>
 
     <!-- Bilgilendirme -->
-    <div class="modal fade" id="ModalServicelInformation">
+    <div class="modal fade" id="ModalServiceInformation">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">

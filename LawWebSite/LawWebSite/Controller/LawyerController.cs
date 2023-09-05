@@ -53,7 +53,7 @@ namespace LawWebSite.Controller
                 goto ReturnPointer;
             }
 
-            ReturnPointer:
+        ReturnPointer:
             return returnModel;
         }
 
@@ -164,7 +164,7 @@ namespace LawWebSite.Controller
                 goto ReturnPointer;
             }
 
-            ReturnPointer:
+        ReturnPointer:
             return returnModel;
         }
 
@@ -205,7 +205,7 @@ namespace LawWebSite.Controller
                 returnModel.Model = null;
             }
 
-  
+
             return returnModel;
         }
 
@@ -281,6 +281,7 @@ namespace LawWebSite.Controller
                     selectedLawyerItem.Instagram = model.Instagram;
                     selectedLawyerItem.Linkedin = model.Linkedin;
                     selectedLawyerItem.Email = model.Email;
+                    selectedLawyerItem.Description = model.Description;
                     selectedLawyerItem.IsAdmin = model.IsAdmin;
                     selectedLawyerItem.Password = model.Password;
 

@@ -22,10 +22,14 @@ namespace LawWebSite
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            GetMenus();
-            RenderBody();
-            GetBlogs();
-            GetCommunication();
+            if (!IsPostBack)
+            {
+                GetMenus();
+                RenderBody();
+                GetBlogs();
+                GetCommunication();
+            }
+           
         }
 
         private void GetBlogs()

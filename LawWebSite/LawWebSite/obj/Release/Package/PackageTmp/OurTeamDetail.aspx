@@ -28,34 +28,9 @@
                 </div>
             </div>
             <small>
-                <a runat="server" href='<%# Eval("Instagram") %>' target="_blank">
-                    <i class="fa fa-instagram"></i>
-                    <asp:Label runat="server" ID="LblLawyerInstagram" Text='<%# Eval("Instagram") %>'></asp:Label>
-                </a>
-            </small>
-            <small>
                 <a runat="server" href='<%# Eval("Email") %>' target="_blank">
                     <i class="fa fa-envelope"></i>
                     <asp:Label runat="server" ID="LblLawyerMail" Text='<%# Eval("Email") %>'></asp:Label>
-                </a>
-            </small>
-            <small>
-                <a runat="server" href='<%# Eval("Linkedin") %>' target="_blank">
-                    <i class="fa fa-linkedin"></i>
-                    <asp:Label runat="server" ID="LblLawyerLinkdln" Text='<%# Eval("Linkedin") %>'></asp:Label>
-                </a>
-            </small>
-            <small>
-                <a runat="server" href='<%# Eval("Twitter") %>' target="_blank">
-                    <i class="fa fa-twitter"></i>
-                    <asp:Label runat="server" ID="LblLawyerTwitter" Text='<%# Eval("Twitter") %>'></asp:Label>
-                </a>
-            </small>
-
-            <small>
-                <a runat="server" href='<%# Eval("PhoneNumber") %>' target="_blank">
-                    <i class="fa fa-phone"></i>
-                    <asp:Label runat="server" ID="LblLawyerPhone"></asp:Label>
                 </a>
             </small>
         </div>

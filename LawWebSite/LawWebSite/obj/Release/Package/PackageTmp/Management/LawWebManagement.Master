@@ -112,6 +112,11 @@
                                     <i class="nav-icon fas fa-phone"></i>&nbsp;<p>İletişim Bilgileri</p>
                                 </a>
                             </li>
+                             <li class="nav-item">
+                                <a href="SettingsFaq.aspx" class="nav-link">
+                                    <i class="nav-icon fas fa-question"></i>&nbsp;<p>SSS Ayarları</p>
+                                </a>
+                            </li>
                         </ul>
                     </nav>
                 </div>

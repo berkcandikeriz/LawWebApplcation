@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="Avukat Ayarları" Language="C#" MasterPageFile="~/Management/LawWebManagement.Master" AutoEventWireup="true" CodeBehind="SettingsLawyer.aspx.cs" Inherits="LawWebSite.Management.SettingsLawyer" %>
-
+<%@ Register Assembly="CKEditor.NET" Namespace="CKEditor.NET" TagPrefix="CKEditor" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script>
         function LbLawyerEditModal() {
@@ -91,7 +91,7 @@
                                         <td><%#Eval("Linkedin") %></td>
                                         <td><%#Eval("Email") %></td>
                                         <td><%#Eval("PhoneNumber") %></td>
-                                        <td><%# (Eval("Description").ToString().Length > 149) ? Eval("Description").ToString().Substring(0, 150) + " <span alt='Devamı için güncellemeye tıklayabilirsiniz' title='Devamı için güncellemeye tıklayabilirsiniz'>[...]</span>" : Eval("Description").ToString() %></td>
+                                        <td>  <%# (Eval("Description").ToString().Length > 349) ? Eval("Description").ToString().Substring(0, 350) + " <span alt='Devamı için güncellemeye tıklayabilirsiniz' title='Devamı için güncellemeye tıklayabilirsiniz'>[...]</span>" : Eval("Description").ToString() %></td>
                                         <td><%#Eval("IsAdmin").ToString() == "True" ? "Evet" : "Hayır" %></td>
                                     </tr>
                                 </ItemTemplate>
@@ -179,7 +179,8 @@
                         <div class="form-group row">
                             <label class="col-md-3 col-form-label form-control-label">Açıklama</label>
                             <div class="col-md-9">
-                                <asp:TextBox runat="server" ID="txtLawyerDescription" CssClass="form-control"></asp:TextBox>
+                                 <CKEditor:CKEditorControl ID="txtLawyerDescription" BasePath="/../Assets/ckeditor/" runat="server">
+                                </CKEditor:CKEditorControl>
                             </div>
                         </div>
                         <div class="form-group row">

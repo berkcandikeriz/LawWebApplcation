@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="Hakkımzda Ayarları" Language="C#" MasterPageFile="~/Management/LawWebManagement.Master" AutoEventWireup="true" CodeBehind="SettingsAbout.aspx.cs" Inherits="LawWebSite.Management.SettingsAbout" %>
-
+<%@ Register Assembly="CKEditor.NET" Namespace="CKEditor.NET" TagPrefix="CKEditor" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script>
         function LbAboutEditModal() {
@@ -104,7 +104,8 @@
                         <div class="form-group row">
                             <label class="col-md-3 col-form-label form-control-label">Açıklama</label>
                             <div class="col-md-9">
-                                <asp:TextBox runat="server" ID="txtAboutIsim" CssClass="form-control"></asp:TextBox>
+                                 <CKEditor:CKEditorControl ID="txtAboutIsim" BasePath="/../Assets/ckeditor/" runat="server">
+                                </CKEditor:CKEditorControl>
                             </div>
                         </div>
                         <div class="form-group row">

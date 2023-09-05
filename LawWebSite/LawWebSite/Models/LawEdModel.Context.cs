@@ -52,6 +52,8 @@ public partial class DBLAW23Entities : DbContext
 
     public virtual DbSet<Communication> Communications { get; set; }
 
+    public virtual DbSet<Faq> Faqs { get; set; }
+
 }
 
 }

@@ -18,7 +18,7 @@
     <Property Name="BlogTitle" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="BlogSubtitle" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="CreatedDate" Type="date" Nullable="false" />
-    <Property Name="Url" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Url" Type="varchar" MaxLength="255" />
     <Property Name="ImageUrl" Type="varchar(max)" />
     <Property Name="Description" Type="nvarchar(max)" />
     <Property Name="Author" Type="nvarchar" MaxLength="150" />
@@ -37,7 +37,7 @@
     <Property Name="MidWeek" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Saturday" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Sunday" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="MapUrl" Type="varchar" MaxLength="255" />
+    <Property Name="MapUrl" Type="nvarchar" MaxLength="750" Nullable="false" />
   </EntityType>
   <EntityType Name="Content">
     <Key>
@@ -47,7 +47,17 @@
     <Property Name="LanguageId" Type="int" Nullable="false" />
     <Property Name="ComponentId" Type="nvarchar" MaxLength="75" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Url" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Url" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Faq">
+    <Key>
+      <PropertyRef Name="FaqId" />
+    </Key>
+    <Property Name="FaqId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LanguageId" Type="int" Nullable="false" />
+    <Property Name="Url" Type="varchar(max)" />
+    <Property Name="Question" Type="varchar(max)" Nullable="false" />
+    <Property Name="Answer" Type="varchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Language">
     <Key>
@@ -55,7 +65,7 @@
     </Key>
     <Property Name="LanguageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
-    <Property Name="Flag" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Flag" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="Lawyer">
     <Key>
@@ -66,13 +76,13 @@
     <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="ImgUrl" Type="varchar(max)" />
-    <Property Name="Facebook" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="Twitter" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="Instagram" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="Linkedin" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Facebook" Type="nvarchar" MaxLength="100" />
+    <Property Name="Twitter" Type="nvarchar" MaxLength="100" />
+    <Property Name="Instagram" Type="nvarchar" MaxLength="100" />
+    <Property Name="Linkedin" Type="nvarchar" MaxLength="100" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar(max)" />
     <Property Name="IsAdmin" Type="bit" />
     <Property Name="Password" Type="nvarchar(max)" />
   </EntityType>
@@ -83,7 +93,7 @@
     <Property Name="MenuId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="LanguageId" Type="int" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="75" Nullable="false" />
-    <Property Name="Url" Type="nvarchar" MaxLength="75" Nullable="false" />
+    <Property Name="Url" Type="nvarchar" MaxLength="75" />
     <Property Name="Order" Type="int" Nullable="false" />
     <Property Name="Location" Type="int" Nullable="false" />
   </EntityType>
@@ -94,7 +104,7 @@
     <Property Name="ServiceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Title" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="Image" Type="varchar" MaxLength="255" Nullable="false" />
-    <Property Name="Url" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Url" Type="varchar" MaxLength="255" />
     <Property Name="LanguageId" Type="int" />
     <Property Name="Description" Type="nvarchar(max)" />
     <Property Name="CreatedDate" Type="datetime" />
@@ -107,7 +117,7 @@
     <Property Name="SliderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="LanguageId" Type="int" Nullable="false" />
     <Property Name="SliderTitle" Type="varchar" MaxLength="255" Nullable="false" />
-    <Property Name="SliderDescription" Type="varchar(max)" />
+    <Property Name="SliderDescription" Type="varchar(max)" Nullable="false" />
     <Property Name="ImageUrl" Type="varchar(max)" />
     <Property Name="SliderSubTitle" Type="varchar" MaxLength="255" Nullable="false" />
   </EntityType>
@@ -171,6 +181,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="Faq_FK">
+    <End Role="Language" Type="Self.Language" Multiplicity="1" />
+    <End Role="Faq" Type="Self.Faq" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="Faq">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="Home_FK">
     <End Role="Language" Type="Self.Language" Multiplicity="1" />
     <End Role="Slider" Type="Self.Slider" Multiplicity="*" />
@@ -212,6 +234,7 @@
     <EntitySet Name="Blog" EntityType="Self.Blog" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Communication" EntityType="Self.Communication" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Content" EntityType="Self.Content" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Faq" EntityType="Self.Faq" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Language" EntityType="Self.Language" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Lawyer" EntityType="Self.Lawyer" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
@@ -233,6 +256,10 @@
     <AssociationSet Name="Content_FK" Association="Self.Content_FK">
       <End Role="Language" EntitySet="Language" />
       <End Role="Content" EntitySet="Content" />
+    </AssociationSet>
+    <AssociationSet Name="Faq_FK" Association="Self.Faq_FK">
+      <End Role="Language" EntitySet="Language" />
+      <End Role="Faq" EntitySet="Faq" />
     </AssociationSet>
     <AssociationSet Name="Home_FK" Association="Self.Home_FK">
       <End Role="Language" EntitySet="Language" />
