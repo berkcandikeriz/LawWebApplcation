@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="Assets/css/flaticon.css">
     <link rel="stylesheet" href="Assets/css/icomoon.css">
     <link rel="stylesheet" href="Assets/css/style.css">
+    <link href="Assets/swiper/swipper-classes.css" rel="stylesheet" />
+    <link href="Assets/swiper/swiper-bundle.min.css" rel="stylesheet" />
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -188,6 +190,8 @@
         <script src="Assets/js/scrollax.min.js"></script>
         <script src="Assets/js/google-map.js"></script>
         <script src="Assets/js/main.js"></script>
+        <script src="Assets/swiper/swiper-bundle.min.js"></script>
+        <script src="Assets/swiper/swipper-classes.js"></script>
     </form>
 </body>
 </html>
