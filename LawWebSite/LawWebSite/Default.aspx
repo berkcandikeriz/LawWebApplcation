@@ -26,8 +26,8 @@
         </asp:Repeater>
     </section>
 
-    <section class="articles actions-slider owl-carousel mt-3">
-        <div class="container">
+    <section id="testimonials" class="testimonials">
+        <div class="container" data-aos="fade-up">
             <div class="row">
                 <div class="col-md-7 heading-section ftco-animate fadeInUp ftco-animated">
                     <h2 class="mb-4"><span>
@@ -36,30 +36,27 @@
                     </h2>
                 </div>
             </div>
-            <div class="row">
-                <asp:Repeater runat="server" ID="RActivities">
-                    <ItemTemplate>
-                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 mb-3">
-                            <div class="slider-item">
-                                <article>
-                                    <div class="article-wrapper">
-                                        <figure>
-                                            <img src='Assets/Uploads/<%#Eval("ImageUrl") %>' alt="" />
-                                        </figure>
-                                        <div class="article-body">
-                                            <h2><%# Eval("BlogTitle") %></h2>
-                                            <p>
-                                                <%# Eval("Description") %>
-                                            </p>
-                                        </div>
+
+            <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper-wrapper">
+                    <asp:Repeater runat="server" ID="RActivities">
+                        <ItemTemplate>
+                            <div class="swiper-slide">
+                                <div class="testimonial-wrap">
+                                    <div class="testimonial-item">
+                                        <img src='Assets/Uploads/<%#Eval("ImageUrl") %>' class="testimonial-img" alt="">
+                                        <h3><%# Eval("BlogTitle") %></h3>
+                                        <p>
+                                            <%# Eval("Description") %>
+                                        </p>
                                     </div>
-                                </article>
+                                </div>
                             </div>
-                        </div>
-                    </ItemTemplate>
-                </asp:Repeater>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </div>
+                <div class="swiper-pagination"></div>
             </div>
         </div>
     </section>
-
 </asp:Content>

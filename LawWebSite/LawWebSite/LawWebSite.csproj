@@ -472,6 +472,10 @@
     <Content Include="Assets\js\owl.carousel.min.js" />
     <Content Include="Assets\js\popper.min.js" />
     <Content Include="Assets\js\scrollax.min.js" />
+    <Content Include="Assets\swiper\swiper-bundle.min.css" />
+    <Content Include="Assets\swiper\swiper-bundle.min.js" />
+    <Content Include="Assets\swiper\swipper-classes.css" />
+    <Content Include="Assets\swiper\swipper-classes.js" />
     <Content Include="Assets\Uploads\bf9bb0e0-1ba5-4be1-87db-2c0046790522.jpg" />
     <Content Include="Assets\Uploads\bg_6.jpg" />
     <Content Include="Assets\Uploads\bg_7.jpg" />
@@ -2877,6 +2881,7 @@
     <Content Include="Assets\ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
     <Content Include="Assets\ckeditor\SECURITY.md" />
     <Content Include="Assets\ckeditor\skins\moono-lisa\readme.md" />
+    <Content Include="Assets\swiper\swiper-bundle.min.js.map" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
