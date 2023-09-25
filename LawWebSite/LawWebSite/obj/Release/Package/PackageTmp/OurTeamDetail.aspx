@@ -27,7 +27,7 @@
                     </div>
                 </div>
             </div>
-            <small>
+            <small class="d-none">
                 <a runat="server" href='<%# Eval("Email") %>' target="_blank">
                     <i class="fa fa-envelope"></i>
                     <asp:Label runat="server" ID="LblLawyerMail" Text='<%# Eval("Email") %>'></asp:Label>

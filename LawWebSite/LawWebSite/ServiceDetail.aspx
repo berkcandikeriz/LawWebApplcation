@@ -10,7 +10,7 @@
                     <h1 class="mb-1">
                         <asp:Label runat="server" ID="LblServiceHeader"></asp:Label>
                     </h1>
-                    <small>
+                    <small class="d-none">
                         <i class="fa fa-calendar"></i>&nbsp;<asp:Label runat="server" ID="LblCreatedDate"></asp:Label>
                     </small>
                     <hr />

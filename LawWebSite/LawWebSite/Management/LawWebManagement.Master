@@ -72,6 +72,11 @@
                                    <i class="fa fa-house nav-icon"></i>&nbsp;<p> Hakkımızda Ayarları</p>
                                 </a>
                             </li>
+                             <li class="nav-item">
+                                <a href="SettingsActivities.aspx" class="nav-link">
+                                   <i class="fa fa-house nav-icon"></i>&nbsp;<p> Faaliyetlerimiz Ayarları</p>
+                                </a>
+                            </li>
                             <li class="nav-item">
                                 <a href="SettingsSlider.aspx" class="nav-link">
                                     <i class="fa fa-image nav-icon"></i>&nbsp;<p>Slayt Ayarları</p>

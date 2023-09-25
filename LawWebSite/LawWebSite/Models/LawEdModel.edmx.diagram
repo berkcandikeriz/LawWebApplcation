@@ -10,22 +10,24 @@
         <EntityTypeShape EntityType="DBLAW23Model.Menu" Width="1.5" PointX="0.875" PointY="0.625" />
         <AssociationConnector Association="DBLAW23Model.Content_FK" />
         <AssociationConnector Association="DBLAW23Model.Menu_FK" />
-        <EntityTypeShape EntityType="DBLAW23Model.Lawyer" Width="1.5" PointX="10" PointY="6.375" />
+        <EntityTypeShape EntityType="DBLAW23Model.Lawyer" Width="1.5" PointX="10" PointY="5.25" />
         <EntityTypeShape EntityType="DBLAW23Model.Service" Width="1.5" PointX="2.75" PointY="0.625" />
         <EntityTypeShape EntityType="DBLAW23Model.Blog" Width="1.5" PointX="4.875" PointY="0.625" />
         <AssociationConnector Association="DBLAW23Model.Blog_FK" ManuallyRouted="false" >
         </AssociationConnector>
-        <EntityTypeShape EntityType="DBLAW23Model.UserList" Width="1.5" PointX="9.625" PointY="0.625" />
+        <EntityTypeShape EntityType="DBLAW23Model.UserList" Width="1.5" PointX="10" PointY="1.875" />
         <AssociationConnector Association="DBLAW23Model.Service_FK" ManuallyRouted="false" >
         </AssociationConnector>
         <EntityTypeShape EntityType="DBLAW23Model.Slider" Width="1.5" PointX="2.375" PointY="7.625" />
         <AssociationConnector Association="DBLAW23Model.Home_FK" />
         <EntityTypeShape EntityType="DBLAW23Model.About" Width="1.5" PointX="4.25" PointY="7.625" />
         <AssociationConnector Association="DBLAW23Model.About_FK" />
-        <EntityTypeShape EntityType="DBLAW23Model.Communication" Width="1.5" PointX="7.125" PointY="1" />
+        <EntityTypeShape EntityType="DBLAW23Model.Communication" Width="1.5" PointX="7.125" PointY="0.625" />
         <AssociationConnector Association="DBLAW23Model.Communication_FK" />
-        <EntityTypeShape EntityType="DBLAW23Model.Faq" Width="1.5" PointX="6.625" PointY="7.75" />
+        <EntityTypeShape EntityType="DBLAW23Model.Faq" Width="1.5" PointX="8.25" PointY="7.625" />
         <AssociationConnector Association="DBLAW23Model.Faq_FK" />
+        <EntityTypeShape EntityType="DBLAW23Model.Activity" Width="1.5" PointX="6.375" PointY="7.625" />
+        <AssociationConnector Association="DBLAW23Model.Activities_FK" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

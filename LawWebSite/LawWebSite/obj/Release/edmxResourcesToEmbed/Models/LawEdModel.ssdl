@@ -9,6 +9,17 @@
     <Property Name="AboutDescription" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ImageUrl" Type="varchar(max)" />
   </EntityType>
+  <EntityType Name="Activities">
+    <Key>
+      <PropertyRef Name="ActivitiesId" />
+    </Key>
+    <Property Name="ActivitiesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LanguageId" Type="int" Nullable="false" />
+    <Property Name="BlogTitle" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="ImageUrl" Type="nvarchar" MaxLength="255" />
+    <Property Name="OrderNumber" Type="int" />
+  </EntityType>
   <EntityType Name="Blog">
     <Key>
       <PropertyRef Name="BlogId" />
@@ -145,6 +156,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="Activities_FK">
+    <End Role="Language" Type="Self.Language" Multiplicity="1" />
+    <End Role="Activities" Type="Self.Activities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="Activities">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="Blog_FK">
     <End Role="Language" Type="Self.Language" Multiplicity="1" />
     <End Role="Blog" Type="Self.Blog" Multiplicity="*" />
@@ -231,6 +254,7 @@
   </Association>
   <EntityContainer Name="DBLAW23ModelStoreContainer">
     <EntitySet Name="About" EntityType="Self.About" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Activities" EntityType="Self.Activities" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Blog" EntityType="Self.Blog" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Communication" EntityType="Self.Communication" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Content" EntityType="Self.Content" Schema="dbo" store:Type="Tables" />
@@ -244,6 +268,10 @@
     <AssociationSet Name="About_FK" Association="Self.About_FK">
       <End Role="Language" EntitySet="Language" />
       <End Role="About" EntitySet="About" />
+    </AssociationSet>
+    <AssociationSet Name="Activities_FK" Association="Self.Activities_FK">
+      <End Role="Language" EntitySet="Language" />
+      <End Role="Activities" EntitySet="Activities" />
     </AssociationSet>
     <AssociationSet Name="Blog_FK" Association="Self.Blog_FK">
       <End Role="Language" EntitySet="Language" />

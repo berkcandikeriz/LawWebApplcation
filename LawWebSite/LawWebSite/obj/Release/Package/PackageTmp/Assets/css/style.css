@@ -152,7 +152,7 @@ small {
 }
 
 .ourTeam small {
-    display: flex !important;
+    display: flex;
 }
 
 sub,
@@ -14159,7 +14159,7 @@ ul {
         padding-right: 0;
         text-transform: uppercase;
         font-size: 15px;
-        padding: 5px;
+        padding: 25px;
         letter-spacing: 0.1em;
     }
 

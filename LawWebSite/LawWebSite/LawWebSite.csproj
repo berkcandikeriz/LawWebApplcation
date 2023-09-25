@@ -2288,6 +2288,7 @@
     <Content Include="ServiceDetail.aspx" />
     <Content Include="Services.aspx" />
     <Content Include="Faq.aspx" />
+    <Content Include="Management\SettingsActivities.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -2322,6 +2323,7 @@
       <DependentUpon>Communication.aspx</DependentUpon>
     </Compile>
     <Compile Include="Controller\AboutController.cs" />
+    <Compile Include="Controller\ActivitiesController.cs" />
     <Compile Include="Controller\BlogController.cs" />
     <Compile Include="Controller\CommunicationController.cs" />
     <Compile Include="Controller\ContentController.cs" />
@@ -2451,6 +2453,9 @@
     <Compile Include="Models\About.cs">
       <DependentUpon>LawEdModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Activity.cs">
+      <DependentUpon>LawEdModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Blog.cs">
       <DependentUpon>LawEdModel.tt</DependentUpon>
     </Compile>
@@ -2531,6 +2536,13 @@
     </Compile>
     <Compile Include="Faq.aspx.designer.cs">
       <DependentUpon>Faq.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Management\SettingsActivities.aspx.cs">
+      <DependentUpon>SettingsActivities.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management\SettingsActivities.aspx.designer.cs">
+      <DependentUpon>SettingsActivities.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

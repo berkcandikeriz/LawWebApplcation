@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <section class="home-slider owl-carousel">
+    <section class="home-slider owl-carousel mb-3">
         <asp:Repeater runat="server" ID="RSliders">
             <ItemTemplate>
                 <div class="slider-item">
@@ -25,4 +25,41 @@
             </ItemTemplate>
         </asp:Repeater>
     </section>
+
+    <section class="articles actions-slider owl-carousel mt-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 heading-section ftco-animate fadeInUp ftco-animated">
+                    <h2 class="mb-4"><span>
+                        <asp:Label runat="server" ID="LblActivities"></asp:Label>
+                    </span>
+                    </h2>
+                </div>
+            </div>
+            <div class="row">
+                <asp:Repeater runat="server" ID="RActivities">
+                    <ItemTemplate>
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 mb-3">
+                            <div class="slider-item">
+                                <article>
+                                    <div class="article-wrapper">
+                                        <figure>
+                                            <img src='Assets/Uploads/<%#Eval("ImageUrl") %>' alt="" />
+                                        </figure>
+                                        <div class="article-body">
+                                            <h2><%# Eval("BlogTitle") %></h2>
+                                            <p>
+                                                <%# Eval("Description") %>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </ItemTemplate>
+                </asp:Repeater>
+            </div>
+        </div>
+    </section>
+
 </asp:Content>

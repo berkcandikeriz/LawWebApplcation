@@ -54,6 +54,8 @@ public partial class DBLAW23Entities : DbContext
 
     public virtual DbSet<Faq> Faqs { get; set; }
 
+    public virtual DbSet<Activity> Activities { get; set; }
+
 }
 
 }
