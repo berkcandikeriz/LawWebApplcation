@@ -33,12 +33,12 @@ namespace LawWebSite
         protected global::System.Web.UI.WebControls.Label LblActivities;
 
         /// <summary>
-        /// RActivities control.
+        /// RHomeServices control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RActivities;
+        protected global::System.Web.UI.WebControls.Repeater RHomeServices;
     }
 }

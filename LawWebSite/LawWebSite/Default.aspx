@@ -26,7 +26,7 @@
         </asp:Repeater>
     </section>
 
-    <section id="testimonials" class="testimonials">
+    <section id="testimonials" class="testimonials articles">
         <div class="container" data-aos="fade-up">
             <div class="row">
                 <div class="col-md-7 heading-section ftco-animate fadeInUp ftco-animated">
@@ -39,16 +39,22 @@
 
             <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
                 <div class="swiper-wrapper">
-                    <asp:Repeater runat="server" ID="RActivities">
+                    <asp:Repeater runat="server" ID="RHomeServices" OnItemDataBound="RHomeServices_ItemDataBound">
                         <ItemTemplate>
                             <div class="swiper-slide">
                                 <div class="testimonial-wrap">
-                                    <div class="testimonial-item">
-                                        <img src='Assets/Uploads/<%#Eval("ImageUrl") %>' class="testimonial-img" alt="">
-                                        <h3><%# Eval("BlogTitle") %></h3>
-                                        <p>
-                                            <%# Eval("Description") %>
-                                        </p>
+                                   <a href='ServiceDetail?ServiceDetailContent=<%#Eval("ServiceId") %>' class="img-2">
+                                    <div class="testimonial-item article-wrapper">
+                                        <figure>
+                                              <img src='Assets/Uploads/<%#Eval("Image") %>' class="testimonial-img" alt="">
+                                        </figure>
+                                        </a>
+                                      <div  class="article-body">
+                                           <h3><%#Eval("Title") %></h3>
+                                        <p class="mt-3"><a href='ServiceDetail?ServiceDetailContent=<%#Eval("ServiceId") %>' class="btn btn-black py-2">
+                                          <asp:Label ID="LblReadMore" runat="server"></asp:Label><span class="icon-arrow_forward ml-4"></span></a></p>
+                                      </div>
+                                       
                                     </div>
                                 </div>
                             </div>

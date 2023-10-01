@@ -29,11 +29,9 @@
                 </div>
             </div>
         </section>
-
         <section class="content mb-3">
             <asp:LinkButton runat="server" ID="LbFaqEkle" OnClick="LbFaqEkle_Click" CssClass="btn btn-primary">Yeni Hizmet Ekle</asp:LinkButton>
         </section>
-
         <section class="content">
             <div class="card">
                 <div class="card-header">
@@ -85,8 +83,6 @@
                                         <td>
                                             <%# Eval("Url") %>
                                         </td>
-
-
                                     </tr>
                                 </ItemTemplate>
                             </asp:Repeater>
@@ -96,7 +92,6 @@
             </div>
         </section>
     </div>
-
     <div class="modal fade" id="ModalFaqNewEdit">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
@@ -144,8 +139,7 @@
             </div>
         </div>
     </div>
-
-     <!-- Bilgilendirme -->
+    <!-- Bilgilendirme -->
     <div class="modal fade" id="ModalFaqInformation">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">

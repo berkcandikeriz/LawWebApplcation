@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="Assets/css/flaticon.css">
     <link rel="stylesheet" href="Assets/css/icomoon.css">
     <link rel="stylesheet" href="Assets/css/style.css">
+    <link href="Assets/swiper/swipper-classes.css" rel="stylesheet" />
+    <link href="Assets/swiper/swiper-bundle.min.css" rel="stylesheet" />
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -91,7 +93,7 @@
         <footer class="ftco-footer ftco-footer-2 ftco-section">
             <div class="container">
                 <div class="row mb-5">
-                    <div class="col-md">
+                    <div class="col-md-5">
                         <div class="ftco-footer-widget mb-4">
                             <h2 class="ftco-heading-2">
                                 <asp:Label runat="server" ID="LblFooterColumn1" /></h2>
@@ -101,7 +103,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="col-md">
+                    <div class="col-md-2">
                         <div class="ftco-footer-widget mb-4 ml-md-5">
                             <h2 class="ftco-heading-2">
                                 <asp:Label runat="server" ID="LblFooterColumn2" /></h2>
@@ -120,7 +122,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md">
+                    <div class="col-md-3">
                         <div class="ftco-footer-widget mb-4 ml-md-5">
                             <h2 class="ftco-heading-2">
                                 <asp:Label runat="server" ID="LblFooterColumn3" /></h2>
@@ -133,7 +135,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md">
+                    <div class="col-md-2">
                         <div class="ftco-footer-widget mb-4">
                             <h2 class="ftco-heading-2">
                                 <asp:Label runat="server" ID="LblFooterColumn4" /></h2>
@@ -188,6 +190,8 @@
         <script src="Assets/js/scrollax.min.js"></script>
         <script src="Assets/js/google-map.js"></script>
         <script src="Assets/js/main.js"></script>
+        <script src="Assets/swiper/swiper-bundle.min.js"></script>
+        <script src="Assets/swiper/swipper-classes.js"></script>
     </form>
 </body>
 </html>

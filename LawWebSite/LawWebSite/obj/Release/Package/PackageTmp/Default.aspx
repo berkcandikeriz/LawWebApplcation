@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <section class="home-slider owl-carousel">
+    <section class="home-slider owl-carousel mb-3">
         <asp:Repeater runat="server" ID="RSliders">
             <ItemTemplate>
                 <div class="slider-item">
@@ -24,5 +24,44 @@
                 </div>
             </ItemTemplate>
         </asp:Repeater>
+    </section>
+
+    <section id="testimonials" class="testimonials articles">
+        <div class="container" data-aos="fade-up">
+            <div class="row">
+                <div class="col-md-7 heading-section ftco-animate fadeInUp ftco-animated">
+                    <h2 class="mb-4"><span>
+                        <asp:Label runat="server" ID="LblActivities"></asp:Label>
+                    </span>
+                    </h2>
+                </div>
+            </div>
+
+            <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper-wrapper">
+                    <asp:Repeater runat="server" ID="RActivities">
+                        <ItemTemplate>
+                            <div class="swiper-slide">
+                                <div class="testimonial-wrap">
+                                    <div class="testimonial-item article-wrapper">
+                                        <figure>
+                                              <img src='Assets/Uploads/<%#Eval("ImageUrl") %>' class="testimonial-img" alt="">
+                                        </figure>
+                                      <div  class="article-body">
+                                           <h3><%# Eval("BlogTitle") %></h3>
+                                        <p>
+                                            <%# Eval("Description") %>
+                                        </p>
+                                      </div>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
     </section>
 </asp:Content>

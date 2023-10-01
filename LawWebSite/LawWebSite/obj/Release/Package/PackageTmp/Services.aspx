@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Hizmetlerimiz" Language="C#" MasterPageFile="~/LawWeb.Master" AutoEventWireup="true" CodeBehind="Services.aspx.cs" Inherits="LawWebSite.Services" %>
+﻿<%@ Page Title="Page Title" Language="C#" MasterPageFile="~/LawWeb.Master" AutoEventWireup="true" CodeBehind="Services.aspx.cs" Inherits="LawWebSite.Services" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -27,7 +27,7 @@
                                         <a href='ServiceDetail?ServiceDetailContent=<%#Eval("ServiceId") %>' class="img-2">
                                             <img class="img-fluid" src='../Assets/Uploads/<%#Eval("Image") %>'></a>
                                         <div class="text pt-3">
-                                            <p class="meta d-flex"><span class="pr-3"><%#Eval("Title") %></span><span class="ml-auto pl-3"><%#Eval("CreatedDate", "{0: dd/MM/yyyy}") %></span></p>
+                                            <p class="meta d-flex"><span class="pr-3"><%#Eval("Title") %></span></p>
                                             <h3><a href="#"><%#Eval("Title") %></a></h3>
                                             <p class="mb-0"><a href='ServiceDetail?ServiceDetailContent=<%#Eval("ServiceId") %>' class="btn btn-black py-2">
                                                 <asp:Label ID="LblReadMore" runat="server"></asp:Label><span class="icon-arrow_forward ml-4"></span></a></p>

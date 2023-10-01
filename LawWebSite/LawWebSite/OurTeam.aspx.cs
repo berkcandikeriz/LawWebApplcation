@@ -51,6 +51,7 @@ namespace LawWebSite
             if (!GetContentOurLawyers.Is_Error)
             {
                 LblOurLawyers.Text = GetContentOurLawyers.Model.FirstOrDefault().Description;
+                Page.Title = GetContentOurLawyers.Model.FirstOrDefault().Description;
             }
         }
 

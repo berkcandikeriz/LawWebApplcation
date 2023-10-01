@@ -10,7 +10,7 @@ namespace LawWebSite
     public partial class Default : System.Web.UI.Page
     {
         private SliderController sliderController = new SliderController();
-        ActivitiesController activitiesController = new ActivitiesController();
+       ServiceController serviceController = new ServiceController();
         ContentController contentController = new ContentController();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -18,7 +18,7 @@ namespace LawWebSite
             if (!IsPostBack)
             {
                 GetSliders();
-                GetActivities();
+                GetServices();
                 RenderBody();
             }
         }
@@ -40,14 +40,31 @@ namespace LawWebSite
                 RSliders.DataBind();
             }
         }
-        private void GetActivities()
+        protected void RHomeServices_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
-            ReturnModel<Models.Activity> GetActivityList = activitiesController.GetActivitiesByLanguageId(Global.GlobalLanguage.LanguageId);
-            if (!GetActivityList.Is_Error)
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
-                RActivities.DataSource = GetActivityList.Model;
-                RActivities.DataBind();
+                Label lblReadMore = e.Item.FindControl("LblReadMore") as Label;
 
+                if (lblReadMore != null)
+                {
+                    ReturnModel<Models.Content> GetContentReadMore = contentController.GetContent(Global.GlobalLanguage.LanguageId, "LblReadMore");
+
+                    if (GetContentReadMore != null && !GetContentReadMore.Is_Error)
+                    {
+                        var readMoreDescription = GetContentReadMore.Model.FirstOrDefault().Description;
+                        lblReadMore.Text = readMoreDescription;
+                    }
+                }
+            }
+        }
+        private void GetServices()
+        {
+            ReturnModel<Models.Service> GetServiceList = serviceController.GetServices();
+            if (!GetServiceList.Is_Error)
+            {
+                RHomeServices.DataSource = GetServiceList.Model;
+                RHomeServices.DataBind();
             }
         }
     }

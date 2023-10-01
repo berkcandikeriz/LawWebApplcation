@@ -39,6 +39,7 @@ namespace LawWebSite
                     {
                         var contactInfoDescription = GetContentContactInfo.Model.FirstOrDefault().Description;
                         lblContactInfo.Text = contactInfoDescription;
+
                     }
                 }
                 if (lblWorkHour != null)

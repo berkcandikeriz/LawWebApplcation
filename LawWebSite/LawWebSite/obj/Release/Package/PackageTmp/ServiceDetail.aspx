@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/LawWeb.Master" AutoEventWireup="true" CodeBehind="ServiceDetail.aspx.cs" Inherits="LawWebSite.ServiceDetail" %>
+﻿<%@ Page Title="Page Title" Language="C#" MasterPageFile="~/LawWeb.Master" AutoEventWireup="true" CodeBehind="ServiceDetail.aspx.cs" Inherits="LawWebSite.ServiceDetail" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -10,7 +10,7 @@
                     <h1 class="mb-1">
                         <asp:Label runat="server" ID="LblServiceHeader"></asp:Label>
                     </h1>
-                    <small>
+                    <small class="d-none">
                         <i class="fa fa-calendar"></i>&nbsp;<asp:Label runat="server" ID="LblCreatedDate"></asp:Label>
                     </small>
                     <hr />

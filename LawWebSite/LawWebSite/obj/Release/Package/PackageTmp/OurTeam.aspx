@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Ekibimiz" Language="C#" MasterPageFile="~/LawWeb.Master" AutoEventWireup="true" CodeBehind="OurTeam.aspx.cs" Inherits="LawWebSite.OurTeam" %>
+﻿<%@ Page Title="Page Title" Language="C#" MasterPageFile="~/LawWeb.Master" AutoEventWireup="true" CodeBehind="OurTeam.aspx.cs" Inherits="LawWebSite.OurTeam" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>

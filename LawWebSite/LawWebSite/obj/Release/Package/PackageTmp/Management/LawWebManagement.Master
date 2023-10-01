@@ -72,6 +72,11 @@
                                    <i class="fa fa-house nav-icon"></i>&nbsp;<p> Hakkımızda Ayarları</p>
                                 </a>
                             </li>
+                             <li class="nav-item">
+                                <a href="SettingsActivities.aspx" class="nav-link">
+                                   <i class="fa fa-balance-scale nav-icon"></i>&nbsp;<p> Faaliyetlerimiz Ayarları</p>
+                                </a>
+                            </li>
                             <li class="nav-item">
                                 <a href="SettingsSlider.aspx" class="nav-link">
                                     <i class="fa fa-image nav-icon"></i>&nbsp;<p>Slayt Ayarları</p>
@@ -94,7 +99,7 @@
                             </li>
                             <li class="nav-item">
                                 <a href="SettingsLawyer.aspx" class="nav-link">
-                                    <i class="fa fa-users nav-icon"></i>&nbsp;<p>Avukat Ayarları</p>
+                                    <i class="fa fa-user-secret nav-icon"></i>&nbsp;<p>Avukat Ayarları</p>
                                 </a>
                             </li>
                             <li class="nav-item">

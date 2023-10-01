@@ -303,7 +303,7 @@
     <Property Name="ActivitiesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="LanguageId" Type="Int32" Nullable="false" />
     <Property Name="BlogTitle" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="Description" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="1250" FixedLength="false" Unicode="true" />
     <Property Name="ImageUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
     <Property Name="OrderNumber" Type="Int32" />
     <NavigationProperty Name="Language" Relationship="DBLAW23Model.Activities_FK" FromRole="Activity" ToRole="Language" />

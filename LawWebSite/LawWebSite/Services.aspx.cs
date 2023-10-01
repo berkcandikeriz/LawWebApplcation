@@ -52,6 +52,7 @@ namespace LawWebSite
             if (!GetContentService.Is_Error)
             {
                 LblServices.Text = GetContentService.Model.FirstOrDefault().Description;
+                Page.Title = GetContentService.Model.FirstOrDefault().Description;
             }
         }
 
