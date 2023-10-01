@@ -14223,8 +14223,9 @@ ul {
     border-radius: 10px;
     box-shadow: 2px 2px 2px 2px #D1D1D1;
 }
-.article-wrapper{
-    min-height:355px;
+
+.article-wrapper {
+    min-height: 355px;
 }
 
 
@@ -14270,3 +14271,11 @@ ul {
     }
 }
 /*Custom Codes*/
+
+.notcoppy {
+    -webkit-user-select: none !important;
+    -khtml-user-select: none !important;
+    -moz-user-select: none !important;
+    -o-user-select: none !important;
+    user-select: none !important;
+}
