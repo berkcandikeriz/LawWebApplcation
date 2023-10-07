@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\Projeler\LawWebApplcation\Publish</_PublishTargetUrl>
-    <History>True|2023-09-26T12:49:15.0704103Z;True|2023-09-26T15:04:03.6019443+03:00;True|2023-09-10T19:57:57.7579523+03:00;True|2023-09-10T19:54:46.3972607+03:00;True|2023-09-05T22:18:51.1674180+03:00;True|2023-09-05T21:17:09.7868576+03:00;True|2023-08-19T01:43:15.6674877+03:00;True|2023-08-13T19:53:15.5090359+03:00;True|2023-08-13T19:46:47.8457621+03:00;False|2023-08-13T19:46:13.5007756+03:00;True|2023-08-13T13:36:35.7791761+03:00;True|2023-08-13T12:56:55.2299919+03:00;False|2023-08-13T12:52:07.1528237+03:00;False|2023-08-13T12:51:20.2298761+03:00;False|2023-08-13T12:50:01.5935532+03:00;False|2023-08-13T12:46:14.9651582+03:00;False|2023-08-13T12:45:54.0353954+03:00;False|2023-08-13T12:41:45.7411221+03:00;False|2023-08-13T12:40:57.2690833+03:00;False|2023-08-13T12:40:12.4054938+03:00;False|2023-08-13T12:18:21.2616516+03:00;False|2023-08-13T12:17:42.7080104+03:00;False|2023-08-13T12:16:51.4235741+03:00;</History>
+    <History>True|2023-10-02T12:08:27.4174148Z;True|2023-10-01T21:14:55.3833231+03:00;True|2023-09-26T15:49:15.0704103+03:00;True|2023-09-26T15:04:03.6019443+03:00;True|2023-09-10T19:57:57.7579523+03:00;True|2023-09-10T19:54:46.3972607+03:00;True|2023-09-05T22:18:51.1674180+03:00;True|2023-09-05T21:17:09.7868576+03:00;True|2023-08-19T01:43:15.6674877+03:00;True|2023-08-13T19:53:15.5090359+03:00;True|2023-08-13T19:46:47.8457621+03:00;False|2023-08-13T19:46:13.5007756+03:00;True|2023-08-13T13:36:35.7791761+03:00;True|2023-08-13T12:56:55.2299919+03:00;False|2023-08-13T12:52:07.1528237+03:00;False|2023-08-13T12:51:20.2298761+03:00;False|2023-08-13T12:50:01.5935532+03:00;False|2023-08-13T12:46:14.9651582+03:00;False|2023-08-13T12:45:54.0353954+03:00;False|2023-08-13T12:41:45.7411221+03:00;False|2023-08-13T12:40:57.2690833+03:00;False|2023-08-13T12:40:12.4054938+03:00;False|2023-08-13T12:18:21.2616516+03:00;False|2023-08-13T12:17:42.7080104+03:00;False|2023-08-13T12:16:51.4235741+03:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -1048,7 +1048,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/06/2023 23:58:41</publishTime>
     </File>
     <File Include="Assets/css/style.css">
-      <publishTime>09/26/2023 00:01:09</publishTime>
+      <publishTime>10/02/2023 15:07:46</publishTime>
     </File>
     <File Include="Assets/fonts/.DS_Store">
       <publishTime>04/06/2023 23:58:41</publishTime>
@@ -1591,10 +1591,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/06/2023 23:58:41</publishTime>
     </File>
     <File Include="bin/LawWebSite.dll">
-      <publishTime>09/26/2023 15:49:07</publishTime>
+      <publishTime>10/02/2023 15:08:20</publishTime>
     </File>
     <File Include="bin/LawWebSite.pdb">
-      <publishTime>09/26/2023 15:49:07</publishTime>
+      <publishTime>10/02/2023 15:08:20</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.FriendlyUrls.dll">
       <publishTime>04/06/2023 23:58:41</publishTime>
@@ -1774,13 +1774,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>08/13/2023 01:24:47</publishTime>
     </File>
     <File Include="BlogDetail.aspx">
-      <publishTime>08/13/2023 01:26:16</publishTime>
+      <publishTime>01/10/2023 21:14:08</publishTime>
     </File>
     <File Include="Communication.aspx">
       <publishTime>08/13/2023 02:20:56</publishTime>
     </File>
     <File Include="Default.aspx">
-      <publishTime>09/26/2023 00:01:06</publishTime>
+      <publishTime>09/30/2023 16:59:54</publishTime>
     </File>
     <File Include="Dll/CkEditor.dll">
       <publishTime>08/16/2023 23:41:12</publishTime>
@@ -2368,7 +2368,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="LawWeb.Master">
-      <publishTime>09/26/2023 15:48:42</publishTime>
+      <publishTime>01/10/2023 20:32:55</publishTime>
     </File>
     <File Include="Management/dist/css/adminlte.css">
       <publishTime>07/10/2023 16:05:05</publishTime>
@@ -2467,7 +2467,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/10/2023 16:05:05</publishTime>
     </File>
     <File Include="Management/LawWebManagement.Master">
-      <publishTime>09/26/2023 00:08:23</publishTime>
+      <publishTime>01/10/2023 21:13:27</publishTime>
     </File>
     <File Include="Management/Logged.aspx">
       <publishTime>07/10/2023 16:05:05</publishTime>

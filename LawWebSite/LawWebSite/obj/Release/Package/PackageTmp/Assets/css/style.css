@@ -14125,19 +14125,19 @@ ul {
 .blog-entry .img-fluid {
     aspect-ratio: 1/1;
     width: 100%;
-    height: auto;
+    height: 300px;
 }
 
 .spk-img .img-fluid {
     aspect-ratio: 1/1;
     width: 100%;
-    height: auto;
+    height: 300px;
 }
 
 .services-block-two .img-fluid {
     aspect-ratio: 1/1;
     width: 100%;
-    height: auto;
+    height: 300px;
 }
 
 .modal-description {
@@ -14223,8 +14223,9 @@ ul {
     border-radius: 10px;
     box-shadow: 2px 2px 2px 2px #D1D1D1;
 }
-.article-wrapper{
-    min-height:500px;
+
+.article-wrapper {
+    min-height: 355px;
 }
 
 
@@ -14270,3 +14271,11 @@ ul {
     }
 }
 /*Custom Codes*/
+
+.notcoppy {
+    -webkit-user-select: none !important;
+    -khtml-user-select: none !important;
+    -moz-user-select: none !important;
+    -o-user-select: none !important;
+    user-select: none !important;
+}

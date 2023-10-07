@@ -1,7 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="LawWeb.master.cs" Inherits="LawWebSite.LawWeb" %>
 
 <!DOCTYPE html>
-
 <html>
 <head runat="server">
     <title><%: Page.Title %> - Kozanoğlu Hukuk</title>
@@ -27,7 +26,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body class="notcoppy">
     <form id="form1" runat="server">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" id="ftco-navbar">
             <div class="container">
@@ -88,8 +87,6 @@
                 </div>
             </div>
         </section>
-
-
         <footer class="ftco-footer ftco-footer-2 ftco-section">
             <div class="container">
                 <div class="row mb-5">
@@ -99,7 +96,6 @@
                                 <asp:Label runat="server" ID="LblFooterColumn1" /></h2>
                             <p>
                                 <asp:Label runat="server" ID="LblFooterDescription" />
-
                             </p>
                         </div>
                     </div>

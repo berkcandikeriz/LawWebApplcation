@@ -22,7 +22,7 @@
             <div class="row">
                 <div class="col-lg-8 order-lg-last ftco-animate">
                     <p>
-                        <asp:Label runat="server" ID="LblBlogContent" CssClass="text-dark "></asp:Label>
+                        <asp:Label runat="server" ID="LblBlogContent" CssClass="text-dark"></asp:Label>
                     </p>
                 </div>
 
