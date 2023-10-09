@@ -26,8 +26,6 @@
         <AssociationConnector Association="DBLAW23Model.Communication_FK" />
         <EntityTypeShape EntityType="DBLAW23Model.Faq" Width="1.5" PointX="8.25" PointY="7.625" />
         <AssociationConnector Association="DBLAW23Model.Faq_FK" />
-        <EntityTypeShape EntityType="DBLAW23Model.Activity" Width="1.5" PointX="6.375" PointY="7.625" />
-        <AssociationConnector Association="DBLAW23Model.Activities_FK" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

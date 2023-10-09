@@ -1,217 +1,50 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="DBLAW23Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="DBLAW23Entities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Contents" EntityType="DBLAW23Model.Content" />
-    <EntitySet Name="Languages" EntityType="DBLAW23Model.Language" />
-    <EntitySet Name="Menus" EntityType="DBLAW23Model.Menu" />
-    <AssociationSet Name="Content_FK" Association="DBLAW23Model.Content_FK">
-      <End Role="Language" EntitySet="Languages" />
-      <End Role="Content" EntitySet="Contents" />
-    </AssociationSet>
-    <AssociationSet Name="Menu_FK" Association="DBLAW23Model.Menu_FK">
-      <End Role="Language" EntitySet="Languages" />
-      <End Role="Menu" EntitySet="Menus" />
-    </AssociationSet>
-    <EntitySet Name="Lawyers" EntityType="DBLAW23Model.Lawyer" />
-    <EntitySet Name="Services" EntityType="DBLAW23Model.Service" />
-    <EntitySet Name="Blogs" EntityType="DBLAW23Model.Blog" />
-    <AssociationSet Name="Blog_FK" Association="DBLAW23Model.Blog_FK">
-      <End Role="Language" EntitySet="Languages" />
-      <End Role="Blog" EntitySet="Blogs" />
-    </AssociationSet>
-    <EntitySet Name="UserLists" EntityType="DBLAW23Model.UserList" />
-    <AssociationSet Name="Service_FK" Association="DBLAW23Model.Service_FK">
-      <End Role="Language" EntitySet="Languages" />
-      <End Role="Service" EntitySet="Services" />
-    </AssociationSet>
-    <EntitySet Name="Sliders" EntityType="DBLAW23Model.Slider" />
-    <AssociationSet Name="Home_FK" Association="DBLAW23Model.Home_FK">
-      <End Role="Language" EntitySet="Languages" />
-      <End Role="Slider" EntitySet="Sliders" />
-    </AssociationSet>
     <EntitySet Name="Abouts" EntityType="DBLAW23Model.About" />
-    <AssociationSet Name="About_FK" Association="DBLAW23Model.About_FK">
+    <EntitySet Name="Blogs" EntityType="DBLAW23Model.Blog" />
+    <EntitySet Name="Communications" EntityType="DBLAW23Model.Communication" />
+    <EntitySet Name="Contents" EntityType="DBLAW23Model.Content" />
+    <EntitySet Name="Faqs" EntityType="DBLAW23Model.Faq" />
+    <EntitySet Name="Languages" EntityType="DBLAW23Model.Language" />
+    <EntitySet Name="Lawyers" EntityType="DBLAW23Model.Lawyer" />
+    <EntitySet Name="Menus" EntityType="DBLAW23Model.Menu" />
+    <EntitySet Name="Services" EntityType="DBLAW23Model.Service" />
+    <EntitySet Name="Sliders" EntityType="DBLAW23Model.Slider" />
+    <EntitySet Name="UserLists" EntityType="DBLAW23Model.UserList" />
+    <AssociationSet Name="FK_About_Language" Association="DBLAW23Model.FK_About_Language">
       <End Role="Language" EntitySet="Languages" />
       <End Role="About" EntitySet="Abouts" />
     </AssociationSet>
-    <EntitySet Name="Communications" EntityType="DBLAW23Model.Communication" />
-    <AssociationSet Name="Communication_FK" Association="DBLAW23Model.Communication_FK">
+    <AssociationSet Name="FK_Blog_Language" Association="DBLAW23Model.FK_Blog_Language">
+      <End Role="Language" EntitySet="Languages" />
+      <End Role="Blog" EntitySet="Blogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Communication_Language" Association="DBLAW23Model.FK_Communication_Language">
       <End Role="Language" EntitySet="Languages" />
       <End Role="Communication" EntitySet="Communications" />
     </AssociationSet>
+    <AssociationSet Name="FK_Content_Language" Association="DBLAW23Model.FK_Content_Language">
+      <End Role="Language" EntitySet="Languages" />
+      <End Role="Content" EntitySet="Contents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Faq_Language" Association="DBLAW23Model.FK_Faq_Language">
+      <End Role="Language" EntitySet="Languages" />
+      <End Role="Faq" EntitySet="Faqs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Menu_Language" Association="DBLAW23Model.FK_Menu_Language">
+      <End Role="Language" EntitySet="Languages" />
+      <End Role="Menu" EntitySet="Menus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Service_Language" Association="DBLAW23Model.FK_Service_Language">
+      <End Role="Language" EntitySet="Languages" />
+      <End Role="Service" EntitySet="Services" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Slider_Language" Association="DBLAW23Model.FK_Slider_Language">
+      <End Role="Language" EntitySet="Languages" />
+      <End Role="Slider" EntitySet="Sliders" />
+    </AssociationSet>
   </EntityContainer>
-  <EntityType Name="Content">
-    <Key>
-      <PropertyRef Name="ContentId" />
-    </Key>
-    <Property Name="ContentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="LanguageId" Type="Int32" Nullable="false" />
-    <Property Name="ComponentId" Type="String" Nullable="false" MaxLength="75" FixedLength="false" Unicode="true" />
-    <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Url" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Language" Relationship="DBLAW23Model.Content_FK" FromRole="Content" ToRole="Language" />
-  </EntityType>
-  <EntityType Name="Language">
-    <Key>
-      <PropertyRef Name="LanguageId" />
-    </Key>
-    <Property Name="LanguageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-    <Property Name="Flag" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Contents" Relationship="DBLAW23Model.Content_FK" FromRole="Language" ToRole="Content" />
-    <NavigationProperty Name="Menus" Relationship="DBLAW23Model.Menu_FK" FromRole="Language" ToRole="Menu" />
-    <NavigationProperty Name="Blogs" Relationship="DBLAW23Model.Blog_FK" FromRole="Language" ToRole="Blog" />
-    <NavigationProperty Name="Services" Relationship="DBLAW23Model.Service_FK" FromRole="Language" ToRole="Service" />
-    <NavigationProperty Name="Sliders" Relationship="DBLAW23Model.Home_FK" FromRole="Language" ToRole="Slider" />
-    <NavigationProperty Name="Abouts" Relationship="DBLAW23Model.About_FK" FromRole="Language" ToRole="About" />
-    <NavigationProperty Name="Communications" Relationship="DBLAW23Model.Communication_FK" FromRole="Language" ToRole="Communication" />
-  </EntityType>
-  <EntityType Name="Menu">
-    <Key>
-      <PropertyRef Name="MenuId" />
-    </Key>
-    <Property Name="MenuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="LanguageId" Type="Int32" Nullable="false" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="75" FixedLength="false" Unicode="true" />
-    <Property Name="Url" Type="String" Nullable="false" MaxLength="75" FixedLength="false" Unicode="true" />
-    <Property Name="Order" Type="Int32" Nullable="false" />
-    <Property Name="Location" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Language" Relationship="DBLAW23Model.Menu_FK" FromRole="Menu" ToRole="Language" />
-  </EntityType>
-  <Association Name="Content_FK">
-    <End Type="DBLAW23Model.Language" Role="Language" Multiplicity="1" />
-    <End Type="DBLAW23Model.Content" Role="Content" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Language">
-        <PropertyRef Name="LanguageId" />
-      </Principal>
-      <Dependent Role="Content">
-        <PropertyRef Name="LanguageId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="Menu_FK">
-    <End Type="DBLAW23Model.Language" Role="Language" Multiplicity="1" />
-    <End Type="DBLAW23Model.Menu" Role="Menu" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Language">
-        <PropertyRef Name="LanguageId" />
-      </Principal>
-      <Dependent Role="Menu">
-        <PropertyRef Name="LanguageId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityType Name="Lawyer">
-    <Key>
-      <PropertyRef Name="LawyerId" />
-    </Key>
-    <Property Name="LawyerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="ImgUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="Facebook" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="Twitter" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="Instagram" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="Linkedin" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="IsAdmin" Type="Boolean" />
-    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-  </EntityType>
-  <EntityType Name="Service">
-    <Key>
-      <PropertyRef Name="ServiceId" />
-    </Key>
-    <Property Name="ServiceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Title" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="Image" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="Url" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="LanguageId" Type="Int32" />
-    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="Language" Relationship="DBLAW23Model.Service_FK" FromRole="Service" ToRole="Language" />
-  </EntityType>
-  <EntityType Name="Blog">
-    <Key>
-      <PropertyRef Name="BlogId" />
-    </Key>
-    <Property Name="BlogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="LanguageId" Type="Int32" Nullable="false" />
-    <Property Name="BlogTitle" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="BlogSubtitle" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="Url" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="ImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Author" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="Language" Relationship="DBLAW23Model.Blog_FK" FromRole="Blog" ToRole="Language" />
-    <Property Name="OrderNumber" Type="Int32" />
-  </EntityType>
-  <Association Name="Blog_FK">
-    <End Type="DBLAW23Model.Language" Role="Language" Multiplicity="1" />
-    <End Type="DBLAW23Model.Blog" Role="Blog" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Language">
-        <PropertyRef Name="LanguageId" />
-      </Principal>
-      <Dependent Role="Blog">
-        <PropertyRef Name="LanguageId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityType Name="UserList">
-    <Key>
-      <PropertyRef Name="UserId" />
-    </Key>
-    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Mail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="Question" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-  </EntityType>
-  <Association Name="Service_FK">
-    <End Type="DBLAW23Model.Language" Role="Language" Multiplicity="0..1" />
-    <End Type="DBLAW23Model.Service" Role="Service" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Language">
-        <PropertyRef Name="LanguageId" />
-      </Principal>
-      <Dependent Role="Service">
-        <PropertyRef Name="LanguageId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityType Name="Slider">
-    <Key>
-      <PropertyRef Name="SliderId" />
-    </Key>
-    <Property Name="SliderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="LanguageId" Type="Int32" Nullable="false" />
-    <Property Name="SliderTitle" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="SliderDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="ImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="SliderSubTitle" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Language" Relationship="DBLAW23Model.Home_FK" FromRole="Slider" ToRole="Language" />
-  </EntityType>
-  <Association Name="Home_FK">
-    <End Type="DBLAW23Model.Language" Role="Language" Multiplicity="1" />
-    <End Type="DBLAW23Model.Slider" Role="Slider" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Language">
-        <PropertyRef Name="LanguageId" />
-      </Principal>
-      <Dependent Role="Slider">
-        <PropertyRef Name="LanguageId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityType Name="About">
     <Key>
       <PropertyRef Name="AboutId" />
@@ -219,21 +52,26 @@
     <Property Name="AboutId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="LanguageId" Type="Int32" Nullable="false" />
     <Property Name="AboutDescription" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="ImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Language" Relationship="DBLAW23Model.About_FK" FromRole="About" ToRole="Language" />
+    <Property Name="ImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Language" Relationship="DBLAW23Model.FK_About_Language" FromRole="About" ToRole="Language" />
   </EntityType>
-  <Association Name="About_FK">
-    <End Type="DBLAW23Model.Language" Role="Language" Multiplicity="1" />
-    <End Type="DBLAW23Model.About" Role="About" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Language">
-        <PropertyRef Name="LanguageId" />
-      </Principal>
-      <Dependent Role="About">
-        <PropertyRef Name="LanguageId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
+  <EntityType Name="Blog">
+    <Key>
+      <PropertyRef Name="BlogId" />
+    </Key>
+    <Property Name="BlogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LanguageId" Type="Int32" Nullable="false" />
+    <Property Name="BlogTitle" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BlogSubtitle" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Url" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Author" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="OrderNumber" Type="Int32" />
+    <NavigationProperty Name="Language" Relationship="DBLAW23Model.FK_Blog_Language" FromRole="Blog" ToRole="Language" />
+  </EntityType>
   <EntityType Name="Communication">
     <Key>
       <PropertyRef Name="CommunicationId" />
@@ -246,10 +84,141 @@
     <Property Name="MidWeek" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Saturday" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Sunday" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Language" Relationship="DBLAW23Model.Communication_FK" FromRole="Communication" ToRole="Language" />
-    <Property Name="MapUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="MapUrl" Type="String" Nullable="false" MaxLength="750" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Language" Relationship="DBLAW23Model.FK_Communication_Language" FromRole="Communication" ToRole="Language" />
   </EntityType>
-  <Association Name="Communication_FK">
+  <EntityType Name="Content">
+    <Key>
+      <PropertyRef Name="ContentId" />
+    </Key>
+    <Property Name="ContentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LanguageId" Type="Int32" Nullable="false" />
+    <Property Name="ComponentId" Type="String" Nullable="false" MaxLength="75" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Url" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Language" Relationship="DBLAW23Model.FK_Content_Language" FromRole="Content" ToRole="Language" />
+  </EntityType>
+  <EntityType Name="Faq">
+    <Key>
+      <PropertyRef Name="FaqId" />
+    </Key>
+    <Property Name="FaqId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LanguageId" Type="Int32" Nullable="false" />
+    <Property Name="Url" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Question" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Answer" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Language" Relationship="DBLAW23Model.FK_Faq_Language" FromRole="Faq" ToRole="Language" />
+  </EntityType>
+  <EntityType Name="Language">
+    <Key>
+      <PropertyRef Name="LanguageId" />
+    </Key>
+    <Property Name="LanguageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Flag" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Abouts" Relationship="DBLAW23Model.FK_About_Language" FromRole="Language" ToRole="About" />
+    <NavigationProperty Name="Blogs" Relationship="DBLAW23Model.FK_Blog_Language" FromRole="Language" ToRole="Blog" />
+    <NavigationProperty Name="Communications" Relationship="DBLAW23Model.FK_Communication_Language" FromRole="Language" ToRole="Communication" />
+    <NavigationProperty Name="Contents" Relationship="DBLAW23Model.FK_Content_Language" FromRole="Language" ToRole="Content" />
+    <NavigationProperty Name="Faqs" Relationship="DBLAW23Model.FK_Faq_Language" FromRole="Language" ToRole="Faq" />
+    <NavigationProperty Name="Menus" Relationship="DBLAW23Model.FK_Menu_Language" FromRole="Language" ToRole="Menu" />
+    <NavigationProperty Name="Services" Relationship="DBLAW23Model.FK_Service_Language" FromRole="Language" ToRole="Service" />
+    <NavigationProperty Name="Sliders" Relationship="DBLAW23Model.FK_Slider_Language" FromRole="Language" ToRole="Slider" />
+  </EntityType>
+  <EntityType Name="Lawyer">
+    <Key>
+      <PropertyRef Name="LawyerId" />
+    </Key>
+    <Property Name="LawyerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ImgUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Facebook" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Twitter" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Instagram" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Linkedin" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsAdmin" Type="Boolean" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="MenuId" />
+    </Key>
+    <Property Name="MenuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LanguageId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="75" FixedLength="false" Unicode="true" />
+    <Property Name="Url" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+    <Property Name="Order" Type="Int32" Nullable="false" />
+    <Property Name="Location" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Language" Relationship="DBLAW23Model.FK_Menu_Language" FromRole="Menu" ToRole="Language" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="ServiceId" />
+    </Key>
+    <Property Name="ServiceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Url" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LanguageId" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Language" Relationship="DBLAW23Model.FK_Service_Language" FromRole="Service" ToRole="Language" />
+  </EntityType>
+  <EntityType Name="Slider">
+    <Key>
+      <PropertyRef Name="SliderId" />
+    </Key>
+    <Property Name="SliderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LanguageId" Type="Int32" Nullable="false" />
+    <Property Name="SliderTitle" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SliderDescription" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SliderSubTitle" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Language" Relationship="DBLAW23Model.FK_Slider_Language" FromRole="Slider" ToRole="Language" />
+  </EntityType>
+  <EntityType Name="UserList">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Mail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Question" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <Association Name="FK_About_Language">
+    <End Type="DBLAW23Model.Language" Role="Language" Multiplicity="1" />
+    <End Type="DBLAW23Model.About" Role="About" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="About">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Blog_Language">
+    <End Type="DBLAW23Model.Language" Role="Language" Multiplicity="1" />
+    <End Type="DBLAW23Model.Blog" Role="Blog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="Blog">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Communication_Language">
     <End Type="DBLAW23Model.Language" Role="Language" Multiplicity="1" />
     <End Type="DBLAW23Model.Communication" Role="Communication" Multiplicity="*" />
     <ReferentialConstraint>
@@ -257,6 +226,66 @@
         <PropertyRef Name="LanguageId" />
       </Principal>
       <Dependent Role="Communication">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Content_Language">
+    <End Type="DBLAW23Model.Language" Role="Language" Multiplicity="1" />
+    <End Type="DBLAW23Model.Content" Role="Content" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="Content">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Faq_Language">
+    <End Type="DBLAW23Model.Language" Role="Language" Multiplicity="1" />
+    <End Type="DBLAW23Model.Faq" Role="Faq" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="Faq">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Menu_Language">
+    <End Type="DBLAW23Model.Language" Role="Language" Multiplicity="1" />
+    <End Type="DBLAW23Model.Menu" Role="Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="Menu">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Service_Language">
+    <End Type="DBLAW23Model.Language" Role="Language" Multiplicity="0..1" />
+    <End Type="DBLAW23Model.Service" Role="Service" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="Service">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Slider_Language">
+    <End Type="DBLAW23Model.Language" Role="Language" Multiplicity="1" />
+    <End Type="DBLAW23Model.Slider" Role="Slider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="Slider">
         <PropertyRef Name="LanguageId" />
       </Dependent>
     </ReferentialConstraint>

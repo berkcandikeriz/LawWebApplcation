@@ -1,6 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="DBLAW23ModelStoreContainer" CdmEntityContainer="DBLAW23Entities">
+    <EntitySetMapping Name="Abouts">
+      <EntityTypeMapping TypeName="DBLAW23Model.About">
+        <MappingFragment StoreEntitySet="About">
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="AboutDescription" ColumnName="AboutDescription" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="AboutId" ColumnName="AboutId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Blogs">
+      <EntityTypeMapping TypeName="DBLAW23Model.Blog">
+        <MappingFragment StoreEntitySet="Blog">
+          <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="Author" ColumnName="Author" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="BlogSubtitle" ColumnName="BlogSubtitle" />
+          <ScalarProperty Name="BlogTitle" ColumnName="BlogTitle" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="BlogId" ColumnName="BlogId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Communications">
+      <EntityTypeMapping TypeName="DBLAW23Model.Communication">
+        <MappingFragment StoreEntitySet="Communication">
+          <ScalarProperty Name="MapUrl" ColumnName="MapUrl" />
+          <ScalarProperty Name="Sunday" ColumnName="Sunday" />
+          <ScalarProperty Name="Saturday" ColumnName="Saturday" />
+          <ScalarProperty Name="MidWeek" ColumnName="MidWeek" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="CommunicationId" ColumnName="CommunicationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Contents">
       <EntityTypeMapping TypeName="DBLAW23Model.Content">
         <MappingFragment StoreEntitySet="Content">
@@ -12,24 +54,23 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Faqs">
+      <EntityTypeMapping TypeName="DBLAW23Model.Faq">
+        <MappingFragment StoreEntitySet="Faq">
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="FaqId" ColumnName="FaqId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Languages">
       <EntityTypeMapping TypeName="DBLAW23Model.Language">
         <MappingFragment StoreEntitySet="Language">
           <ScalarProperty Name="Flag" ColumnName="Flag" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Menus">
-      <EntityTypeMapping TypeName="DBLAW23Model.Menu">
-        <MappingFragment StoreEntitySet="Menu">
-          <ScalarProperty Name="Location" ColumnName="Location" />
-          <ScalarProperty Name="Order" ColumnName="Order" />
-          <ScalarProperty Name="Url" ColumnName="Url" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
-          <ScalarProperty Name="MenuId" ColumnName="MenuId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -53,6 +94,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Menus">
+      <EntityTypeMapping TypeName="DBLAW23Model.Menu">
+        <MappingFragment StoreEntitySet="Menu">
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Services">
       <EntityTypeMapping TypeName="DBLAW23Model.Service">
         <MappingFragment StoreEntitySet="Service">
@@ -64,36 +117,6 @@
           <ScalarProperty Name="Image" ColumnName="Image" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Blogs">
-      <EntityTypeMapping TypeName="DBLAW23Model.Blog">
-        <MappingFragment StoreEntitySet="Blog">
-          <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
-          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
-          <ScalarProperty Name="Author" ColumnName="Author" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
-          <ScalarProperty Name="Url" ColumnName="Url" />
-          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-          <ScalarProperty Name="BlogSubtitle" ColumnName="BlogSubtitle" />
-          <ScalarProperty Name="BlogTitle" ColumnName="BlogTitle" />
-          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
-          <ScalarProperty Name="BlogId" ColumnName="BlogId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="UserLists">
-      <EntityTypeMapping TypeName="DBLAW23Model.UserList">
-        <MappingFragment StoreEntitySet="UserList">
-          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-          <ScalarProperty Name="Question" ColumnName="Question" />
-          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-          <ScalarProperty Name="Mail" ColumnName="Mail" />
-          <ScalarProperty Name="Surname" ColumnName="Surname" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -109,28 +132,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Abouts">
-      <EntityTypeMapping TypeName="DBLAW23Model.About">
-        <MappingFragment StoreEntitySet="About">
-          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
-          <ScalarProperty Name="AboutDescription" ColumnName="AboutDescription" />
-          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
-          <ScalarProperty Name="AboutId" ColumnName="AboutId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Communications">
-      <EntityTypeMapping TypeName="DBLAW23Model.Communication">
-        <MappingFragment StoreEntitySet="Communication">
-          <ScalarProperty Name="MapUrl" ColumnName="MapUrl" />
-          <ScalarProperty Name="Sunday" ColumnName="Sunday" />
-          <ScalarProperty Name="Saturday" ColumnName="Saturday" />
-          <ScalarProperty Name="MidWeek" ColumnName="MidWeek" />
-          <ScalarProperty Name="Mail" ColumnName="Mail" />
+    <EntitySetMapping Name="UserLists">
+      <EntityTypeMapping TypeName="DBLAW23Model.UserList">
+        <MappingFragment StoreEntitySet="UserList">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
           <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-          <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
-          <ScalarProperty Name="CommunicationId" ColumnName="CommunicationId" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
