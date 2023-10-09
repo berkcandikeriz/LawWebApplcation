@@ -40,7 +40,7 @@
                                 <asp:Repeater runat="server" ID="RAbouts">
                                     <ItemTemplate>
                                         <div class="kozanoglu_text_column kozanoglu_content_element ">
-                                            <div class="kozanoglu_wrapper">
+                                            <div class="kozanoglu_wrapper text-justify">
                                                 <p>
                                                     <%#Eval("AboutDescription") %>
                                                 </p>

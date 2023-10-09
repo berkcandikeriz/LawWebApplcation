@@ -18,7 +18,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 order-lg-last ftco-animate">
-                    <p>
+                    <p class="text-justify">
                         <asp:Label runat="server" ID="LblServiceContent" CssClass="text-dark"></asp:Label>
                     </p>
                 </div>

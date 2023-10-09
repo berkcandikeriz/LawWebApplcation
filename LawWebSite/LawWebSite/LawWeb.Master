@@ -94,7 +94,7 @@
                         <div class="ftco-footer-widget mb-4">
                             <h2 class="ftco-heading-2">
                                 <asp:Label runat="server" ID="LblFooterColumn1" /></h2>
-                            <p>
+                            <p class="text-justify">
                                 <asp:Label runat="server" ID="LblFooterDescription" />
                             </p>
                         </div>
